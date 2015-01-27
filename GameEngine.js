@@ -17,12 +17,15 @@ function GameEngine() {
     this.ctx = null;
     this.surfaceWidth = null;
     this.surfaceHeight = null;
+    this.f = null;
+    this.g = null;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
     this.surfaceWidth = this.ctx.canvas.width;
     this.surfaceHeight = this.ctx.canvas.height;
     this.timer = new Timer();
+    this.startInput();
     console.log('game initialized');
 }
 GameEngine.prototype.start = function() {
@@ -63,7 +66,29 @@ GameEngine.prototype.loop = function() {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
+    this.f = null;
+    this.g = null;
 }
+GameEngine.prototype.startInput = function () {
+    console.log('Starting input');
+
+    var that = this;
+
+
+    this.ctx.canvas.addEventListener("keypress", function (e) {
+        if (String.fromCharCode(e.which) === 'f') that.f = true;
+        else if (String.fromCharCode(e.which) === 'g') that.g = true;
+        e.preventDefault();
+    }, false);
+    console.log("input started");
+}
+/*GameEngine.prototype.keyPressHandler = function(event) {
+    var keyPressed = event.key;
+    console.log(keyPressed);
+    if (keyPressed === "f") {
+        GameEngine.f = true;
+    }
+} */
 function Timer() {
     this.gameTime = 0;
     this.maxStep = 0.05;

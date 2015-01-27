@@ -36,7 +36,9 @@ Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime);
 }
 function Nick(game, spritesheet) {
-    this.animate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 4, true, false);
+    this.animate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 1, true, false);
+    this.nickPunchAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 4, false, false);
+    this.nickKickAnimate = new Animate(spritesheet, 0, 495, 370, 500, 0.1, 4, false, false);
     this.x = 0;
     this.y = 0;
     this.game = game;
@@ -44,11 +46,32 @@ function Nick(game, spritesheet) {
     this.removeFromWorld = false;
     this.direction = 0;
     this.isMoving = false;
+    this.isPunching = false;
+    this.isKicking = false;
 }
 Nick.prototype.draw = function() {
-    this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    if (this.isPunching) {
+        this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.nickPunchAnimate.isDone()) {
+            this.nickPunchAnimate.elapsedTime = 0;
+            this.isPunching = false;
+        }
+    } else if(this.isKicking) {
+        this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.nickKickAnimate.isDone()) {
+            this.nickKickAnimate.elapsedTime = 0;
+            this.isKicking = false;
+        }
+    } else {
+        this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    }
 }
 Nick.prototype.update = function() {
+    if (this.game.f) {
+        this.isPunching = true;
+    } else if (this.game.g) {
+        this.isKicking = true;
+    }
     if (this.isMoving) {
         this.x += this.direction;
     }
@@ -56,9 +79,6 @@ Nick.prototype.update = function() {
 
 var assets = new Assets();
 var gameEngine = new GameEngine();
-
-document.addEventListener("keydown",keyDownHandler, false);
-document.addEventListener("keyup",keyUpHandler, false);
 
 assets.queueDownload("./img/nick.jpg");
 assets.downloadAll(function() {
