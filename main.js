@@ -1,6 +1,9 @@
 /**
  * Created by httpnick on 1/27/15.
  * DO YOU SEE THIS CHRIS!?!?!?
+ *
+ *
+ * I See it nick!!
  */
 function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
     this.spriteSheet = spriteSheet;
