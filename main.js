@@ -80,12 +80,12 @@ Nick.prototype.update = function() {
 var assets = new Assets();
 var gameEngine = new GameEngine();
 
-assets.queueDownload("./img/nick.jpg");
+assets.queueDownload("./img/nick.png");
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
     gameEngine.init(ctx);
     gameEngine.start();
-    gameEngine.addEntity(new Nick(gameEngine, assets.getAsset("./img/nick.jpg")));
+    gameEngine.addEntity(new Nick(gameEngine, assets.getAsset("./img/nick.png")));
     console.log("DONE!");
 })
