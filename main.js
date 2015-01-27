@@ -1,5 +1,6 @@
 /**
  * Created by httpnick on 1/27/15.
+ * DO YOU SEE THIS CHRIS!?!?!?
  */
 function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
     this.spriteSheet = spriteSheet;
@@ -26,7 +27,7 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
         this.startY,
-        this.frameWidth, this.frameHeight,
+        this.frameWidth / 2, this.frameHeight / 2,
         x, y, this.frameWidth, this.frameHeight);
 }
 Animate.prototype.currentFrame = function () {
@@ -37,7 +38,7 @@ Animate.prototype.isDone = function() {
 }
 function Nick(game, spritesheet) {
     this.animate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 1, true, false);
-    this.nickPunchAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 4, false, false);
+    this.nickPunchAnimate = new Animate(spritesheet, 370, 0, 370, 500, 0.1, 3, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 0, 495, 370, 500, 0.1, 4, false, false);
     this.x = 0;
     this.y = 0;
