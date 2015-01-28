@@ -42,11 +42,10 @@ Animate.prototype.currentFrame = function () {
 Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime);
 }
-function Nick(game, spritesheet, reversespritesheet) {
+function Nick(game, PunchAndKickSpritesheet) {
     this.animate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 1, true, false);
     this.nickPunchAnimate = new Animate(spritesheet, 370, 0, 370, 500, 0.1, 3, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 0, 495, 370, 500, 0.1, 4, false, false);
-    this.reverseAnimate = new Animate(reversespritesheet, 0, 0, 370, 500, 0.1, 1, false, false);
     this.x = 0;
     this.y = 0;
     this.game = game;
@@ -72,7 +71,6 @@ Nick.prototype.draw = function() {
         }
     } else {
         this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        this.reverseAnimate.drawFrame(this.game.clockTick, this.ctx, this.x + 300, this.y);
     }
 }
 Nick.prototype.update = function() {
@@ -90,7 +88,6 @@ var assets = new Assets();
 var gameEngine = new GameEngine();
 
 assets.queueDownload("./img/nick.png");
-assets.queueDownload("./img/nickreverse.png");
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
@@ -98,7 +95,6 @@ assets.downloadAll(function() {
     gameEngine.init(ctx);
     gameEngine.start();
     gameEngine.addEntity(new Nick(gameEngine,
-        assets.getAsset("./img/nick.png"),
-        assets.getAsset("./img/nickreverse.png")));
+        assets.getAsset("./img/nick.png")));
     console.log("DONE!");
 })
