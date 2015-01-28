@@ -4,6 +4,8 @@
  *
  *
  * I See it nick!!
+ *
+ * Testing my commits - Jon
  */
 function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse) {
     this.spriteSheet = spriteSheet;
