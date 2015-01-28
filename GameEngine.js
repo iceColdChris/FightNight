@@ -19,6 +19,8 @@ function GameEngine() {
     this.surfaceHeight = null;
     this.f = null;
     this.g = null;
+    this.d = null;
+    this.a = null;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
@@ -68,16 +70,20 @@ GameEngine.prototype.loop = function() {
     this.draw();
     this.f = null;
     this.g = null;
+    this.d = null;
+    this.a = null;
 }
 GameEngine.prototype.startInput = function () {
     console.log('Starting input');
-
+    console.log('blah');
     var that = this;
 
 
     this.ctx.canvas.addEventListener("keypress", function (e) {
         if (String.fromCharCode(e.which) === 'f') that.f = true;
         else if (String.fromCharCode(e.which) === 'g') that.g = true;
+        else if (String.fromCharCode(e.which) === 'd') that.d = true;
+        else if (String.fromCharCode(e.which) === 'a') that.a = true;
         e.preventDefault();
     }, false);
     console.log("input started");
