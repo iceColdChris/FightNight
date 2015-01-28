@@ -35,8 +35,8 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
         this.frameWidth,
         this.frameHeight,
         x, y,
-        this.frameWidth * 0.7,
-        this.frameHeight * 0.7);
+        this.frameWidth,
+        this.frameHeight);
 }
 Animate.prototype.currentFrame = function () {
     return Math.floor(this.elapsedTime / this.frameDuration);
@@ -44,10 +44,10 @@ Animate.prototype.currentFrame = function () {
 Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime);
 }
-function Nick(game, PunchAndKickSpritesheet) {
-    this.animate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 1, true, false);
-    this.nickPunchAnimate = new Animate(spritesheet, 370, 0, 370, 500, 0.1, 3, false, false);
-    this.nickKickAnimate = new Animate(spritesheet, 0, 495, 370, 500, 0.1, 4, false, false);
+function Nick(game, spritesheet) {
+    this.animate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.1, 1, true, false);
+    this.nickPunchAnimate = new Animate(spritesheet, 3410, 2000, 370, 500, 0.1, 3, false, false);
+    this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.x = 0;
     this.y = 0;
     this.game = game;
