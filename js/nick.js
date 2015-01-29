@@ -7,7 +7,7 @@ function Nick(game, spritesheet) {
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);
     this.x = 0;
-    this.y = 0;
+    this.y = 500;
     this.game = game;
     this.ctx = game.ctx;
     this.removeFromWorld = false;
