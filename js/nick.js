@@ -3,7 +3,7 @@
  */
 function Nick(game, spritesheet) {
     this.animate = new Animate(spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
-    this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.1, 4, false, false);
+    this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);
     this.x = 0;
