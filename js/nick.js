@@ -53,8 +53,9 @@ Nick.prototype.update = function() {
     } else if (this.game.a) {
         this.walkingLeft = true;
         this.x += -15;
-    } else if (!this.game.d) {
+    } else if (!this.game.d || !this.game.a) {
         this.walkingRight = false;
+        this.walkingLeft = false;
     } if (this.isMoving) {
             this.x += this.direction;
     }
