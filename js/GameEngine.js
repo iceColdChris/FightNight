@@ -21,13 +21,14 @@ function GameEngine() {
     this.g = null;
     this.d = null;
     this.a = null;
+    this.background = null;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
     this.surfaceWidth = this.ctx.canvas.width;
     this.surfaceHeight = this.ctx.canvas.height;
     this.timer = new Timer();
-    this.startInput();
+    //this.startInput();
     console.log('game initialized');
 }
 GameEngine.prototype.start = function() {
@@ -42,9 +43,14 @@ GameEngine.prototype.addEntity = function (entity) {
     console.log('added entity');
     this.entities.push(entity);
 }
+GameEngine.prototype.addBackground = function (background) {
+    console.log("added the background");
+    this.background = background;
+}
 GameEngine.prototype.draw = function() {
     this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
     this.ctx.save();
+    this.ctx.drawImage(this.background, 0, 0);
     for(var i = 0; i < this.entities.length; i++) {
         this.entities[i].draw();
     }
@@ -73,28 +79,7 @@ GameEngine.prototype.loop = function() {
     this.d = null;
     this.a = null;
 }
-GameEngine.prototype.startInput = function () {
-    console.log('Starting input');
-    console.log('blah');
-    var that = this;
 
-
-    this.ctx.canvas.addEventListener("keypress", function (e) {
-        if (String.fromCharCode(e.which) === 'f') that.f = true;
-        else if (String.fromCharCode(e.which) === 'g') that.g = true;
-        else if (String.fromCharCode(e.which) === 'd') that.d = true;
-        else if (String.fromCharCode(e.which) === 'a') that.a = true;
-        e.preventDefault();
-    }, false);
-    console.log("input started");
-}
-/*GameEngine.prototype.keyPressHandler = function(event) {
-    var keyPressed = event.key;
-    console.log(keyPressed);
-    if (keyPressed === "f") {
-        GameEngine.f = true;
-    }
-} */
 function Timer() {
     this.gameTime = 0;
     this.maxStep = 0.05;
@@ -107,13 +92,4 @@ Timer.prototype.tick = function() {
     var gameDelta = Math.min(wallDelta, this.maxStep);
     this.gameTime += gameDelta;
     return gameDelta;
-}
-
-function keyDownHandler(event) {
-    var keyPressed = String.fromCharCode(event.keyCode);
-
-}
-function keyUpHandler(event) {
-    var keyPressed = String.fromCharCode(event.keyCode);
-
 }

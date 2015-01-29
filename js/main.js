@@ -45,14 +45,40 @@ Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime);
 }
 
+function keyDownHandler(event) {
+    var keyPressed = String.fromCharCode(event.keyCode);
+    if (keyPressed == "D") {
+        gameEngine.d = true;
+    } else if (keyPressed === "A") {
+        gameEngine.a = true;
+    } else if (keyPressed === "F") {
+        gameEngine.f = true;
+    } else if (keyPressed === "G") {
+        gameEngine.g = true;
+    }
+    event.preventDefault();
+}
+
+
+function keyUpHandler(event) {
+    var keyPressed = String.fromCharCode(event.keyCode);
+    if (keyPressed === "D") {
+        gameEngine.d = false;
+    }
+    event.preventDefault();
+}
+
 var assets = new Assets();
 var gameEngine = new GameEngine();
-
 assets.queueDownload("./img/nick.png");
+assets.queueDownload("./backgrounds/level01.jpg");
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
+    canvas.addEventListener("keydown",keyDownHandler, false);
+    canvas.addEventListener("keyup",keyUpHandler, false);
     console.log(ctx);
+    gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
     gameEngine.init(ctx);
     gameEngine.start();
     gameEngine.addEntity(new Nick(gameEngine,
