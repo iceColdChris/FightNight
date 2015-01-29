@@ -77,6 +77,7 @@ function keyUpHandler(event) {
 var assets = new Assets();
 var gameEngine = new GameEngine();
 assets.queueDownload("./img/nick.png");
+assets.queueDownload("./img/chris.png")
 assets.queueDownload("./backgrounds/level01.jpg");
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
@@ -89,5 +90,7 @@ assets.downloadAll(function() {
     gameEngine.start();
     gameEngine.addEntity(new Nick(gameEngine,
         assets.getAsset("./img/nick.png")));
+    gameEngine.addEntity(new Chris(gameEngine,
+        assets.getAsset("./img/chris.png")));
     console.log("DONE!");
 })
