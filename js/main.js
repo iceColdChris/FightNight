@@ -64,6 +64,12 @@ function keyUpHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
     if (keyPressed === "D") {
         gameEngine.d = false;
+    }  else if (keyPressed === "A") {
+        gameEngine.a = false;
+    } else if (keyPressed === "F") {
+        gameEngine.f = false;
+    } else if (keyPressed === "G") {
+        gameEngine.g = false;
     }
     event.preventDefault();
 }

@@ -74,10 +74,6 @@ GameEngine.prototype.loop = function() {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
-    this.f = null;
-    this.g = null;
-    this.d = null;
-    this.a = null;
 }
 
 function Timer() {
