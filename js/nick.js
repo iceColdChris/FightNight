@@ -33,7 +33,7 @@ Nick.prototype.draw = function() {
             this.nickKickAnimate.elapsedTime = 0;
             this.isKicking = false;
         }
-    } else if (this.walkingRight) {
+    } else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
         this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else {
