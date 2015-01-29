@@ -25,10 +25,8 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     if (this.isDone()) {
         if (this.loop) this.elapsedTime = 0;
     }
-    var frame = this.currentFrame();
-    var xindex = 0;
-    var yindex = 0;
-    xindex = (frame % this.frames);
+    var frame = this.reverse ? this.frames - this.currentFrame() - 1 : this.currentFrame();
+    var xindex = (frame % this.frames);
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
         this.startY,
@@ -47,6 +45,7 @@ Animate.prototype.isDone = function() {
 
 function keyDownHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
+    console.log(event);
     if (keyPressed == "D") {
         gameEngine.d = true;
     } else if (keyPressed === "A") {
@@ -55,6 +54,18 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
+    } else if (event.key === 'Right') {
+        gameEngine.right = true;
+    } else if (event.key === 'Left') {
+        gameEngine.left = true;
+    } else if (event.key === 'Down') {
+        gameEngine.down = true;
+    }  else if (event.key === ',') {
+        gameEngine.comma = true;
+    } else if (event.key === '.') {
+        gameEngine.period = true;
+    } else if (event.key === '/') {
+        gameEngine.fSlash = true;
     }
     event.preventDefault();
 }
@@ -70,6 +81,18 @@ function keyUpHandler(event) {
         gameEngine.f = false;
     } else if (keyPressed === "G") {
         gameEngine.g = false;
+    } else if (event.key === 'Right') {
+        gameEngine.right = false;
+    } else if (event.key === 'Left') {
+        gameEngine.left = false;
+    } else if (event.key === 'Down') {
+        gameEngine.down = false;
+    }  else if (event.key === ',') {
+        gameEngine.comma = false;
+    } else if (event.key === '.') {
+        gameEngine.period = false;
+    } else if (event.key === '/') {
+        gameEngine.fSlash = false;
     }
     event.preventDefault();
 }

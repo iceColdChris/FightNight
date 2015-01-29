@@ -2,7 +2,10 @@
  * Created by httpnick on 1/28/15.
  */
 function Chris(game, spritesheet) {
-    this.animate = new Animate(spritesheet, 3000, 1000, 370, 500, 0.1, 4, true, false);
+    this.animate = new Animate(spritesheet, 3000, 1000, 370, 500, 0.1, 4, true, true);
+    this.chrisWalkAnimate = new Animate(spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
+    this.chrisPunchAnimate = new Animate(spritesheet, 1820, 2009, 370, 490, 0.1, 3, false, true);
+    this.chrisKickAnimate = new Animate(spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
     this.x = 1000;
     this.y = 500;
     this.game = game;
@@ -16,42 +19,42 @@ function Chris(game, spritesheet) {
     this.walkingLeft = false;
 }
 Chris.prototype.draw = function() {
-    /*
+
     if (this.isPunching) {
-        this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.chrisPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the punch loop is over, if so set punching to be false.
-        if (this.nickPunchAnimate.isDone()) {
-            this.nickPunchAnimate.elapsedTime = 0;
+        if (this.chrisPunchAnimate.isDone()) {
+            this.chrisPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
     } else if(this.isKicking) {
-        this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.chrisKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
-        if (this.nickKickAnimate.isDone()) {
-            this.nickKickAnimate.elapsedTime = 0;
+        if (this.chrisKickAnimate.isDone()) {
+            this.chrisKickAnimate.elapsedTime = 0;
             this.isKicking = false;
         }
-    } else if (this.walkingRight || this.walkingLeft) {
+    }else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
-        this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.chrisWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else {
-        // default standing animation */
+        // default standing animation
         this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-    //}
+    }
 }
 /* checks if certain buttons are pushed and sets booleans to true accordingly. */
 Chris.prototype.update = function() {
-    if (this.game.f) {
+    if (this.game.period) {
         this.isPunching = true;
-    } else if (this.game.g) {
+    } else if (this.game.fSlash) {
         this.isKicking = true;
-    } else if (this.game.d) {
+    } else if (this.game.right) {
         this.walkingRight = true;
         this.x += 15;
-    } else if (this.game.a) {
+    } else if (this.game.left) {
         this.walkingLeft = true;
         this.x += -15;
-    } else if (!this.game.d || !this.game.a) {
+    } else if (!this.game.left || !this.game.right) {
         this.walkingRight = false;
         this.walkingLeft = false;
     } if (this.isMoving) {
