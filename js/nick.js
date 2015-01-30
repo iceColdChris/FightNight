@@ -33,8 +33,16 @@ Nick.prototype.draw = function() {
             this.isPunching = false;
         }
     }else if(this.isJumping){
-        console.log("here");
+
         this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if(!this.nickJumpAnimate.isDone()){
+            this.y -= 50;
+        }
+        if(this.nickJumpAnimate.isDone()){
+            this.nickJumpAnimate.elapsedTime = 0;
+            this.isJumping = false;
+            this.y +=50;//Jumping goes off the sceen
+        }
     }
     else if(this.isKicking) {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -72,7 +80,6 @@ Nick.prototype.update = function() {
         this.isBlocking = true;
     } else if (this.game.w) {
         this.isJumping = true;
-        this.y -= 50;
     } else if (this.game.d) {
         if(this.x < canvasWidth-370) {//keeps nick from walking off the right of the screen. Could someone add a correct width statement of Nick?
             this.walkingRight = true;
