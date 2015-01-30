@@ -6,6 +6,7 @@ function Nick(game, spritesheet) {
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);
+    this.nickBlockAnimate = new Animate(spritesheet,0,0,370,500,.1,3,false,true);
     this.x = 0;
     this.y = 500;
     this.game = game;
@@ -17,6 +18,7 @@ function Nick(game, spritesheet) {
     this.isKicking = false;
     this.walkingRight = false;
     this.walkingLeft = false;
+    this.isBlocking = false;
 }
 Nick.prototype.draw = function() {
     if (this.isPunching) {
@@ -36,7 +38,10 @@ Nick.prototype.draw = function() {
     } else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
         this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-    } else {
+    }else if(this.isBlocking){
+        this.nickBlockAnimate.drawFrame(this.game,this.ctx,this.x,this.y);
+    }
+    else {
         // default standing animation
         this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }
@@ -56,7 +61,11 @@ Nick.prototype.update = function() {
     } else if (!this.game.d || !this.game.a) {
         this.walkingRight = false;
         this.walkingLeft = false;
-    } if (this.isMoving) {
+    }else if(this.game.q){
+        this.isBlocking = true;
+    }
+    if (this.isMoving) {
             this.x += this.direction;
     }
+
 }

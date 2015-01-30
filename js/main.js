@@ -50,7 +50,9 @@ function keyDownHandler(event) {
         gameEngine.d = true;
     } else if (keyPressed === "A") {
         gameEngine.a = true;
-    } else if (keyPressed === "F") {
+    }else if(keyPressed === "Q"){
+        gameEngine.q = true;
+    }else if (keyPressed === "F") {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
