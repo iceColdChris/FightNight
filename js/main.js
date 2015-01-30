@@ -102,6 +102,8 @@ var gameEngine = new GameEngine();
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png")
 assets.queueDownload("./backgrounds/level01.jpg");
+assets.queueDownload("./sounds/bell.mp3");
+
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
