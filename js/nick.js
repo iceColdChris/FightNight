@@ -1,6 +1,8 @@
 /**
  * Created by httpnick on 1/28/15.
  */
+
+
 function Nick(game, spritesheet) {
     this.animate = new Animate(spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
@@ -53,6 +55,9 @@ Nick.prototype.draw = function() {
 }
     /* checks if certain buttons are pushed and sets booleans to true accordingly. */
 Nick.prototype.update = function() {
+    var canvas = document.getElementById('gameCanvas');
+    var canvasWidth = canvas.width;
+
     if (this.game.f) {
         this.isPunching = true;
     } else if (this.game.g) {
@@ -61,8 +66,10 @@ Nick.prototype.update = function() {
         console.log("gets here");
         this.isBlocking = true;
     } else if (this.game.d) {
-                this.walkingRight = true;
-                this.x += 15;
+        if(this.x < canvasWidth-370) {//keeps nick from walking off the right of the screen
+            this.walkingRight = true;
+            this.x += 15;
+        }
 
     } else if (this.game.a) {
         if(this.x>0) {//keeps nick from walking out the left of the screen
