@@ -3,7 +3,7 @@
  */
 function Chris(game, spritesheet) {
     this.animate = new Animate(spritesheet, 3000, 1000, 370, 500, 0.1, 4, true, true);
-    this.chrisWalkAnimate = new Animate(spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
+    this.chrisWalkAnimate = new Animate(spritesheet, 0, 3000, 370, 500, 0.05, 4, true, true);
     this.chrisPunchAnimate = new Animate(spritesheet, 1820, 2009, 370, 490, 0.1, 3, false, true);
     this.chrisKickAnimate = new Animate(spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
     this.x = 1000;
