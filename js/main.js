@@ -54,17 +54,17 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
-    } else if (event.key === 'Right') {
+    } else if (event.keyCode === 39) {
         gameEngine.right = true;
-    } else if (event.key === 'Left') {
+    } else if (event.keyCode === 37) {
         gameEngine.left = true;
-    } else if (event.key === 'Down') {
+    } else if (event.keyCode === 40) {
         gameEngine.down = true;
-    }  else if (event.key === ',') {
+    }  else if (event.keyCode === 188) {
         gameEngine.comma = true;
-    } else if (event.key === '.') {
+    } else if (event.keyCode === 190) {
         gameEngine.period = true;
-    } else if (event.key === '/') {
+    } else if (event.keyCode === 191) {
         gameEngine.fSlash = true;
     }
     event.preventDefault();
@@ -81,17 +81,17 @@ function keyUpHandler(event) {
         gameEngine.f = false;
     } else if (keyPressed === "G") {
         gameEngine.g = false;
-    } else if (event.key === 'Right') {
+    } else if (event.keyCode === 39) {
         gameEngine.right = false;
-    } else if (event.key === 'Left') {
+    } else if (event.keyCode === 37) {
         gameEngine.left = false;
-    } else if (event.key === 'Down') {
+    } else if (event.keyCode === 40) {
         gameEngine.down = false;
-    }  else if (event.key === ',') {
+    }  else if (event.keyCode === 188) {
         gameEngine.comma = false;
-    } else if (event.key === '.') {
+    } else if (event.keyCode === 190) {
         gameEngine.period = false;
-    } else if (event.key === '/') {
+    } else if (event.keyCode === 191) {
         gameEngine.fSlash = false;
     }
     event.preventDefault();
