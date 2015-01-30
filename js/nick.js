@@ -6,7 +6,7 @@ function Nick(game, spritesheet) {
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);
-    this.nickBlockAnimate = new Animate(spritesheet,0,0,370,500,.1,3,false,true);
+    this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, false);
     this.x = 0;
     this.y = 500;
     this.game = game;
@@ -38,8 +38,13 @@ Nick.prototype.draw = function() {
     } else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
         this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-    }else if(this.isBlocking){
+    } else if(this.isBlocking) {
+        console.log("gets here");
         this.nickBlockAnimate.drawFrame(this.game,this.ctx,this.x,this.y);
+        if (this.nickBlockAnimate.isDone()) {
+            this.nickBlockAnimate.elapsedTime = 0;
+            this.isBlocking = false;
+        }
     }
     else {
         // default standing animation
@@ -52,6 +57,9 @@ Nick.prototype.update = function() {
         this.isPunching = true;
     } else if (this.game.g) {
         this.isKicking = true;
+    } else if (this.game.q) {
+        console.log("gets here");
+        this.isBlocking = true;
     } else if (this.game.d) {
         this.walkingRight = true;
         this.x += 15;
@@ -61,9 +69,10 @@ Nick.prototype.update = function() {
     } else if (!this.game.d || !this.game.a) {
         this.walkingRight = false;
         this.walkingLeft = false;
-    }else if(this.game.q){
-        this.isBlocking = true;
     }
+    // JON!!!!
+    // You had the else if for blocking down here. The above else if will always get executed if nick is not moving
+    // All I had to do was move the else if up above.
     if (this.isMoving) {
             this.x += this.direction;
     }

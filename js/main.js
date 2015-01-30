@@ -45,12 +45,11 @@ Animate.prototype.isDone = function() {
 
 function keyDownHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
-    console.log(event);
     if (keyPressed == "D") {
         gameEngine.d = true;
     } else if (keyPressed === "A") {
         gameEngine.a = true;
-    }else if(keyPressed === "Q"){
+    }else if(event.keyCode === 81) {
         gameEngine.q = true;
     }else if (keyPressed === "F") {
         gameEngine.f = true;
@@ -83,6 +82,8 @@ function keyUpHandler(event) {
         gameEngine.f = false;
     } else if (keyPressed === "G") {
         gameEngine.g = false;
+    } else if (keyPressed === "Q") {
+      gameEngine.q = false;
     } else if (event.keyCode === 39) {
         gameEngine.right = false;
     } else if (event.keyCode === 37) {
