@@ -7,8 +7,9 @@ function Nick(game, spritesheet) {
     this.animate = new Animate(spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
-    this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);
+    this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);//Why is there 3 booleans here?
     this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, true);
+    this.nickJumpAnimate = new Animate(spritesheet,0,1500,370,500,.1,3,true,false);
     this.x = 0;
     this.y = 500;
     this.game = game;
@@ -21,6 +22,7 @@ function Nick(game, spritesheet) {
     this.walkingRight = false;
     this.walkingLeft = false;
     this.isBlocking = false;
+    this.isJumping = false;
 }
 Nick.prototype.draw = function() {
     if (this.isPunching) {
@@ -30,7 +32,11 @@ Nick.prototype.draw = function() {
             this.nickPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
-    } else if(this.isKicking) {
+    }else if(this.isJumping){
+        console.log("here");
+        this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    }
+    else if(this.isKicking) {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.nickKickAnimate.isDone()) {
@@ -63,14 +69,15 @@ Nick.prototype.update = function() {
     } else if (this.game.g) {
         this.isKicking = true;
     } else if (this.game.q) {
-        console.log("gets here");
         this.isBlocking = true;
+    } else if (this.game.w) {
+        this.isJumping = true;
+        this.y -= 50;
     } else if (this.game.d) {
-        if(this.x < canvasWidth-370) {//keeps nick from walking off the right of the screen
+        if(this.x < canvasWidth-370) {//keeps nick from walking off the right of the screen. Could someone add a correct width statement of Nick?
             this.walkingRight = true;
             this.x += 15;
         }
-
     } else if (this.game.a) {
         if(this.x>0) {//keeps nick from walking out the left of the screen
             this.walkingLeft = true;

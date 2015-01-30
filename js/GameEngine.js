@@ -17,6 +17,7 @@ function GameEngine() {
     this.ctx = null;
     this.surfaceWidth = null;
     this.surfaceHeight = null;
+    this.w = null;
     this.f = null;
     this.g = null;
     this.d = null;

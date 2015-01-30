@@ -47,8 +47,10 @@ function keyDownHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
     if (keyPressed == "D") {
         gameEngine.d = true;
-    } else if (keyPressed === "A") {
+    }else if (keyPressed === "A") {
         gameEngine.a = true;
+    }else if (keyPressed === "W"){
+        gameEngine.w = true;
     }else if(event.keyCode === 81) {
         gameEngine.q = true;
     }else if (keyPressed === "F") {
@@ -76,7 +78,9 @@ function keyUpHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
     if (keyPressed === "D") {
         gameEngine.d = false;
-    }  else if (keyPressed === "A") {
+    }else if(keyPressed === "W"){
+        gameEngine.w = false;
+    }else if (keyPressed === "A") {
         gameEngine.a = false;
     } else if (keyPressed === "F") {
         gameEngine.f = false;
