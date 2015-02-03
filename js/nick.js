@@ -53,11 +53,8 @@ Nick.prototype.draw = function() {
         }
     } else if(this.isBlocking) {
         console.log("gets here");
-<<<<<<< Updated upstream
         this.nickBlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
-=======
         this.nickBlockAnimate.drawFrame(this.game.clockTick, this.ctx,this.x,this.y);
->>>>>>> Stashed changes
         if (this.nickBlockAnimate.isDone()) {
             this.nickBlockAnimate.elapsedTime = 0;
             this.isBlocking = false;
