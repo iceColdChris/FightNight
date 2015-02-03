@@ -1,5 +1,5 @@
 # FightNight
-[![WEBSITE!]](httpNick.github.io/FightNight)
+[Checkout this project's website, and play the game!](http://httpNick.github.io/FightNight)
 
 Project for Computational Worlds.
 
