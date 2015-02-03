@@ -51,10 +51,13 @@ Nick.prototype.draw = function() {
         this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         if(!this.nickJumpAnimate.isDone()){
             this.y -= 50;
+
+            if(this.y < 0) this.isDoneJumping = true;
         }
-        if(this.nickJumpAnimate.isDone()){
+        if(this.isDoneJumping){
             this.nickJumpAnimate.elapsedTime = 0;
             this.isJumping = false;
+            this.isDoneJumping = false;
             this.y +=50;//Jumping goes off the sceen
         }
     }
