@@ -4,5 +4,3 @@
 Project for Computational Worlds.
 
 Contributors: Matthew Moore, Christopher Fahlin, Nick Duncan, and Jon Sobocinski.
-
-testtestetst
