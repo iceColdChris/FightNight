@@ -1,4 +1,6 @@
 # FightNight
-Website for this project: httpNick.github.io/FightNight
-Project for Comp Worlds.
+[Check out this project's website!](httpNick.github.io/FightNight)
+
+Project for Computational Worlds.
+
 Contributors: Matthew Moore, Christopher Fahlin, Nick Duncan, and Jon Sobocinski.
