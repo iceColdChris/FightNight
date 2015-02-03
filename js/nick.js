@@ -26,7 +26,21 @@ function Nick(game, spritesheet) {
 }
 Nick.prototype.draw = function() {
     if (this.isPunching) {
+
+        var superPunch = Math.floor(Math.random()*11);
+        if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
+         this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+          this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-100, this.y);
+           this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-200, this.y);
+            this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-300, this.y);
+
+             this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+100, this.y);
+              this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+200, this.y);
+               this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+300, this.y);
+        }
+        else{
         this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.nickPunchAnimate.isDone()) {
             this.nickPunchAnimate.elapsedTime = 0;
