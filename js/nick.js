@@ -30,13 +30,7 @@ Nick.prototype.draw = function() {
         var superPunch = Math.floor(Math.random()*11);
         if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
          this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-          this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-100, this.y);
-           this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-200, this.y);
-            this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x-300, this.y);
-
-             this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+100, this.y);
-              this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+200, this.y);
-               this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x+300, this.y);
+         //I Plan on testing/adding a superpunch special effect here later
         }
         else{
         this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
