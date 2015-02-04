@@ -25,7 +25,7 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     if (this.isDone()) {
         if (this.loop) this.elapsedTime = 0;
     }
-    var frame = this.reverse ? this.frames - this.currentFrame() : this.currentFrame();
+    var frame = this.reverse ? this.frames - this.currentFrame() - 1: this.currentFrame();
     var xindex = (frame % this.frames);
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
