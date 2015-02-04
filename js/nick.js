@@ -7,9 +7,11 @@ function Nick(game, spritesheet) {
     this.animate = new Animate(spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
-    this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false, false);//Why is there 3 booleans here?
-    this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, true);
-    this.nickJumpAnimate = new Animate(spritesheet,0,1500,370,500,.1,3,true,false);
+    this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false);
+    this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, false);
+    this.nickJumpAnimate = new Animate(spritesheet,0, 1500, 370, 500, .2, 3, false, false);
+    // Jump animation in reverse = fall animation?
+    this.nickFallAnimate = new Animate(spritesheet,0, 1500, 370, 500, .2 , 3, false, true);
     this.x = 0;
     this.y = 500;
     this.game = game;
@@ -23,6 +25,7 @@ function Nick(game, spritesheet) {
     this.walkingLeft = false;
     this.isBlocking = false;
     this.isJumping = false;
+    this.isFalling = false;
 }
 Nick.prototype.draw = function() {
     if (this.isPunching) {
@@ -41,21 +44,19 @@ Nick.prototype.draw = function() {
             this.isPunching = false;
         }
     }else if(this.isJumping){
-
         this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        if(!this.nickJumpAnimate.isDone()){
-            this.y -= 50;
-
-            if(this.y < 0) this.isDoneJumping = true;
+       if (this.nickJumpAnimate.isDone()) {
+           this.nickJumpAnimate.elapsedTime = 0;
+           this.isJumping = false;
+           this.isFalling = true;
+       }
+    } else if (this.isFalling) {
+        this.nickFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.nickFallAnimate.isDone()) {
+            this.nickFallAnimate.elapsedTime = 0;
+            this.isFalling = false;
         }
-        if(this.isDoneJumping){
-            this.nickJumpAnimate.elapsedTime = 0;
-            this.isJumping = false;
-            this.isDoneJumping = false;
-            this.y +=50;//Jumping goes off the sceen
-        }
-    }
-    else if(this.isKicking) {
+    } else if(this.isKicking) {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.nickKickAnimate.isDone()) {
@@ -89,7 +90,7 @@ Nick.prototype.update = function() {
         this.isKicking = true;
     } else if (this.game.q) {
         this.isBlocking = true;
-    } else if (this.game.w) {
+    } else if (this.game.w && !this.isJumping && !this.isFalling) {
         this.isJumping = true;
     } else if (this.game.d) {
         if(this.x < canvasWidth-370) {//keeps nick from walking off the right of the screen. Could someone add a correct width statement of Nick?
@@ -105,11 +106,11 @@ Nick.prototype.update = function() {
         this.walkingRight = false;
         this.walkingLeft = false;
     }
-    // JON!!!!
-    // You had the else if for blocking down here. The above else if will always get executed if nick is not moving
-    // All I had to do was move the else if up above.
-    if (this.isMoving) {
-            this.x += this.direction;
+
+    if (this.isJumping) {
+        this.y -= 10;
+    } if (this.isFalling) {
+        this.y += 10;
     }
 
 }

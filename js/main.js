@@ -25,7 +25,7 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     if (this.isDone()) {
         if (this.loop) this.elapsedTime = 0;
     }
-    var frame = this.reverse ? this.frames - this.currentFrame() - 1 : this.currentFrame();
+    var frame = this.reverse ? this.frames - this.currentFrame() : this.currentFrame();
     var xindex = (frame % this.frames);
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
@@ -109,7 +109,7 @@ var gameEngine = new GameEngine();
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png")
 assets.queueDownload("./backgrounds/level01.jpg");
-assets.queueDownload("./sounds/bell.mp3");
+//assets.queueDownload("./sounds/bell.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
