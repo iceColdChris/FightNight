@@ -86,6 +86,7 @@ Nick.prototype.update = function() {
 
     if (this.game.f) {
         this.isPunching = true;
+        this.game.health -= 0.75;
     } else if (this.game.g) {
         this.isKicking = true;
     } else if (this.game.q) {

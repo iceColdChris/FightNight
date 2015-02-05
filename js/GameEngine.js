@@ -30,6 +30,7 @@ function GameEngine() {
     this.period = null;
     this.fSlash = null;
     this.background = null;
+    this.health = 100;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
@@ -59,6 +60,8 @@ GameEngine.prototype.draw = function() {
     this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
     this.ctx.save();
     this.ctx.drawImage(this.background, 0, 0);
+    this.ctx.fillStyle="#FF0000";
+    this.ctx.fillRect(0,0,(this.health/100)*300,25);
     for(var i = 0; i < this.entities.length; i++) {
         this.entities[i].draw();
     }
