@@ -27,6 +27,9 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     }
     var frame = this.reverse ? this.frames - this.currentFrame() - 1: this.currentFrame();
     var xindex = (frame % this.frames);
+    if (this.frameDuration === .2) {
+        console.log((xindex * this.frameWidth) + this.startX);
+    }
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
         this.startY,
@@ -40,7 +43,7 @@ Animate.prototype.currentFrame = function () {
     return Math.floor(this.elapsedTime / this.frameDuration);
 }
 Animate.prototype.isDone = function() {
-    return (this.elapsedTime >= this.totalTime);
+    return (this.elapsedTime >= this.totalTime*0.9);
 }
 
 function keyDownHandler(event) {
@@ -57,6 +60,8 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
+    } else if (event.keyCode === 38) {
+      gameEngine.up = true;
     } else if (event.keyCode === 39) {
         gameEngine.right = true;
     } else if (event.keyCode === 37) {
@@ -88,7 +93,9 @@ function keyUpHandler(event) {
         gameEngine.g = false;
     } else if (keyPressed === "Q") {
       gameEngine.q = false;
-    } else if (event.keyCode === 39) {
+    } else if (event.keyCode === 38) {
+        gameEngine.up = false;
+    }  else if (event.keyCode === 39) {
         gameEngine.right = false;
     } else if (event.keyCode === 37) {
         gameEngine.left = false;

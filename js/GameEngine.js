@@ -27,9 +27,11 @@ function GameEngine() {
     this.right = null;
     this.down = null;
     this.comma = null;
+    this.up = null;
     this.period = null;
     this.fSlash = null;
     this.background = null;
+    this.floorY = 500;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;

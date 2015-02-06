@@ -11,11 +11,11 @@ function Nick(game, spritesheet) {
     this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, false);
     this.nickJumpAnimate = new Animate(spritesheet,0, 1500, 370, 500, .2, 3, false, false);
     // Jump animation in reverse = fall animation?
-    this.nickFallAnimate = new Animate(spritesheet,0, 1500, 370, 500, .2 , 3, false, true);
-    this.x = 0;
-    this.y = 500;
+    this.nickFallAnimate = new Animate(spritesheet, 740, 1500, 370, 500, .2, 1, true, false);
     this.game = game;
     this.ctx = game.ctx;
+    this.x = 0;
+    this.y = this.game.floorY;
     this.removeFromWorld = false;
     this.health = 100;
     this.playerNumber = 1;
@@ -51,17 +51,8 @@ Nick.prototype.draw = function() {
         }
     }else if(this.isJumping){
         this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-       if (this.nickJumpAnimate.isDone()) {
-           this.nickJumpAnimate.elapsedTime = 0;
-           this.isJumping = false;
-           this.isFalling = true;
-       }
     } else if (this.isFalling) {
         this.nickFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        if (this.nickFallAnimate.isDone()) {
-            this.nickFallAnimate.elapsedTime = 0;
-            this.isFalling = false;
-        }
     } else if(this.isKicking) {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
@@ -70,9 +61,7 @@ Nick.prototype.draw = function() {
             this.isKicking = false;
         }
     } else if(this.isBlocking) {
-        console.log("gets here");
         this.nickBlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
-        this.nickBlockAnimate.drawFrame(this.game.clockTick, this.ctx,this.x,this.y);
         if (this.nickBlockAnimate.isDone()) {
             this.nickBlockAnimate.elapsedTime = 0;
             this.isBlocking = false;
@@ -115,8 +104,17 @@ Nick.prototype.update = function() {
 
     if (this.isJumping) {
         this.y -= 10;
+        if (this.nickJumpAnimate.isDone()) {
+            this.nickJumpAnimate.elapsedTime = 0;
+            this.isJumping = false;
+            this.isFalling = true;
+        }
     } if (this.isFalling) {
-        this.y += 10;
+        if (this.y >= this.game.floorY) {
+            this.isFalling = false;
+        } else {
+            this.y += 10;
+        }
     }
 
 };
