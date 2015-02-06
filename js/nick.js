@@ -17,6 +17,8 @@ function Nick(game, spritesheet) {
     this.game = game;
     this.ctx = game.ctx;
     this.removeFromWorld = false;
+    this.health = 100;
+    this.playerNumber = 1;
     this.direction = 0;
     this.isMoving = false;
     this.isPunching = false;
@@ -26,8 +28,10 @@ function Nick(game, spritesheet) {
     this.isBlocking = false;
     this.isJumping = false;
     this.isFalling = false;
+    this.nickHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
 }
 Nick.prototype.draw = function() {
+    this.nickHealthBar.draw();
     if (this.isPunching) {
 
         var superPunch = Math.floor(Math.random()*11);
@@ -40,6 +44,8 @@ Nick.prototype.draw = function() {
         }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.nickPunchAnimate.isDone()) {
+            this.health -= 5;
+            this.nickHealthBar.setHealth(this.health);
             this.nickPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
@@ -78,7 +84,7 @@ Nick.prototype.draw = function() {
         // default standing animation
         this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }
-}
+};
     /* checks if certain buttons are pushed and sets booleans to true accordingly. */
 Nick.prototype.update = function() {
     var canvas = document.getElementById('gameCanvas');
@@ -86,7 +92,6 @@ Nick.prototype.update = function() {
 
     if (this.game.f) {
         this.isPunching = true;
-        this.game.health -= 0.75;
     } else if (this.game.g) {
         this.isKicking = true;
     } else if (this.game.q) {
@@ -114,4 +119,4 @@ Nick.prototype.update = function() {
         this.y += 10;
     }
 
-}
+};
