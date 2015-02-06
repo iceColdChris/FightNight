@@ -8,7 +8,8 @@ function Nick(game, spritesheet) {
     this.nickPunchAnimate = new Animate(spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
     this.nickKickAnimate = new Animate(spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
     this.nickWalkAnimate = new Animate(spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false);
-    this.nickBlockAnimate = new Animate(spritesheet, 0, 0, 370, 500, 0.1, 3, false, false);
+    this.nickBlockAnimate = new Animate(spritesheet, 0, 10, 370, 500, 0.1, 3, false, false);
+    this.nickHoldBlock = new Animate(spritesheet, 740, 10, 370, 500, 0.1, 1, true, false);
     this.nickJumpAnimate = new Animate(spritesheet,0, 1500, 370, 500, .2, 3, false, false);
     // Jump animation in reverse = fall animation?
     this.nickFallAnimate = new Animate(spritesheet, 740, 1500, 370, 500, .2, 1, true, false);
@@ -24,6 +25,7 @@ function Nick(game, spritesheet) {
     this.walkingRight = false;
     this.walkingLeft = false;
     this.isBlocking = false;
+    this.isHoldingBlock = false;
     this.isJumping = false;
     this.isFalling = false;
     this.nickHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
@@ -61,10 +63,11 @@ Nick.prototype.draw = function() {
     } else if(this.isBlocking) {
         this.nickBlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
         if (this.nickBlockAnimate.isDone()) {
-            this.nickBlockAnimate.elapsedTime = 0;
             this.isBlocking = false;
         }
-    } else if (this.walkingRight || this.walkingLeft) {
+    } else if (this.isHoldingBlock) {
+        this.nickHoldBlock.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    }else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
         this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else {
@@ -82,7 +85,14 @@ Nick.prototype.update = function() {
     } else if (this.game.g) {
         this.isKicking = true;
     } else if (this.game.q) {
-        this.isBlocking = true;
+        if (!this.isHoldingBlock) {
+            this.isBlocking = true;
+        }
+        if (this.nickBlockAnimate.isDone() && this.game.q) {
+            this.isHoldingBlock = true;
+            this.nickBlockAnimate.elapsedTime = 0;
+            this.isBlocking = false;
+        }
     } else if (this.game.w && !this.isJumping && !this.isFalling) {
         this.isJumping = true;
     } else if (this.game.d) {
@@ -113,6 +123,8 @@ Nick.prototype.update = function() {
         } else {
             this.y += 10;
         }
+    } if (!this.game.q && this.isHoldingBlock) {
+        this.isHoldingBlock = false;
     }
 
 };
