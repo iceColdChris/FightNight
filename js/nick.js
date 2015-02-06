@@ -19,8 +19,6 @@ function Nick(game, spritesheet) {
     this.removeFromWorld = false;
     this.health = 100;
     this.playerNumber = 1;
-    this.direction = 0;
-    this.isMoving = false;
     this.isPunching = false;
     this.isKicking = false;
     this.walkingRight = false;

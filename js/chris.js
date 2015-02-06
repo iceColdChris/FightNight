@@ -6,8 +6,8 @@ function Chris(game, spritesheet) {
     this.chrisWalkAnimate = new Animate(spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
     this.chrisPunchAnimate = new Animate(spritesheet, 1855, 2002, 368, 460, 0.08, 3, false, true);
     this.chrisKickAnimate = new Animate(spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
-    this.chrisJumpAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, false);
-    this.chrisFallAnimate = new Animate(spritesheet, 2540, 1500, 370, 500, 0.2, 1, true, false);
+    this.chrisJumpAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
+    this.chrisFallAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
     this.playerNumber = 2;
     this.game = game;
     this.ctx = game.ctx;

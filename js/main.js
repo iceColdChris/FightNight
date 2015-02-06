@@ -43,6 +43,7 @@ Animate.prototype.currentFrame = function () {
     return Math.floor(this.elapsedTime / this.frameDuration);
 }
 Animate.prototype.isDone = function() {
+    // multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
     return (this.elapsedTime >= this.totalTime*0.9);
 }
 
