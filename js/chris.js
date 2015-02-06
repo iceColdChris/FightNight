@@ -8,12 +8,14 @@ function Chris(game, spritesheet) {
     this.chrisKickAnimate = new Animate(spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
     this.chrisJumpAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
     this.chrisFallAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
+    this.chrisBlockAnimate = new Animate(spritesheet, 1800, 0, 370, 500, 0.1, 3, false, true);
+    this.chrisBlockHold = new Animate(spritesheet, 1800, 0, 370, 500, 0.1, 1, true, false);
     this.playerNumber = 2;
     this.game = game;
     this.ctx = game.ctx;
     this.removeFromWorld = false;
-    this.direction = 0;
-    this.isMoving = false;
+    this.isBlocking = false;
+    this.isHoldingBlock = false;
     this.isPunching = false;
     this.isKicking = false;
     this.walkingRight = false;
@@ -47,12 +49,16 @@ Chris.prototype.draw = function() {
             this.isJumping = false;
             this.isFalling = true;
         }
-    } else if (this.isFalling) {
-        this.chrisFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        if (this.chrisFallAnimate.isDone()) {
-            this.chrisFallAnimate.elapsedTime = 0;
-            this.isFalling = false;
+    }
+    else if (this.isFalling) {
+        this.chrisFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y)
+    }else if (this.isBlocking) {
+        this.chrisBlockAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.chrisBlockAnimate.isDone()) {
+            this.isBlocking = false;
         }
+    } else if (this.isHoldingBlock) {
+        this.chrisBlockHold.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }else if(this.isKicking) {
         this.chrisKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
@@ -72,6 +78,15 @@ Chris.prototype.draw = function() {
 Chris.prototype.update = function() {
     if (this.game.up && !this.isJumping && !this.isFalling) {
         this.isJumping = true;
+    } else if (this.game.comma) {
+        if (!this.isHoldingBlock) {
+            this.isBlocking = true;
+        }
+        if (this.chrisBlockAnimate.isDone() && this.game.comma) {
+            this.isHoldingBlock = true;
+            this.chrisBlockAnimate.elapsedTime = 0;
+            this.isBlocking = false;
+        }
     } else if (this.game.period) {
         this.isPunching = true;
     } else if (this.game.fSlash) {
@@ -100,5 +115,7 @@ Chris.prototype.update = function() {
         } else {
             this.y += 10;
         }
+    } if (!this.game.comma && this.isHoldingBlock) {
+        this.isHoldingBlock = false;
     }
 }
