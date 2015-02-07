@@ -47,6 +47,18 @@ Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime*0.9);
 }
 
+function CharacterSelectHandler(event) {
+    if(event.keyCode === 13) {
+        gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+        gameEngine.start();
+        gameEngine.addEntity(new Nick(gameEngine,
+            assets.getAsset("./img/nick.png")));
+        gameEngine.addEntity(new Chris(gameEngine,
+            assets.getAsset("./img/chris.png")));
+    }
+    event.preventDefault();
+}
+
 function keyDownHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);
     if (keyPressed == "D") {
@@ -114,23 +126,21 @@ function keyUpHandler(event) {
 
 var assets = new Assets();
 var gameEngine = new GameEngine();
+var cSelect = new CharacterSelect();
 assets.queueDownload("./img/nick.png");
-assets.queueDownload("./img/chris.png")
+assets.queueDownload("./img/chris.png");
 assets.queueDownload("./backgrounds/level01.jpg");
 //assets.queueDownload("./sounds/bell.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
+    gameEngine.init(ctx);
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
-    console.log(ctx);
-    gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-    gameEngine.init(ctx);
-    gameEngine.start();
-    gameEngine.addEntity(new Nick(gameEngine,
-        assets.getAsset("./img/nick.png")));
-    gameEngine.addEntity(new Chris(gameEngine,
-        assets.getAsset("./img/chris.png")));
-    console.log("DONE!");
-})
+    cSelect.init(ctx);
+    cSelect.addCharacter(assets.getAsset("./img/nick.png"));
+    cSelect.addCharacter(assets.getAsset("./img/chris.png"));
+    cSelect.display();
+    canvas.addEventListener("keydown", CharacterSelectHandler, false);
+});

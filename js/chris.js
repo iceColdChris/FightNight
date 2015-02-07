@@ -25,8 +25,9 @@ function Chris(game, spritesheet) {
     this.health = 100;
     this.x = 1000;
     this.y = this.game.floorY;
-    this.chrisHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+    this.chrisHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
 }
+
 Chris.prototype.draw = function() {
     this.chrisHealthBar.draw();
     if(this.isJumping){
@@ -63,6 +64,8 @@ Chris.prototype.draw = function() {
         this.chrisKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.chrisKickAnimate.isDone()) {
+            this.health -= 5;
+            this.chrisHealthBar.setHealth(this.health);
             this.chrisKickAnimate.elapsedTime = 0;
             this.isKicking = false;
         }
