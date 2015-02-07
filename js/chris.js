@@ -79,6 +79,9 @@ Chris.prototype.draw = function() {
 }
 /* checks if certain buttons are pushed and sets booleans to true accordingly. */
 Chris.prototype.update = function() {
+    var canvas = document.getElementById('gameCanvas');
+    var canvasWidth = canvas.width;
+
     if (this.game.up && !this.isJumping && !this.isFalling) {
         this.isJumping = true;
     } else if (this.game.comma) {
@@ -95,11 +98,15 @@ Chris.prototype.update = function() {
     } else if (this.game.fSlash) {
         this.isKicking = true;
     } else if (this.game.right) {
-        this.walkingRight = true;
-        this.x += 15;
+        if(this.x < canvasWidth-370) {
+            this.walkingRight = true;
+            this.x += 15;
+        }
     } else if (this.game.left) {
-        this.walkingLeft = true;
-        this.x += -15;
+        if(this.x>0) {
+            this.walkingLeft = true;
+            this.x += -15;
+        }
     } else if (!this.game.left || !this.game.right) {
         this.walkingRight = false;
         this.walkingLeft = false;
