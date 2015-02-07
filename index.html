@@ -1,43 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Fight Night</title>
-    <script type = 'text/javascript' src="js/CharacterSelect.js"></script>
-    <script type = 'text/javascript' src="js/GameEngine.js"></script>
-    <script type = 'text/javascript' src="js/assets.js"></script>
-    <script type = 'text/javascript' src="js/nick.js"></script>
-    <script type = 'text/javascript' src="js/chris.js"></script>
-    <script type = 'text/javascript' src="js/main.js"></script>
-    <script type = 'text/javascript' src="js/HealthBar.js"></script>
-    <link rel="stylesheet" type="text/css" href="canvas.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <link rel="stylesheet" href="main.css">
+
 </head>
+
 <body>
-<h5 style="color:red; font-size: 50px">FIGHT NIGHT - UW TACOMA</h5>
-<canvas id="gameCanvas" tabindex = "1" width="2300" height="1138"></canvas>
-<table>
-    <td>
-        <ul>Controls for Player 1
-            <li>D - Move Right</li>
-            <li>A - Move Left</li>
-            <li>W - Jump</li>
-            <li>F - Punch</li>
-            <li>G - Kick</li>
-            <li>Q - Block</li>
+<div class="nav">
+
+    <div class="container">
+        <ul class = "pull-left">
+            <li><a href="game.html">Play Now</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact Us</a></li>
         </ul>
-    </td>
-    <td>
-        <ul>Controls for Player 2
-            <li>Right Arrow - Move Right</li>
-            <li>Left Arrow - Move Left</li>
-            <li>Up arrow - Jump</li>
-            <li>. - Punch</li>
-            <li>/ - Kick</li>
-            <li>, - Block</li>
-        </ul>
-    </td>
-</table>
-<!--<audio autoplay="true" src="./sound/ThemeSong.mp3">-->
+    </div>
+
+</div>
+
+<div class="jumbotron">
+
+    <div class="container">
+        <h1>Play the best fighting game UWT has to offer.</h1>
+        <p>A unique twist on the typical fighting games that you are probably used to playing.</p>
+    </div>
+
+</div>
+
+<div class="featuring">
+
+    <div class="container">
+        <h2>Featuring</h2>
+        <p>Wondering who's in the game? Well look no further!</p>
+
+        <div class="row">
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="websource/Nick.png" >
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="websource/Chris.png" >
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <img src="websource/LC_MoreComing.png" >
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 </body>
 </html>
