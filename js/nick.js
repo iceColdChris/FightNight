@@ -28,8 +28,10 @@ function Nick(game, spritesheet) {
     this.isHoldingBlock = false;
     this.isJumping = false;
     this.isFalling = false;
-    this.nickHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+    this.nickHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
 }
+
+
 Nick.prototype.draw = function() {
     this.nickHealthBar.draw();
     if (this.isPunching) {
@@ -57,6 +59,8 @@ Nick.prototype.draw = function() {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.nickKickAnimate.isDone()) {
+            this.health -= 5;
+            this.nickHealthBar.setHealth(this.health);
             this.nickKickAnimate.elapsedTime = 0;
             this.isKicking = false;
         }

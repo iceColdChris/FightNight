@@ -1,6 +1,6 @@
 /**
  * Created by httpnick on 1/15/15.
- * Code graciously taken from Seth Ladd and Chris Marriott.
+ * Code graciously taken (partially) from Seth Ladd and Chris Marriott.
  */
 window.requestAnimFrame = (function () {
     return window.requestAnimationFrame ||
