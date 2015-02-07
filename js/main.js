@@ -55,6 +55,7 @@ function CharacterSelectHandler(event) {
             assets.getAsset("./img/nick.png")));
         gameEngine.addEntity(new Chris(gameEngine,
             assets.getAsset("./img/chris.png")));
+        document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
     }
     event.preventDefault();
 }
