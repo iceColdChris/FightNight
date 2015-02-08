@@ -48,7 +48,6 @@ CharacterSelect.prototype.display = function() {
 };
 
 CharacterSelect.prototype.addCharacter = function(character){
-    console.log("added entity");
     this.characters.push(character);
 };
 
