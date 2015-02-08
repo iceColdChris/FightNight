@@ -48,7 +48,25 @@ CharacterSelect.prototype.display = function() {
     this.ctx.closePath();
     this.ctx.font="50px Times Roman";
     this.ctx.fillStyle = "red";
-    this.ctx.fillText("Click character for player 1 and then character for player 2", (this.surfaceWidth / 4) ,50 );
+    this.ctx.fillText("Select your fighter by pressing the corresponding number!", (this.surfaceWidth / 4) ,50 );
+    var counter = 1;
+    for (var i = 0; i < 2; i++) {
+        for (var j = 0; j < 3; j++) {
+            this.ctx.beginPath();
+            this.ctx.fillStyle = "black";
+            this.ctx.rect(((j * (this.surfaceWidth / 3)) + (this.surfaceWidth / 3) / 2) - 25,
+                ((i * (this.surfaceHeight / 2)) + (this.surfaceHeight / 2) / 2) - 220,
+                75,
+                75);
+            this.ctx.fill();
+            this.ctx.closePath();
+            this.ctx.fillStyle = "red";
+            this.ctx.fillText(counter.toString(),
+                (j * (this.surfaceWidth / 3)) + (this.surfaceWidth / 3) / 2,
+                ((i * (this.surfaceHeight / 2)) + (this.surfaceHeight / 2) / 2) - 170);
+            counter += 1;
+        }
+    }
     this.ctx.restore();
 
 };
