@@ -8,6 +8,7 @@ function CharacterSelect() {
     this.surfaceWidth = null;
     this.colors = ["purple", "blue", "white", "green", "orange", "yellow"];
     this.characters = [];
+    this.background = null;
 }
 
 CharacterSelect.prototype.init = function(ctx){
@@ -24,7 +25,7 @@ CharacterSelect.prototype.display = function() {
 
     this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
     this.ctx.save();
-
+/*
     for (var i = 0; i < 6; i++) {
         for (var j = 0; j < 2; j ++) {
             this.ctx.beginPath();
@@ -37,25 +38,26 @@ CharacterSelect.prototype.display = function() {
             this.ctx.stroke();
             this.ctx.closePath();
         }
-    }
+    } */
 
-    var background = new Image();
-    background.src = ("./charSelection/charSelection.jpg");// we need to get this from asset manager
-    this.ctx.drawImage(background,(this.surfaceWidth / 4),(this.surfaceHeight / 4));
-
-    background.addEventListener('click',getCords,true); //add mouse listener to img - not working for some reason
-
-    this.ctx.font="50px Times Roman";
+    this.ctx.drawImage(this.background, 0, 0, this.surfaceWidth, this.surfaceHeight);
+    this.ctx.beginPath();
     this.ctx.fillStyle = "black";
-    this.ctx.fillText("Press Enter to Start the game!", (this.surfaceWidth / 4)+400 ,100 );
+    this.ctx.rect((this.surfaceWidth / 4) - 50, 0, 1250, 75);
+    this.ctx.fill();
+    this.ctx.closePath();
+    this.ctx.font="50px Times Roman";
+    this.ctx.fillStyle = "red";
+    this.ctx.fillText("Click character for player 1 and then character for player 2", (this.surfaceWidth / 4) ,50 );
     this.ctx.restore();
 
 };
 
-function getCords(event){
-    console.log("here");
-}
 
 CharacterSelect.prototype.addCharacter = function(character){
     this.characters.push(character);
 };
+
+CharacterSelect.prototype.addSelectImage = function(selectImage) {
+    this.background = selectImage;
+}

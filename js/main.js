@@ -42,21 +42,36 @@ Animate.prototype.currentFrame = function () {
 Animate.prototype.isDone = function() {
     // multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
     return (this.elapsedTime >= this.totalTime*0.9);
-}
+};
 
-function CharacterSelectHandler(event) {
-    if(event.keyCode === 13) {
+function CharacterClickHandler(event) {
+    var clickX = event.offsetX;
+    var clickY = event.offsetY;
+    if (clickX <= 580 && clickY <= 454) {
+        console.log("Nick Chosen")
+        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber));
+    } else if (clickX <= 1200 && clickY <= 454) {
+        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber));
+    } else if (clickX > 1200 && clickY <= 454) {
+        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber));
+    } else if (clickX <= 580 && clickY >= 455) {
+        console.log("Matt chosen")
+    } else if (clickX <= 1200 && clickY >= 455) {
+        console.log("Chinn Chosen")
+    } else if (clickX > 1200 && clickY >= 455) {
+        console.log("Tolentino chosen");
+    }
+    event.preventDefault();
+    currentSelectionNumber += 1;
+    if (currentSelectionNumber > 2) {
         gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
         gameEngine.start();
         /*gameEngine.addEntity(new Nick(gameEngine,
          assets.getAsset("./img/nick.png"), 1)); */
-        gameEngine.addEntity(new Jon(gameEngine,
-            assets.getAsset("./img/jon.png"), 1));
-        gameEngine.addEntity(new Chris(gameEngine,
-            assets.getAsset("./img/chris.png"), 2));
-        document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+        gameEngine.addEntity(characters[0]);
+        gameEngine.addEntity(characters[1]);
+        document.getElementById("gameCanvas").removeEventListener("click", CharacterClickHandler, false);
     }
-    event.preventDefault();
 }
 
 function keyDownHandler(event) {
@@ -135,6 +150,8 @@ function keyUpHandler(event) {
 var assets = new Assets();
 var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
+var characters = [];
+var currentSelectionNumber = 1;
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
@@ -149,8 +166,7 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     cSelect.init(ctx);
-    cSelect.addCharacter(assets.getAsset("./img/nick.png"));
-    cSelect.addCharacter(assets.getAsset("./img/chris.png"));
+    cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
     cSelect.display();
-    canvas.addEventListener("keydown", CharacterSelectHandler, false);
+    canvas.addEventListener("click", CharacterClickHandler, false);
 });
