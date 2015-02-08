@@ -44,33 +44,32 @@ Animate.prototype.isDone = function() {
     return (this.elapsedTime >= this.totalTime*0.9);
 };
 
-function CharacterClickHandler(event) {
-    var clickX = event.offsetX;
-    var clickY = event.offsetY;
-    if (clickX <= 580 && clickY <= 454) {
-        console.log("Nick Chosen")
-        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber));
-    } else if (clickX <= 1200 && clickY <= 454) {
-        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber));
-    } else if (clickX > 1200 && clickY <= 454) {
-        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber));
-    } else if (clickX <= 580 && clickY >= 455) {
-        console.log("Matt chosen")
-    } else if (clickX <= 1200 && clickY >= 455) {
-        console.log("Chinn Chosen")
-    } else if (clickX > 1200 && clickY >= 455) {
-        console.log("Tolentino chosen");
-    }
-    event.preventDefault();
-    currentSelectionNumber += 1;
-    if (currentSelectionNumber > 2) {
-        gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-        gameEngine.start();
-        /*gameEngine.addEntity(new Nick(gameEngine,
-         assets.getAsset("./img/nick.png"), 1)); */
-        gameEngine.addEntity(characters[0]);
-        gameEngine.addEntity(characters[1]);
-        document.getElementById("gameCanvas").removeEventListener("click", CharacterClickHandler, false);
+function CharacterSelectHandler(event) {
+    var selection = event.keyCode
+    if (selection >= 49 && selection <= 54) {
+        if (selection === 49) {
+            console.log("Nick Chosen")
+            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber));
+        } else if (selection === 50) {
+            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber));
+        } else if (selection === 51) {
+            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber));
+        } else if (selection === 52) {
+            console.log("Matt chosen")
+        } else if (selection === 53) {
+            console.log("Chinn Chosen")
+        } else if (selection === 54) {
+            console.log("Tolentino chosen");
+        }
+        event.preventDefault();
+        currentSelectionNumber += 1;
+        if (currentSelectionNumber > 2) {
+            gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+            gameEngine.start();
+            gameEngine.addEntity(characters[0]);
+            gameEngine.addEntity(characters[1]);
+            document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+        }
     }
 }
 
@@ -168,5 +167,5 @@ assets.downloadAll(function() {
     cSelect.init(ctx);
     cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
     cSelect.display();
-    canvas.addEventListener("click", CharacterClickHandler, false);
+    canvas.addEventListener("keydown", CharacterSelectHandler, false);
 });
