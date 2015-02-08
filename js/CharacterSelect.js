@@ -14,6 +14,7 @@ CharacterSelect.prototype.init = function(ctx){
     this.ctx = ctx;
     this.surfaceWidth = this.ctx.canvas.width;
     this.surfaceHeight = this.ctx.canvas.height;
+
 };
 
 
@@ -39,6 +40,7 @@ CharacterSelect.prototype.display = function() {
                 i * (this.surfaceWidth / 6), j * (this.surfaceHeight / 2),
                 370,
                 500);
+
         }
     }
     this.ctx.font="50px Times Roman";
