@@ -1,19 +1,19 @@
 /**
  * Created by httpnick on 1/28/15.
  */
-function Chris(game, spritesheet) {
-    this.animate = new Animate(spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);
-    this.chrisWalkAnimate = new Animate(spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
-    this.chrisPunchAnimate = new Animate(spritesheet, 1855, 2002, 368, 460, 0.08, 3, false, true);
-    this.chrisKickAnimate = new Animate(spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
-    this.chrisJumpAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
-    this.chrisFallAnimate = new Animate(spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
-    this.chrisBlockAnimate = new Animate(spritesheet, 1800, 0, 370, 500, 0.1, 3, false, true);
-    this.chrisBlockHold = new Animate(spritesheet, 1800, 0, 370, 500, 0.1, 1, true, false);
-    this.playerNumber = 2;
+function Chris(game, spritesheet, playerNumber) {
+    this.spritesheet = spritesheet;
+    this.animate = null;
+    this.chrisWalkAnimate = null;
+    this.chrisPunchAnimate = null;
+    this.chrisKickAnimate = null;
+    this.chrisJumpAnimate = null;
+    this.chrisFallAnimate = null;
+    this.chrisBlockAnimate = null;
+    this.chrisBlockHold = null;
+    this.playerNumber = playerNumber;
     this.game = game;
     this.ctx = game.ctx;
-    this.removeFromWorld = false;
     this.isBlocking = false;
     this.isHoldingBlock = false;
     this.isPunching = false;
@@ -25,9 +25,23 @@ function Chris(game, spritesheet) {
     this.health = 100;
     this.x = 1000;
     this.y = this.game.floorY;
+    this.loadAnims();
     this.chrisHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
 }
-
+Chris.prototype.loadAnims = function() {
+    if (this.playerNumber === 1) {
+        console.log("Chris doesn't have player 1 animations.")
+    } else {
+        this.animate = new Animate(this.spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);
+        this.chrisWalkAnimate = new Animate(this.spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
+        this.chrisPunchAnimate = new Animate(this.spritesheet, 1855, 2002, 368, 460, 0.08, 3, false, true);
+        this.chrisKickAnimate = new Animate(this.spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
+        this.chrisJumpAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
+        this.chrisFallAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
+        this.chrisBlockAnimate = new Animate(this.spritesheet, 1800, 0, 370, 500, 0.1, 3, false, true);
+        this.chrisBlockHold = new Animate(this.spritesheet, 1800, 0, 370, 500, 0.1, 1, true, false);
+    }
+}
 Chris.prototype.draw = function() {
     this.chrisHealthBar.draw();
     if(this.isJumping){

@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62edec9c-acb2-4f2c-9dd4-d0b5cada505a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/img/jon.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jon.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/CharacterSelect.js" afterPath="$PROJECT_DIR$/js/CharacterSelect.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/chris.js" afterPath="$PROJECT_DIR$/js/chris.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/game.html" afterPath="$PROJECT_DIR$/game.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/nick.js" afterPath="$PROJECT_DIR$/js/nick.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -31,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="nick.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="nick.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/nick.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0204082" vertical-offset="0" max-vertical-offset="2085">
-              <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2280">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="146" selection-end-column="2" />
               <folding />
             </state>
           </provider>
@@ -44,8 +47,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="642" max-vertical-offset="2295">
-              <caret line="57" column="71" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
+            <state vertical-scroll-proportion="-9.666667" vertical-offset="534" max-vertical-offset="2295">
+              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -54,8 +57,8 @@
       <file leaf-file-name="chris.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/chris.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1890">
-              <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+            <state vertical-scroll-proportion="-2.2222223" vertical-offset="0" max-vertical-offset="2100">
+              <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -74,8 +77,8 @@
       <file leaf-file-name="CharacterSelect.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/CharacterSelect.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="645" max-vertical-offset="885">
-              <caret line="45" column="116" selection-start-line="45" selection-start-column="116" selection-end-line="45" selection-end-column="116" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="870">
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
               <folding>
                 <element signature="n#!!doc;n#CharacterSelect#0" expanded="false" />
               </folding>
@@ -83,21 +86,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameEngine.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/js/GameEngine.js">
+      <file leaf-file-name="jon.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/jon.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1002" max-vertical-offset="1590">
-              <caret line="35" column="44" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2280">
+              <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1155">
-              <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
+            <state vertical-scroll-proportion="0.05319149" vertical-offset="0" max-vertical-offset="1155">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -122,11 +125,13 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/js/GameEngine.js" />
         <option value="$PROJECT_DIR$/js/HealthBar.js" />
-        <option value="$PROJECT_DIR$/js/CharacterSelect.js" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/game.html" />
         <option value="$PROJECT_DIR$/js/chris.js" />
+        <option value="$PROJECT_DIR$/js/CharacterSelect.js" />
         <option value="$PROJECT_DIR$/js/nick.js" />
+        <option value="$PROJECT_DIR$/js/main.js" />
+        <option value="$PROJECT_DIR$/js/jon.js" />
       </list>
     </option>
   </component>
@@ -600,7 +605,7 @@
       <workItem from="1423175190789" duration="1145000" />
       <workItem from="1423182244915" duration="5556000" />
       <workItem from="1423260917759" duration="14563000" />
-      <workItem from="1423286206955" duration="2322000" />
+      <workItem from="1423286206955" duration="5578000" />
     </task>
     <task id="LOCAL-00001" summary="Can walk to the right, but needs to set walking boolean to false on keyup now.">
       <created>1422437223481</created>
@@ -734,11 +739,17 @@
       <option name="project" value="LOCAL" />
       <updated>1423350531462</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Added jon's spritesheet to the project, and stopped letting nick do punch animation while jumping.">
+      <created>1423354124784</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1423354124784</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43271000" />
+    <option name="totallyTimeSpent" value="46527000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="708" extended-state="6" />
@@ -810,7 +821,8 @@
     <MESSAGE value="Added a character selection screen that doesn't do much yet. (Press Enter to start the actual game). Also switched health bars to damage opponents health bar instead of the one above your own player." />
     <MESSAGE value="Made sure chris can't go off the side of the screen." />
     <MESSAGE value="Fixed the enter creates duplicate character problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed the enter creates duplicate character problem." />
+    <MESSAGE value="Added jon's spritesheet to the project, and stopped letting nick do punch animation while jumping." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added jon's spritesheet to the project, and stopped letting nick do punch animation while jumping." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -821,13 +833,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/GameEngine.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1245" max-vertical-offset="1545">
-          <caret line="83" column="1" selection-start-line="83" selection-start-column="1" selection-end-line="83" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/nick.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="154" max-vertical-offset="1230">
@@ -1143,44 +1148,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/game.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.25" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="18" column="63" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/js/CharacterSelect.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="885">
-          <caret line="45" column="116" selection-start-line="45" selection-start-column="116" selection-end-line="45" selection-end-column="116" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="870">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="n#!!doc;n#CharacterSelect#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="642" max-vertical-offset="2295">
-          <caret line="57" column="71" selection-start-line="57" selection-start-column="71" selection-end-line="57" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="1155">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/chris.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="387" max-vertical-offset="1890">
-          <caret line="101" column="33" selection-start-line="101" selection-start-column="33" selection-end-line="101" selection-end-column="33" />
+        <state vertical-scroll-proportion="-2.2222223" vertical-offset="0" max-vertical-offset="2100">
+          <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/nick.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0204082" vertical-offset="0" max-vertical-offset="2085">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2280">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="146" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.666667" vertical-offset="534" max-vertical-offset="2295">
+          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jon.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="2280">
+          <caret line="36" column="78" selection-start-line="36" selection-start-column="78" selection-end-line="36" selection-end-column="78" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05319149" vertical-offset="0" max-vertical-offset="1155">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
           <folding />
         </state>
       </provider>

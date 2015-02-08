@@ -1,18 +1,18 @@
 /**
- * Created by httpnick on 1/28/15.
+ * Created by httpnick on 2/07/15.
  */
 
 
-function Nick(game, spritesheet, playerNumber) {
+function Jon(game, spritesheet, playerNumber) {
     this.spritesheet = spritesheet;
     this.animate = null;
-    this.nickPunchAnimate = null;
-    this.nickKickAnimate = null;
-    this.nickWalkAnimate = null;
-    this.nickBlockAnimate = null;
-    this.nickHoldBlock = null;
-    this.nickJumpAnimate = null;
-    this.nickFallAnimate = null;
+    this.jonPunchAnimate = null;
+    this.jonKickAnimate = null;
+    this.jonWalkAnimate = null;
+    this.jonBlockAnimate = null;
+    this.jonHoldBlock = null;
+    this.jonJumpAnimate = null;
+    this.jonFallAnimate = null;
     this.game = game;
     this.ctx = game.ctx;
     this.x = 0;
@@ -28,72 +28,72 @@ function Nick(game, spritesheet, playerNumber) {
     this.isJumping = false;
     this.isFalling = false;
     this.loadAnims();
-    this.nickHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+    this.jonHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
 }
 
-Nick.prototype.loadAnims = function() {
+Jon.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
-        this.animate = new Animate(this.spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
-        this.nickPunchAnimate = new Animate(this.spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
-        this.nickKickAnimate = new Animate(this.spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
-        this.nickWalkAnimate = new Animate(this.spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false);
-        this.nickBlockAnimate = new Animate(this.spritesheet, 0, 10, 370, 500, 0.1, 3, false, false);
-        this.nickHoldBlock = new Animate(this.spritesheet, 740, 10, 370, 500, 0.1, 1, true, false);
-        this.nickJumpAnimate = new Animate(this.spritesheet,0, 1500, 370, 500, .2, 3, false, false);
-        this.nickFallAnimate = new Animate(this.spritesheet, 740, 1500, 370, 500, .2, 1, true, false);
+        this.animate = new Animate(this.spritesheet, 3000, 2000, 370, 500, 0.1, 2, true, false);
+        this.jonPunchAnimate = new Animate(this.spritesheet, 0, 1995, 370, 480, 0.05, 4, false, false);
+        this.jonKickAnimate = new Animate(this.spritesheet, 0, 2480, 370, 500, 0.1, 4, false, false);
+        this.jonWalkAnimate = new Animate(this.spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false);
+        this.jonBlockAnimate = new Animate(this.spritesheet, 0, 10, 370, 500, 0.1, 3, false, false);
+        this.jonHoldBlock = new Animate(this.spritesheet, 740, 10, 370, 500, 0.1, 1, true, false);
+        this.jonJumpAnimate = new Animate(this.spritesheet,0, 1485, 370, 490, .2, 3, false, false);
+        this.jonFallAnimate = new Animate(this.spritesheet, 740, 1485, 370, 490, .2, 1, true, false);
     } else {
-
+        console.log("Jon doesn't have player2 animations yet.")
     }
 }
-Nick.prototype.draw = function() {
-    this.nickHealthBar.draw();
-     if(this.isJumping){
-        this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+Jon.prototype.draw = function() {
+    this.jonHealthBar.draw();
+    if(this.isJumping){
+        this.jonJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isFalling) {
-        this.nickFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.jonFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isPunching) {
 
         var superPunch = Math.floor(Math.random()*11);
         if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
-         this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-         //I Plan on testing/adding a superpunch special effect here later
+            this.jonPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+            //I Plan on testing/adding a superpunch special effect here later
         }
         else{
-        this.nickPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+            this.jonPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         }
         // checks to see if the punch loop is over, if so set punching to be false.
-        if (this.nickPunchAnimate.isDone()) {
+        if (this.jonPunchAnimate.isDone()) {
             this.health -= 5;
-            this.nickHealthBar.setHealth(this.health);
-            this.nickPunchAnimate.elapsedTime = 0;
+            this.jonHealthBar.setHealth(this.health);
+            this.jonPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
     } else if(this.isKicking) {
-        this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.jonKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
-        if (this.nickKickAnimate.isDone()) {
+        if (this.jonKickAnimate.isDone()) {
             this.health -= 5;
-            this.nickHealthBar.setHealth(this.health);
-            this.nickKickAnimate.elapsedTime = 0;
+            this.jonHealthBar.setHealth(this.health);
+            this.jonKickAnimate.elapsedTime = 0;
             this.isKicking = false;
         }
     } else if(this.isBlocking) {
-        this.nickBlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
-        if (this.nickBlockAnimate.isDone()) {
+        this.jonBlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
+        if (this.jonBlockAnimate.isDone()) {
             this.isBlocking = false;
         }
     } else if (this.isHoldingBlock) {
-        this.nickHoldBlock.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.jonHoldBlock.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
-        this.nickWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.jonWalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else {
         // default standing animation
         this.animate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     }
 };
-    /* checks if certain buttons are pushed and sets booleans to true accordingly. */
-Nick.prototype.update = function() {
+/* checks if certain buttons are pushed and sets booleans to true accordingly. */
+Jon.prototype.update = function() {
     var canvas = document.getElementById('gameCanvas');
     var canvasWidth = canvas.width;
 
@@ -105,9 +105,9 @@ Nick.prototype.update = function() {
         if (!this.isHoldingBlock) {
             this.isBlocking = true;
         }
-        if (this.nickBlockAnimate.isDone() && this.game.q) {
+        if (this.jonBlockAnimate.isDone() && this.game.q) {
             this.isHoldingBlock = true;
-            this.nickBlockAnimate.elapsedTime = 0;
+            this.jonBlockAnimate.elapsedTime = 0;
             this.isBlocking = false;
         }
     } else if (this.game.w && !this.isJumping && !this.isFalling) {
@@ -129,8 +129,8 @@ Nick.prototype.update = function() {
 
     if (this.isJumping) {
         this.y -= 10;
-        if (this.nickJumpAnimate.isDone()) {
-            this.nickJumpAnimate.elapsedTime = 0;
+        if (this.jonJumpAnimate.isDone()) {
+            this.jonJumpAnimate.elapsedTime = 0;
             this.isJumping = false;
             this.isFalling = true;
         }

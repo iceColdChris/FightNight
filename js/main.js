@@ -27,9 +27,6 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     }
     var frame = this.reverse ? this.frames - this.currentFrame() - 1: this.currentFrame();
     var xindex = (frame % this.frames);
-    if (this.frameDuration === .2) {
-        console.log((xindex * this.frameWidth) + this.startX);
-    }
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
         this.startY,
@@ -51,10 +48,12 @@ function CharacterSelectHandler(event) {
     if(event.keyCode === 13) {
         gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
         gameEngine.start();
-        gameEngine.addEntity(new Nick(gameEngine,
-            assets.getAsset("./img/nick.png")));
+        /*gameEngine.addEntity(new Nick(gameEngine,
+            assets.getAsset("./img/nick.png"), 1)); */
+        gameEngine.addEntity(new Jon(gameEngine,
+            assets.getAsset("./img/jon.png"), 1));
         gameEngine.addEntity(new Chris(gameEngine,
-            assets.getAsset("./img/chris.png")));
+            assets.getAsset("./img/chris.png"), 2));
         document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
     }
     event.preventDefault();
@@ -130,6 +129,7 @@ var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
+assets.queueDownload("./img/jon.png");
 assets.queueDownload("./backgrounds/level01.jpg");
 //assets.queueDownload("./sounds/bell.mp3");
 
