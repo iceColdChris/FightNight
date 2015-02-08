@@ -49,7 +49,7 @@ function CharacterSelectHandler(event) {
         gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
         gameEngine.start();
         /*gameEngine.addEntity(new Nick(gameEngine,
-            assets.getAsset("./img/nick.png"), 1)); */
+         assets.getAsset("./img/nick.png"), 1)); */
         gameEngine.addEntity(new Jon(gameEngine,
             assets.getAsset("./img/jon.png"), 1));
         gameEngine.addEntity(new Chris(gameEngine,
@@ -73,8 +73,12 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
-    } else if (event.keyCode === 38) {
+    } else if (keyPressed === "E") {
+        gameEngine.e = true;
+    }else if (event.keyCode === 38) {
       gameEngine.up = true;
+    }else if (event.keyCode === 16) {
+        gameEngine.rShift = true;
     } else if (event.keyCode === 39) {
         gameEngine.right = true;
     } else if (event.keyCode === 37) {
@@ -106,6 +110,10 @@ function keyUpHandler(event) {
         gameEngine.g = false;
     } else if (keyPressed === "Q") {
       gameEngine.q = false;
+    } else if (keyPressed === "E") {
+        gameEngine.e = false;
+    } else if (event.keyCode === 16) {
+        gameEngine.rShift = false;
     } else if (event.keyCode === 38) {
         gameEngine.up = false;
     }  else if (event.keyCode === 39) {

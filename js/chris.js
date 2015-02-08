@@ -12,6 +12,11 @@ function Chris(game, spritesheet, playerNumber) {
     this.chrisBlockAnimate = null;
     this.chrisBlockHold = null;
     this.playerNumber = playerNumber;
+    if (this.playerNumber === 1) {
+        this.x = 0;
+    } else {
+        this.x = 1000;
+    }
     this.game = game;
     this.ctx = game.ctx;
     this.isBlocking = false;
@@ -23,14 +28,25 @@ function Chris(game, spritesheet, playerNumber) {
     this.isJumping = false;
     this.isFalling = false;
     this.health = 100;
-    this.x = 1000;
     this.y = this.game.floorY;
     this.loadAnims();
-    this.chrisHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+    this.chrisHealthBar = null;
+    if (this.playerNumber === 1) {
+        this.chrisHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+    } else {
+        this.chrisHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+    }
 }
 Chris.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
-        console.log("Chris doesn't have player 1 animations.")
+        this.animate = new Animate(this.spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);
+        this.chrisWalkAnimate = new Animate(this.spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
+        this.chrisPunchAnimate = new Animate(this.spritesheet, 1855, 2002, 368, 460, 0.08, 3, false, true);
+        this.chrisKickAnimate = new Animate(this.spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
+        this.chrisJumpAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
+        this.chrisFallAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
+        this.chrisBlockAnimate = new Animate(this.spritesheet, 1800, 0, 370, 500, 0.1, 3, false, true);
+        this.chrisBlockHold = new Animate(this.spritesheet, 1800, 0, 370, 500, 0.1, 1, true, false);
     } else {
         this.animate = new Animate(this.spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);
         this.chrisWalkAnimate = new Animate(this.spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);

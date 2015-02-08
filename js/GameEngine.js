@@ -23,9 +23,11 @@ function GameEngine() {
     this.d = null;
     this.a = null;
     this.q = null;
+    this.e = null;
     this.left = null;
     this.right = null;
     this.down = null;
+    this.rShift = null;
     this.comma = null;
     this.up = null;
     this.period = null;

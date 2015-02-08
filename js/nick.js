@@ -15,10 +15,14 @@ function Nick(game, spritesheet, playerNumber) {
     this.nickFallAnimate = null;
     this.game = game;
     this.ctx = game.ctx;
-    this.x = 0;
     this.y = this.game.floorY;
     this.health = 100;
     this.playerNumber = playerNumber;
+    if (this.playerNumber === 1) {
+        this.x = 0;
+    } else {
+        this.x = 1000;
+    }
     this.isPunching = false;
     this.isKicking = false;
     this.walkingRight = false;
@@ -28,7 +32,12 @@ function Nick(game, spritesheet, playerNumber) {
     this.isJumping = false;
     this.isFalling = false;
     this.loadAnims();
-    this.nickHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+    this.nickHealthBar = null;
+    if (this.playerNumber === 1) {
+        this.nickHealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+    } else {
+        this.nickHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+    }
 }
 
 Nick.prototype.loadAnims = function() {
@@ -42,7 +51,14 @@ Nick.prototype.loadAnims = function() {
         this.nickJumpAnimate = new Animate(this.spritesheet,0, 1500, 370, 500, .2, 3, false, false);
         this.nickFallAnimate = new Animate(this.spritesheet, 740, 1500, 370, 500, .2, 1, true, false);
     } else {
-
+        this.animate = new Animate(this.spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
+        this.nickPunchAnimate = new Animate(this.spritesheet, 3040, 2000, 370, 500, 0.05, 4, false, false);
+        this.nickKickAnimate = new Animate(this.spritesheet, 3040, 2500, 370, 500, 0.1, 4, false, false);
+        this.nickWalkAnimate = new Animate(this.spritesheet, 3000, 0, 370, 500, 0.1, 4, true, false);
+        this.nickBlockAnimate = new Animate(this.spritesheet, 0, 10, 370, 500, 0.1, 3, false, false);
+        this.nickHoldBlock = new Animate(this.spritesheet, 740, 10, 370, 500, 0.1, 1, true, false);
+        this.nickJumpAnimate = new Animate(this.spritesheet,0, 1500, 370, 500, .2, 3, false, false);
+        this.nickFallAnimate = new Animate(this.spritesheet, 740, 1500, 370, 500, .2, 1, true, false);
     }
 }
 Nick.prototype.draw = function() {
