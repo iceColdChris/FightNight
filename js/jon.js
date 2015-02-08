@@ -128,7 +128,7 @@ Jon.prototype.update = function() {
     }
 
     if (this.isJumping) {
-        this.y -= 10;
+        this.y -= 25;
         if (this.jonJumpAnimate.isDone()) {
             this.jonJumpAnimate.elapsedTime = 0;
             this.isJumping = false;
@@ -138,7 +138,7 @@ Jon.prototype.update = function() {
         if (this.y >= this.game.floorY) {
             this.isFalling = false;
         } else {
-            this.y += 10;
+            this.y += 25;
         }
     }
 

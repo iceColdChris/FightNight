@@ -139,6 +139,7 @@ assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
 assets.queueDownload("./backgrounds/level01.jpg");
+assets.queueDownload("./charSelection/charSelection.jpg");
 //assets.queueDownload("./sounds/bell.mp3");
 
 assets.downloadAll(function() {

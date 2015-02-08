@@ -19,9 +19,18 @@ CharacterSelect.prototype.init = function(ctx){
 
 
 CharacterSelect.prototype.display = function() {
-    this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
-    this.ctx.save();
-    for (var i = 0; i < 6; i++) {
+
+
+
+        this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
+        this.ctx.save();
+
+        var background = new Image();
+        background = ("./backgrounds/level01.jpg");
+        this.ctx.drawImage(background,0,0);
+
+
+    /*for (var i = 0; i < 6; i++) {
         for (var j = 0; j < 2; j ++) {
             this.ctx.beginPath();
             this.ctx.fillStyle = this.colors[i];
@@ -42,7 +51,7 @@ CharacterSelect.prototype.display = function() {
                 500);
 
         }
-    }
+    }*/
     this.ctx.font="50px Times Roman";
     this.ctx.fillStyle = "red";
     this.ctx.fillText("Press Enter to Start the game!", (this.surfaceWidth / 2) - 300, (this.surfaceHeight / 2) - 30);
