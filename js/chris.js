@@ -43,17 +43,7 @@ Chris.prototype.draw = function() {
             this.chrisPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
-    } else if(this.isJumping){
-        this.chrisJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        if (this.chrisJumpAnimate.isDone()) {
-            this.chrisJumpAnimate.elapsedTime = 0;
-            this.isJumping = false;
-            this.isFalling = true;
-        }
-    }
-    else if (this.isFalling) {
-        this.chrisFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y)
-    }else if (this.isBlocking) {
+    } else if (this.isBlocking) {
         this.chrisBlockAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         if (this.chrisBlockAnimate.isDone()) {
             this.isBlocking = false;

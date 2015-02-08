@@ -34,7 +34,11 @@ function Nick(game, spritesheet) {
 
 Nick.prototype.draw = function() {
     this.nickHealthBar.draw();
-    if (this.isPunching) {
+     if(this.isJumping){
+        this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    } else if (this.isFalling) {
+        this.nickFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    } else if (this.isPunching) {
 
         var superPunch = Math.floor(Math.random()*11);
         if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
@@ -51,10 +55,6 @@ Nick.prototype.draw = function() {
             this.nickPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
         }
-    }else if(this.isJumping){
-        this.nickJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-    } else if (this.isFalling) {
-        this.nickFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if(this.isKicking) {
         this.nickKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         // checks to see if the kick loop is over, if so set kicking to be false.
