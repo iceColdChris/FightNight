@@ -62,13 +62,15 @@ function CharacterSelectHandler(event) {
             console.log("Tolentino chosen");
         }
         event.preventDefault();
-        currentSelectionNumber += 1;
-        if (currentSelectionNumber > 2) {
-            gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-            gameEngine.start();
-            gameEngine.addEntity(characters[0]);
-            gameEngine.addEntity(characters[1]);
-            document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+        if (selection === 49 || selection === 50 || selection === 51) {
+            currentSelectionNumber += 1;
+            if (currentSelectionNumber > 2) {
+                gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+                gameEngine.start();
+                gameEngine.addEntity(characters[0]);
+                gameEngine.addEntity(characters[1]);
+                document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+            }
         }
     }
 }
@@ -87,9 +89,11 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
-    } else if (keyPressed === "E") {
+    } else if (keyPressed === "E")  {
         gameEngine.e = true;
-    }else if (event.keyCode === 38) {
+    } else if (keyPressed === "S") {
+        gameEngine.s = true;
+    } else if (event.keyCode === 38) {
       gameEngine.up = true;
     }else if (event.keyCode === 16) {
         gameEngine.rShift = true;
@@ -126,6 +130,8 @@ function keyUpHandler(event) {
       gameEngine.q = false;
     } else if (keyPressed === "E") {
         gameEngine.e = false;
+    } else if (keyPressed === "S") {
+        gameEngine.s = false;
     } else if (event.keyCode === 16) {
         gameEngine.rShift = false;
     } else if (event.keyCode === 38) {

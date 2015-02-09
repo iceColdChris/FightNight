@@ -25,21 +25,6 @@ CharacterSelect.prototype.display = function() {
 
     this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
     this.ctx.save();
-/*
-    for (var i = 0; i < 6; i++) {
-        for (var j = 0; j < 2; j ++) {
-            this.ctx.beginPath();
-            this.ctx.fillStyle = this.colors[i];
-            this.ctx.rect(i * (this.surfaceWidth / 6), j * (this.surfaceHeight / 2),
-                this.surfaceWidth / 6, this.surfaceHeight / 2);
-            this.ctx.fill();
-            this.ctx.lineWidth = 7;
-            this.ctx.strokeStyle = 'black';
-            this.ctx.stroke();
-            this.ctx.closePath();
-        }
-    } */
-
     this.ctx.drawImage(this.background, 0, 0, this.surfaceWidth, this.surfaceHeight);
     this.ctx.beginPath();
     this.ctx.fillStyle = "black";

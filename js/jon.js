@@ -14,6 +14,8 @@ function Jon(game, spritesheet, playerNumber) {
     this.jonJumpAnimate = null;
     this.jonFallAnimate = null;
     this.jonEmoteAnimate = null;
+    this.jonCrouchAnimate = null;
+    this.jonHoldCrouchAnimate = null;
     this.game = game;
     this.ctx = game.ctx;
     this.health = 100;
@@ -33,6 +35,8 @@ function Jon(game, spritesheet, playerNumber) {
     this.isJumping = false;
     this.isFalling = false;
     this.isEmoting = false;
+    this.isCrouching = false;
+    this.isHoldingCrouch = false;
     this.canvas = document.getElementById('gameCanvas');
     this.canvasWidth = this.canvas.width;
     this.loadAnims();
@@ -55,6 +59,9 @@ Jon.prototype.loadAnims = function() {
         this.jonJumpAnimate = new Animate(this.spritesheet,0, 1485, 370, 490, .2, 3, false, false);
         this.jonFallAnimate = new Animate(this.spritesheet, 740, 1485, 370, 490, .2, 1, true, false);
         this.jonEmoteAnimate = new Animate(this.spritesheet, 3000, 500, 370, 500, 0.1, 4, false, false);
+        this.jonCrouchAnimate = new Animate(this.spritesheet, 0, 1000, 370, 485, 0.1, 3, false, false);
+        this.jonHoldCrouchAnimate = new Animate(this.spritesheet, 740, 1000, 370, 485, 0.1, 1, true, false);
+
     } else {
         this.animate = new Animate(this.spritesheet, 740, 2980, 370, 500, 0.1, 2, true, true);
         this.jonPunchAnimate = new Animate(this.spritesheet, 1500, 1995, 370, 480, 0.05, 4, false, true);
@@ -65,6 +72,8 @@ Jon.prototype.loadAnims = function() {
         this.jonJumpAnimate = new Animate(this.spritesheet, 1800, 1485, 370, 490, .2, 3, false, true);
         this.jonFallAnimate = new Animate(this.spritesheet, 2540, 1485, 370, 490, .2, 1, true, true);
         this.jonEmoteAnimate = new Animate(this.spritesheet, 3000, 1485, 370, 490, 0.1, 4, false, true);
+        this.jonCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 3, false, true);
+        this.jonHoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 1, true, true);
     }
 }
 Jon.prototype.draw = function() {
@@ -73,6 +82,13 @@ Jon.prototype.draw = function() {
         this.jonJumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isFalling) {
         this.jonFallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+    } else if (this.isCrouching) {
+        this.jonCrouchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.jonCrouchAnimate.isDone()) {
+            this.isCrouching = false;
+        }
+    } else if (this.isHoldingCrouch) {
+        this.jonHoldCrouchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isEmoting) {
         this.jonEmoteAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
          if (this.jonEmoteAnimate.isDone()) {
@@ -145,7 +161,18 @@ Jon.prototype.update = function() {
 };
 
 Jon.prototype.updatePlayerOne = function() {
-    if (this.game.f) {
+    if (this.game.w && !this.isJumping && !this.isFalling) {
+        this.isJumping = true;
+    }  else if (this.game.s) {
+        if (!this.isHoldingCrouch) {
+            this.isCrouching = true;
+        }
+        if (this.jonCrouchAnimate.isDone() && this.game.s) {
+            this.isHoldingCrouch = true;
+            this.jonCrouchAnimate.elapsedTime = 0;
+            this.isCrouching = false;
+        }
+    } else if (this.game.f) {
         this.isPunching = true;
     } else if (this.game.g) {
         this.isKicking = true;
@@ -160,8 +187,6 @@ Jon.prototype.updatePlayerOne = function() {
         }
     }  else if (this.game.e) {
         this.isEmoting = true;
-    } else if (this.game.w && !this.isJumping && !this.isFalling) {
-        this.isJumping = true;
     } else if (this.game.d) {
         if(this.x < this.canvasWidth-370) {//keeps jon from walking off the right of the screen. Could someone add a correct width statement of Nick?
             this.walkingRight = true;
@@ -179,11 +204,24 @@ Jon.prototype.updatePlayerOne = function() {
     if (!this.game.q && this.isHoldingBlock) {
         this.isHoldingBlock = false;
     }
+
+    if (!this.game.s && this.isHoldingCrouch) {
+        this.isHoldingCrouch = false;
+    }
 };
 
 Jon.prototype.updatePlayerTwo = function(){
     if (this.game.up && !this.isJumping && !this.isFalling) {
         this.isJumping = true;
+    } else if (this.game.down) {
+        if (!this.isHoldingCrouch) {
+            this.isCrouching = true;
+        }
+        if (this.jonCrouchAnimate.isDone() && this.game.down) {
+            this.isHoldingCrouch = true;
+            this.jonCrouchAnimate.elapsedTime = 0;
+            this.isCrouching = false;
+        }
     } else if (this.game.comma) {
         if (!this.isHoldingBlock) {
             this.isBlocking = true;
@@ -216,5 +254,8 @@ Jon.prototype.updatePlayerTwo = function(){
 
     if (!this.game.comma && this.isHoldingBlock) {
         this.isHoldingBlock = false;
+    }
+    if (!this.game.down && this.isHoldingCrouch) {
+        this.isHoldingCrouch = false;
     }
 };

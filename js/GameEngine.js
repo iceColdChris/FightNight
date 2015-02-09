@@ -24,6 +24,7 @@ function GameEngine() {
     this.a = null;
     this.q = null;
     this.e = null;
+    this.s = null;
     this.left = null;
     this.right = null;
     this.down = null;
