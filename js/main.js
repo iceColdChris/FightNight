@@ -81,7 +81,7 @@ function keyDownHandler(event) {
         gameEngine.d = true;
     }else if (keyPressed === "A") {
         gameEngine.a = true;
-    }else if (keyPressed === "W"){
+           }else if (keyPressed === "W"){
         gameEngine.w = true;
     }else if(event.keyCode === 81) {
         gameEngine.q = true;

@@ -46,6 +46,18 @@ function Jon(game, spritesheet, playerNumber) {
     } else {
         this.jonHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
     }
+
+
+
+    //Sound Objects
+    this.playPunchSound = false;
+    this.playKickSound = false;
+    this.playGetPunchedSound = false;
+    this.playGetKickedSound = false;
+    this.playJumpSound = false;
+    this.playVictorySound = false;
+
+
 }
 
 Jon.prototype.loadAnims = function() {
@@ -97,12 +109,20 @@ Jon.prototype.draw = function() {
          }
     } else if (this.isPunching) {
         var superPunch = Math.floor(Math.random()*11);
+
         if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
             this.jonPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-            //I Plan on testing/adding a superpunch special effect here later
+
         }
         else{
             this.jonPunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+            if(this.playPunchSound === false){
+             this.playPunch();
+             this.playPunchSound = true;
+             }
+
+
+
         }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.jonPunchAnimate.isDone()) {
@@ -110,6 +130,11 @@ Jon.prototype.draw = function() {
             this.jonHealthBar.setHealth(this.health);
             this.jonPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
+             this.playPunchSound = false;
+
+
+
+
         }
     } else if(this.isKicking) {
         this.jonKickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -259,3 +284,10 @@ Jon.prototype.updatePlayerTwo = function(){
         this.isHoldingCrouch = false;
     }
 };
+
+Jon.prototype.playPunch = function(){
+
+        var snd = new Audio("./sound/JonSound/JonPunch.mp3");
+        snd.play();
+         console.log("Here");
+}
