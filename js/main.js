@@ -42,21 +42,37 @@ Animate.prototype.currentFrame = function () {
 Animate.prototype.isDone = function() {
     // multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
     return (this.elapsedTime >= this.totalTime*0.9);
-}
+};
 
 function CharacterSelectHandler(event) {
-    if(event.keyCode === 13) {
-        gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-        gameEngine.start();
-        /*gameEngine.addEntity(new Nick(gameEngine,
-         assets.getAsset("./img/nick.png"), 1)); */
-        gameEngine.addEntity(new Jon(gameEngine,
-            assets.getAsset("./img/jon.png"), 1));
-        gameEngine.addEntity(new Chris(gameEngine,
-            assets.getAsset("./img/chris.png"), 2));
-        document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+    var selection = event.keyCode
+    if (selection >= 49 && selection <= 54) {
+        if (selection === 49) {
+            console.log("Nick Chosen")
+            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber));
+        } else if (selection === 50) {
+            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber));
+        } else if (selection === 51) {
+            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber));
+        } else if (selection === 52) {
+            console.log("Matt chosen")
+        } else if (selection === 53) {
+            console.log("Chinn Chosen")
+        } else if (selection === 54) {
+            console.log("Tolentino chosen");
+        }
+        event.preventDefault();
+        if (selection === 49 || selection === 50 || selection === 51) {
+            currentSelectionNumber += 1;
+            if (currentSelectionNumber > 2) {
+                gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+                gameEngine.start();
+                gameEngine.addEntity(characters[0]);
+                gameEngine.addEntity(characters[1]);
+                document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+            }
+        }
     }
-    event.preventDefault();
 }
 
 function keyDownHandler(event) {
@@ -73,9 +89,11 @@ function keyDownHandler(event) {
         gameEngine.f = true;
     } else if (keyPressed === "G") {
         gameEngine.g = true;
-    } else if (keyPressed === "E") {
+    } else if (keyPressed === "E")  {
         gameEngine.e = true;
-    }else if (event.keyCode === 38) {
+    } else if (keyPressed === "S") {
+        gameEngine.s = true;
+    } else if (event.keyCode === 38) {
       gameEngine.up = true;
     }else if (event.keyCode === 16) {
         gameEngine.rShift = true;
@@ -112,6 +130,8 @@ function keyUpHandler(event) {
       gameEngine.q = false;
     } else if (keyPressed === "E") {
         gameEngine.e = false;
+    } else if (keyPressed === "S") {
+        gameEngine.s = false;
     } else if (event.keyCode === 16) {
         gameEngine.rShift = false;
     } else if (event.keyCode === 38) {
@@ -135,10 +155,13 @@ function keyUpHandler(event) {
 var assets = new Assets();
 var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
+var characters = [];
+var currentSelectionNumber = 1;
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
 assets.queueDownload("./backgrounds/level01.jpg");
+assets.queueDownload("./charSelection/charSelection.jpg");
 //assets.queueDownload("./sounds/bell.mp3");
 
 assets.downloadAll(function() {
@@ -148,8 +171,7 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     cSelect.init(ctx);
-    cSelect.addCharacter(assets.getAsset("./img/nick.png"));
-    cSelect.addCharacter(assets.getAsset("./img/chris.png"));
+    cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
     cSelect.display();
     canvas.addEventListener("keydown", CharacterSelectHandler, false);
 });
