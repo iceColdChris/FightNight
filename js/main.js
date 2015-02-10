@@ -164,37 +164,37 @@ assets.queueDownload("./backgrounds/level01.jpg");
 assets.queueDownload("./charSelection/charSelection.jpg");
 
 /*Jon Sounds*/
-assest.queueDownload("./sound/JonSound/JonPunch.mp3");
-assest.queueDownload("./sound/JonSound/JonKick.mp3");
-assest.queueDownload("./sound/JonSound/JonVictory.mp3");
-assest.queueDownload("./sound/JonSound/JonJumping.mp3");
-assest.queueDownload("./sound/JonSound/JonGettingKicked.mp3");
-assest.queueDownload("./sound/JonSound/JonGettingPunched.mp3");
+assets.queueDownload("./sound/JonSound/JonPunch.mp3");
+assets.queueDownload("./sound/JonSound/JonKick.mp3");
+assets.queueDownload("./sound/JonSound/JonVictory.mp3");
+assets.queueDownload("./sound/JonSound/JonJumping.mp3");
+assets.queueDownload("./sound/JonSound/JonGettingKicked.mp3");
+assets.queueDownload("./sound/JonSound/JonGettingPunched.mp3");
 
 
 /*Matt Sounds */
-assest.queueDownload("./sound/MattSound/MattPunch.mp3");
-assest.queueDownload("./sound/MattSound/MattKick.mp3");
-assest.queueDownload("./sound/MattSound/MattVictory.mp3");
-assest.queueDownload("./sound/MattSound/MattJumping.mp3");
-assest.queueDownload("./sound/MattSound/MattGettingKicked.mp3");
-assest.queueDownload("./sound/MattSound/MattGettingPunched.mp3");
+assets.queueDownload("./sound/MattSound/MattPunch.mp3");
+assets.queueDownload("./sound/MattSound/MattKick.mp3");
+assets.queueDownload("./sound/MattSound/MattVictory.mp3");
+assets.queueDownload("./sound/MattSound/MattJumping.mp3");
+assets.queueDownload("./sound/MattSound/MattGettingKicked.mp3");
+assets.queueDownload("./sound/MattSound/MattGettingPunched.mp3");
 
 /*Nick Sounds */
-assest.queueDownload("./sound/NickSound/NickPunch.mp3");
-assest.queueDownload("./sound/NickSound/NickKick.mp3");
-assest.queueDownload("./sound/NickSound/NickVictory.mp3");
-assest.queueDownload("./sound/NickSound/NickJumping.mp3");
-assest.queueDownload("./sound/NickSound/NickGettingKicked.mp3");
-assest.queueDownload("./sound/NickSound/NickGettingPunched.mp3");
+assets.queueDownload("./sound/NickSound/NickPunch.mp3");
+assets.queueDownload("./sound/NickSound/NickKick.mp3");
+assets.queueDownload("./sound/NickSound/NickVictory.mp3");
+assets.queueDownload("./sound/NickSound/NickJumping.mp3");
+assets.queueDownload("./sound/NickSound/NickGettingKicked.mp3");
+assets.queueDownload("./sound/NickSound/NickGettingPunched.mp3");
 
 /*Chris Sounds */
-assest.queueDownload("./sound/ChrisSound/ChrisPunch.mp3");
-assest.queueDownload("./sound/ChrisSound/ChrisKick.mp3");
-assest.queueDownload("./sound/ChrisSound/ChrisVictory.mp3");
-assest.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
-assest.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
-assest.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisPunch.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisKick.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisVictory.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
+assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
