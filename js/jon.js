@@ -170,10 +170,15 @@ Jon.prototype.update = function() {
 
     if (this.isJumping) {
         this.y -= 25;
+        if(this.playJumpSound === false){
+        this.playJump();
+        this.playJumpSound = true;
+        }
         if (this.jonJumpAnimate.isDone()) {
             this.jonJumpAnimate.elapsedTime = 0;
             this.isJumping = false;
             this.isFalling = true;
+            this.playJumpSound = true;
         }
     } if (this.isFalling) {
         if (this.y >= this.game.floorY) {
@@ -289,5 +294,13 @@ Jon.prototype.playPunch = function(){
 
         var snd = new Audio("./sound/JonSound/JonPunch.mp3");
         snd.play();
-         console.log("Here");
+
+}
+
+
+Jon.prototype.playJump = function(){
+
+        var snd = new Audio("./sound/JonSound/JonJumping.mp3");
+        snd.play();
+
 }
