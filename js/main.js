@@ -52,7 +52,7 @@ function CharacterSelectHandler(event) {
             console.log("Nick Chosen")
             characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber));
         } else if (selection === 50) {
-            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber));
+            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber,assets));
         } else if (selection === 51) {
             characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber));
         } else if (selection === 52) {
@@ -158,8 +158,6 @@ var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
 var characters = [];
 var currentSelectionNumber = 1;
-var jonSoundArray = [];
-
 
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");

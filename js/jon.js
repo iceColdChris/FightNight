@@ -3,7 +3,7 @@
  */
 
 
-function Jon(game, spritesheet, playerNumber) {
+function Jon(game, spritesheet, playerNumber,assets) {
     this.spritesheet = spritesheet;
     this.animate = null;
     this.jonPunchAnimate = null;
@@ -18,6 +18,7 @@ function Jon(game, spritesheet, playerNumber) {
     this.jonHoldCrouchAnimate = null;
     this.game = game;
     this.ctx = game.ctx;
+    this.assets = assets;
     this.health = 100;
     this.playerNumber = playerNumber;
     if (this.playerNumber === 1) {
@@ -130,7 +131,7 @@ Jon.prototype.draw = function() {
             this.jonHealthBar.setHealth(this.health);
             this.jonPunchAnimate.elapsedTime = 0;
             this.isPunching = false;
-             this.playPunchSound = false;
+            this.playPunchSound = false;
 
 
 
@@ -178,7 +179,7 @@ Jon.prototype.update = function() {
             this.jonJumpAnimate.elapsedTime = 0;
             this.isJumping = false;
             this.isFalling = true;
-            this.playJumpSound = true;
+            this.playJumpSound = false;
         }
     } if (this.isFalling) {
         if (this.y >= this.game.floorY) {
@@ -292,7 +293,7 @@ Jon.prototype.updatePlayerTwo = function(){
 
 Jon.prototype.playPunch = function(){
 
-        var snd = new Audio("./sound/JonSound/JonPunch.mp3");
+        var snd = this.assets.getAsset("./sound/JonSound/JonPunch.mp3");
         snd.play();
 
 }
@@ -301,6 +302,7 @@ Jon.prototype.playPunch = function(){
 Jon.prototype.playJump = function(){
 
         var snd = new Audio("./sound/JonSound/JonJumping.mp3");
+
         snd.play();
 
 }
