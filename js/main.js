@@ -19,6 +19,7 @@ function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDura
     this.elapsedTime = this.frameDuration * this.frames;
     this.loop = loop;
     this.reverse = reverse;
+
 }
 Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     this.elapsedTime += tick;
@@ -157,6 +158,9 @@ var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
 var characters = [];
 var currentSelectionNumber = 1;
+var jonSoundArray = [];
+
+
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
@@ -196,6 +200,7 @@ assets.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 
+
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
@@ -206,4 +211,7 @@ assets.downloadAll(function() {
     cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
     cSelect.display();
     canvas.addEventListener("keydown", CharacterSelectHandler, false);
+
+
+
 });
