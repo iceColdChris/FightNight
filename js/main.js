@@ -65,7 +65,11 @@ function CharacterSelectHandler(event) {
         event.preventDefault();
         if (selection === 49 || selection === 50 || selection === 51) {
             currentSelectionNumber += 1;
-            if (currentSelectionNumber > 2) {
+            if (currentSelectionNumber > 2)
+            {
+
+            //Stop Theme Music Here
+                mainTheme.pause();
                 gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
                 gameEngine.start();
                 gameEngine.addEntity(characters[0]);
@@ -158,6 +162,7 @@ var gameEngine = new GameEngine();
 var cSelect = new CharacterSelect();
 var characters = [];
 var currentSelectionNumber = 1;
+var mainTheme = new Audio("./ost/maintheme.mp3")
 
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
@@ -205,10 +210,12 @@ assets.downloadAll(function() {
     gameEngine.init(ctx);
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
+    mainTheme.play();
     cSelect.init(ctx);
     cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
     cSelect.display();
     canvas.addEventListener("keydown", CharacterSelectHandler, false);
+
 
 
 
