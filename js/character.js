@@ -1,7 +1,7 @@
 /**
  * Created by httpnick on 2/11/15.
  */
-function Character(game, spritesheet, playerNumber,assets) {
+function Character(game, spritesheet, playerNumber,assets,name) {
     this.spritesheet = spritesheet;
     this.animate = null;
     this.PunchAnimate = null;
@@ -16,6 +16,7 @@ function Character(game, spritesheet, playerNumber,assets) {
     this.CrouchAnimate = null;
     this.HoldCrouchAnimate = null;
     this.game = game;
+    this.name = name;
     this.ctx = game.ctx;
     this.assets = assets;
     this.health = 100;
@@ -267,22 +268,46 @@ Character.prototype.updatePlayerTwo = function(){
 
 Character.prototype.playPunch = function(){
 
-    var snd = this.assets.getAsset("./sound/JonSound/JonPunch.mp3");
-    snd.play();
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonPunch.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickPunch.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisPunch.mp3");
+        snd.play();
+    }
 
 }
 
 Character.prototype.playVictory = function(){
 
-    var snd = this.assets.getAsset("./sound/JonSound/JonVictory.mp3");
-    snd.play();
 
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonVictory.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickVictory.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisVictory.mp3");
+        snd.play();
+    }
 }
 
 
 Character.prototype.playJump = function(){
 
-    var snd = this.assets.getAsset("./sound/JonSound/JonJumping.mp3");
-    snd.play();
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonJumping.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickJumping.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisJumping.mp3");
+        snd.play();
+    }
 
 }

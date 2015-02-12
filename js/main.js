@@ -58,12 +58,11 @@ function CharacterSelectHandler(event) {
             playerOneSelectAudio.play();}
 
         if (selection === 49) {
-            console.log("Nick Chosen")
-            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber,assets));
+            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber,assets,"Nick"));
         } else if (selection === 50) {
-            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber,assets));
+            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber,assets,"Jon"));
         } else if (selection === 51) {
-            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber, assets));
+            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber, assets,"Chris"));
         } else if (selection === 52) {
             console.log("Matt chosen")
         } else if (selection === 53) {
