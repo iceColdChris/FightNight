@@ -48,21 +48,13 @@ Animate.prototype.isDone = function() {
 function CharacterSelectHandler(event) {
     var selection = event.keyCode
     if (selection >= 49 && selection <= 54) {
-
-        if(currentSelectionNumber ===1){
-            var playerOneSelectAudio = assets.getAsset("./sound/misc/PlayerOne.mp3");
-            playerOneSelectAudio.play();}
-
-        if(currentSelectionNumber ===2){
-            var playerOneSelectAudio = assets.getAsset("./sound/misc/PlayerTwo.mp3");
-            playerOneSelectAudio.play();}
-
         if (selection === 49) {
-            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber,assets,"Nick"));
+            console.log("Nick Chosen")
+            characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), currentSelectionNumber,assets));
         } else if (selection === 50) {
-            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber,assets,"Jon"));
+            characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), currentSelectionNumber,assets));
         } else if (selection === 51) {
-            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber, assets,"Chris"));
+            characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), currentSelectionNumber, assets));
         } else if (selection === 52) {
             console.log("Matt chosen")
         } else if (selection === 53) {
@@ -75,15 +67,15 @@ function CharacterSelectHandler(event) {
             currentSelectionNumber += 1;
             if (currentSelectionNumber > 2)
             {
+
                 //Stop Theme Music Here
                 mainTheme.pause();
-                var bellRinging = assets.getAsset("./sound/bell.mp3");
                 gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-                gameEngine.start(bellRinging);
+                gameEngine.start();
                 gameEngine.addEntity(characters[0]);
                 gameEngine.addEntity(characters[1]);
                 document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
-                var level01Music = assets.getAsset("./ost/level01music.mp3");
+                var level01Music = new Audio("./ost/level01music.mp3");
                 level01Music.play();
             }
         }
@@ -96,7 +88,7 @@ function keyDownHandler(event) {
         gameEngine.d = true;
     }else if (keyPressed === "A") {
         gameEngine.a = true;
-    }else if (keyPressed === "W"){
+           }else if (keyPressed === "W"){
         gameEngine.w = true;
     }else if(event.keyCode === 81) {
         gameEngine.q = true;
@@ -109,7 +101,7 @@ function keyDownHandler(event) {
     } else if (keyPressed === "S") {
         gameEngine.s = true;
     } else if (event.keyCode === 38) {
-        gameEngine.up = true;
+      gameEngine.up = true;
     }else if (event.keyCode === 16) {
         gameEngine.rShift = true;
     } else if (event.keyCode === 39) {
@@ -142,7 +134,7 @@ function keyUpHandler(event) {
     } else if (keyPressed === "G") {
         gameEngine.g = false;
     } else if (keyPressed === "Q") {
-        gameEngine.q = false;
+      gameEngine.q = false;
     } else if (keyPressed === "E") {
         gameEngine.e = false;
     } else if (keyPressed === "S") {
@@ -212,12 +204,6 @@ assets.queueDownload("./sound/ChrisSound/ChrisVictory.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
-
-/*misc sounds */
-assets.queueDownload("./sound/misc/PlayerOne.mp3");
-assets.queueDownload("./sound/misc/PlayerTwo.mp3");
-assets.queueDownload("./ost/level01music.mp3");
-assets.queueDownload("./sound/bell.mp3");
 
 
 assets.downloadAll(function() {
