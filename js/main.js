@@ -139,7 +139,6 @@ var gameEngine = new GameEngine();
 //var cSelect = new CharacterSelect();
 var characters = [];
 //var currentSelectionNumber = 1;
-var mainTheme = new Audio("./ost/maintheme.mp3")
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
@@ -174,20 +173,25 @@ assets.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 
+/*misc sounds */
+assets.queueDownload("./sound/misc/PlayerOne.mp3");
+assets.queueDownload("./sound/misc/PlayerTwo.mp3");
+assets.queueDownload("./sound/bell.mp3");
+
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
     gameEngine.init(ctx);
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
-    mainTheme.play();
     loadCharacters();
     localStorage.clear();
     gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-    gameEngine.start(mainTheme);
+    var bell = new Audio("./sound/bell.mp3");
+    bell.play();
+    gameEngine.start();
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
-    document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
     var level01Music = new Audio("./ost/level01music.mp3");
     level01Music.play();
 });
