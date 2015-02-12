@@ -45,18 +45,18 @@ Animate.prototype.isDone = function() {
 };
 function loadCharacters() {
     if (localStorage.getItem("playerOne") === "Nick") {
-        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 1, assets));
+        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 1, assets, "Nick"));
     } else if (localStorage.getItem("playerOne") === "Chris") {
-        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 1, assets));
+        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 1, assets, "Chris"));
     } else if (localStorage.getItem("playerOne") === "Jon") {
-        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 1, assets));
+        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 1, assets, "Jon"));
     }
     if (localStorage.getItem("playerTwo") === "Nick") {
-        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 2, assets));
+        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 2, assets, "Nick"));
     } else if (localStorage.getItem("playerTwo") === "Chris") {
-        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 2, assets));
+        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 2, assets, "Chris"));
     } else if (localStorage.getItem("playerTwo") === "Jon") {
-        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 2, assets));
+        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 2, assets, "Jon"));
     }
 }
 function keyDownHandler(event) {
@@ -181,11 +181,10 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     mainTheme.play();
-    mainTheme.pause();
     loadCharacters();
     localStorage.clear();
     gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
-    gameEngine.start();
+    gameEngine.start(mainTheme);
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
