@@ -84,21 +84,10 @@ Character.prototype.draw = function() {
             this.isEmoting = false;
         }
     } else if (this.isPunching) {
-        var superPunch = Math.floor(Math.random()*11);
-
-        if(superPunch === 0){ // CHECK OUT THE SUPER PUNCH YO
-            this.PunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-
-        }
-        else{
-            this.PunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-            if(this.playPunchSound === false){
-                this.playPunch();
-                this.playPunchSound = true;
-            }
-
-
-
+        this.PunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if(this.playPunchSound === false){
+            this.playPunch();
+            this.playPunchSound = true;
         }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.PunchAnimate.isDone()) {
@@ -107,19 +96,20 @@ Character.prototype.draw = function() {
             this.PunchAnimate.elapsedTime = 0;
             this.isPunching = false;
             this.playPunchSound = false;
-
-
-
-
         }
     } else if(this.isKicking) {
         this.KickAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if(this.playKickSound === false){
+            this.playKick();
+            this.playKickSound = true;
+        }
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.KickAnimate.isDone()) {
             this.health -= 5;
             this.HealthBar.setHealth(this.health);
             this.KickAnimate.elapsedTime = 0;
             this.isKicking = false;
+            this.playKickSound = false;
         }
     } else if(this.isBlocking) {
         this.BlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
@@ -307,6 +297,51 @@ Character.prototype.playJump = function(){
         snd.play();
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisJumping.mp3");
+        snd.play();
+    }
+
+}
+
+Character.prototype.playKick = function(){
+
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonKick.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickKick.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisKick.mp3");
+        snd.play();
+    }
+
+}
+
+
+Character.prototype.playGettingPunched = function(){
+
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonGettingPunched.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickGettingPunched.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingPunched.mp3");
+        snd.play();
+    }
+
+}
+Character.prototype.playGettingPunched = function(){
+
+    if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/JonSound/JonGettingKicked.mp3");
+        snd.play();
+    }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/NickSound/NickGettingKicked.mp3");
+        snd.play();
+    }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingKicked.mp3");
         snd.play();
     }
 
