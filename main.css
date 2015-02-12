@@ -57,3 +57,73 @@
     font-size: 15px;
     margin-bottom: 13px;
 }
+
+/* Nick's CSS junk down here. */
+.box {
+    margin-top: 60px;
+    margin-left: 20px;
+    position: absolute;
+    /* 'http://www.teacherfiles.com/clipart/xbackgrounds/lined_paper_light.jpg'
+    background-image:url("websource/Chris.png"); */
+    background-color: grey;
+    width: 200px;
+    height: 255px;
+    float: left;
+    border: 6px solid #338CC3;
+    text-align: center;
+}
+
+#box2 {
+    /* The value of margin-left is the width of the FIRST .box including border attribute. */
+    margin-left: 250px;
+}
+
+#box3 {
+    /* The value of margin-left is the width of the FIRST and SECOND .box including border attribute. */
+    margin-left: 500px;
+}
+
+.link-spanner{
+    position:absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left: 0;
+    z-index: 1;
+
+    /* edit: fixes overlap error in IE7/8,
+       make sure you have an empty gif
+    background-image: url('empty.gif');*/
+}
+
+.box:hover{
+    width: 250px;
+
+    /* Add extra 52px to normal height. Then, 1/2 of that is for top and the other half is for bottom. */
+    height: 320px;
+
+    /* Below we are using -26px ( 1/2 of total "extra' used for height). */
+    margin-top: 100px;
+
+    /* Make the border color lighter/brighter than non-hover color */
+    border: 6px solid #52B5D5;
+
+    /* Add drop shadow effect */
+    /*   http://www.webestools.com/css3-box-shadow-generator-css-property-easy-shadows-div-html5-drop-shadow-moz-webkit-shadow-maker.html   */
+    -moz-box-shadow:0px 0px 50px 0px #000000;
+    -webkit-box-shadow:0px 0px 50px 0px #000000;
+    box-shadow:0px 0px 50px 0px #000000;
+
+    /* Add curved corners via CSS3 Border radius to popped item that mimic original website effect */
+    /*   http://border-radius.com/    */
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+    /* Give it a higher z-index to it's on top of adjacent items near it. */
+    z-index: 10;
+}
+
