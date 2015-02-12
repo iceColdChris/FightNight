@@ -92,7 +92,7 @@ Jon.prototype.loadAnims = function() {
         this.jonCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 3, false, true);
         this.jonHoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 1, true, true);
     }
-}
+};
 Jon.prototype.draw = function() {
     this.jonHealthBar.draw();
     if(this.isJumping){
