@@ -46,7 +46,7 @@ GameEngine.prototype.init = function (ctx) {
 };
 GameEngine.prototype.start = function(audio) {
     console.log('starting game');
-    audio.play();
+    //audio.play();
     var that = this;
     (function gameLoop() {
         that.loop();
