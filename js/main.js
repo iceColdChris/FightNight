@@ -77,6 +77,7 @@ function CharacterSelectHandler(event) {
                 document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
                 var level01Music = new Audio("./ost/level01music.mp3");
                 level01Music.play();
+                level01Music.volume(.2);
             }
         }
     }
