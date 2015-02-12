@@ -68,13 +68,15 @@ function CharacterSelectHandler(event) {
             if (currentSelectionNumber > 2)
             {
 
-            //Stop Theme Music Here
+                //Stop Theme Music Here
                 mainTheme.pause();
                 gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
                 gameEngine.start();
                 gameEngine.addEntity(characters[0]);
                 gameEngine.addEntity(characters[1]);
                 document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+                var level01Music = new Audio("./ost/level01music.mp3");
+                level01Music.play();
             }
         }
     }
