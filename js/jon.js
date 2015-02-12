@@ -104,6 +104,7 @@ Jon.prototype.draw = function() {
         this.jonHoldCrouchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isEmoting) {
         this.jonEmoteAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.playVictory();
          if (this.jonEmoteAnimate.isDone()) {
              this.jonEmoteAnimate.elapsedTime = 0;
              this.isEmoting = false;
@@ -298,11 +299,17 @@ Jon.prototype.playPunch = function(){
 
 }
 
+Jon.prototype.playVictory = function(){
+
+        var snd = this.assets.getAsset("./sound/JonSound/JonVictory.mp3");
+        snd.play();
+
+}
+
 
 Jon.prototype.playJump = function(){
 
-        var snd = new Audio("./sound/JonSound/JonJumping.mp3");
-
+        var snd = this.assets.getAsset("./sound/JonSound/JonJumping.mp3");
         snd.play();
 
 }
