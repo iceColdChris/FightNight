@@ -5,6 +5,7 @@
 
 function Nick(game, spritesheet, playerNumber) {
     this.spritesheet = spritesheet;
+    this.opponent = null;
     this.animate = null;
     this.nickPunchAnimate = null;
     this.nickKickAnimate = null;
@@ -46,6 +47,10 @@ function Nick(game, spritesheet, playerNumber) {
         this.nickHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
     }
 }
+
+Nick.prototype.setOpponent = function(opponent) {
+    this.opponent = opponent;
+};
 
 Nick.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {

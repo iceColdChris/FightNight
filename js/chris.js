@@ -4,6 +4,7 @@
 function Chris(game, spritesheet, playerNumber) {
     this.spritesheet = spritesheet;
     this.animate = null;
+    this.opponent = null;
     this.chrisWalkAnimate = null;
     this.chrisPunchAnimate = null;
     this.chrisKickAnimate = null;
@@ -45,6 +46,9 @@ function Chris(game, spritesheet, playerNumber) {
         this.chrisHealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
     }
 }
+Chris.prototype.setOpponent = function(opponent) {
+    this.opponent = opponent;
+};
 Chris.prototype.loadAnims = function() {
     if (this.playerNumber === 2) {
         this.animate = new Animate(this.spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);

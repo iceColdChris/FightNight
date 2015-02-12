@@ -13,6 +13,7 @@ function Jon(game, spritesheet, playerNumber,assets) {
     this.jonHoldBlock = null;
     this.jonJumpAnimate = null;
     this.jonFallAnimate = null;
+    this.opponent = null;
     this.jonEmoteAnimate = null;
     this.jonCrouchAnimate = null;
     this.jonHoldCrouchAnimate = null;
@@ -60,6 +61,9 @@ function Jon(game, spritesheet, playerNumber,assets) {
 
 
 }
+Jon.prototype.setOpponent = function(opponent) {
+    this.opponent = opponent;
+};
 
 Jon.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
