@@ -17,6 +17,11 @@
     display: inline;
 }
 
+.row {
+    margin-top: 50px;
+}
+
+
 .jumbotron {
     background-image: url(websource/UWT%202.jpg), url(websource/UWT.jpg);
     height: 500px;
@@ -60,9 +65,9 @@
 
 /* Nick's CSS junk down here. */
 .box {
-    margin-top: 60px;
-    margin-left: 20px;
-    position: absolute;
+    /*margin-top: 60px;*/
+    /*margin-left: 20px;*/
+    position: relative;
     /* 'http://www.teacherfiles.com/clipart/xbackgrounds/lined_paper_light.jpg'
     background-image:url("websource/Chris.png"); */
     background-color: grey;
@@ -73,33 +78,6 @@
     text-align: center;
 }
 
-#Chris {
-    /* The value of margin-left is the width of the FIRST .box including border attribute. */
-    margin-left: 250px;
-}
-
-#Play {
-    /* The value of margin-left is the width of the FIRST and SECOND .box including border attribute. */
-    margin-left: 750px;
-}
-
-#Jon {
-    margin-left : 480px;
-}
-
-#Matt {
-    margin-top : 325px;
-}
-
-#Chinn {
-    margin-top : 325px;
-    margin-left : 250px;
-}
-
-#Tolentino {
-    margin-top : 325px;
-    margin-left : 480px;
-}
 
 .link-spanner{
     position:absolute;
@@ -121,7 +99,7 @@
     height: 320px;
 
     /* Below we are using -26px ( 1/2 of total "extra' used for height). */
-    margin-top: 100px;
+    margin-top: 25px;
 
     /* Make the border color lighter/brighter than non-hover color */
     border: 6px solid #52B5D5;
