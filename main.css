@@ -73,14 +73,32 @@
     text-align: center;
 }
 
-#box2 {
+#Chris {
     /* The value of margin-left is the width of the FIRST .box including border attribute. */
     margin-left: 250px;
 }
 
-#box3 {
+#Play {
     /* The value of margin-left is the width of the FIRST and SECOND .box including border attribute. */
-    margin-left: 500px;
+    margin-left: 750px;
+}
+
+#Jon {
+    margin-left : 480px;
+}
+
+#Matt {
+    margin-top : 325px;
+}
+
+#Chinn {
+    margin-top : 325px;
+    margin-left : 250px;
+}
+
+#Tolentino {
+    margin-top : 325px;
+    margin-left : 480px;
 }
 
 .link-spanner{

@@ -44,7 +44,24 @@ Animate.prototype.isDone = function() {
     // multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
     return (this.elapsedTime >= this.totalTime*0.9);
 };
+function loadCharacters() {
+    if (localStorage.getItem("playerOne") === "Nick") {
+        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 1, assets));
+    } else if (localStorage.getItem("playerOne") === "Chris") {
+        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 1, assets));
+    } else if (localStorage.getItem("playerOne") === "Jon") {
+        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 1, assets));
+    }
 
+    if (localStorage.getItem("playerTwo") === "Nick") {
+        characters.push(new Nick(gameEngine, assets.getAsset("./img/nick.png"), 2, assets));
+    } else if (localStorage.getItem("playerTwo") === "Chris") {
+        characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 2, assets));
+    } else if (localStorage.getItem("playerTwo") === "Jon") {
+        characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 2, assets));
+    }
+    mainTheme.pause();
+}
 function CharacterSelectHandler(event) {
     var selection = event.keyCode
     if (selection >= 49 && selection <= 54) {
@@ -159,11 +176,15 @@ function keyUpHandler(event) {
     event.preventDefault();
 }
 
+function SelectionHandle(event) {
+    console.log("clicked");
+}
+
 var assets = new Assets();
 var gameEngine = new GameEngine();
-var cSelect = new CharacterSelect();
+//var cSelect = new CharacterSelect();
 var characters = [];
-var currentSelectionNumber = 1;
+//var currentSelectionNumber = 1;
 var mainTheme = new Audio("./ost/maintheme.mp3")
 
 assets.queueDownload("./img/nick.png");
@@ -205,6 +226,8 @@ assets.queueDownload("./sound/ChrisSound/ChrisJumping.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingKicked.mp3");
 assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 
+var playerOne = localStorage.getItem('playerOne');
+console.log(playerOne);
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
@@ -213,10 +236,19 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     mainTheme.play();
-    cSelect.init(ctx);
-    cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
-    cSelect.display();
-    canvas.addEventListener("keydown", CharacterSelectHandler, false);
+    loadCharacters();
+    localStorage.clear();
+    gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+    gameEngine.start();
+    gameEngine.addEntity(characters[0]);
+    gameEngine.addEntity(characters[1]);
+    document.getElementById("gameCanvas").removeEventListener("keydown", CharacterSelectHandler, false);
+    var level01Music = new Audio("./ost/level01music.mp3");
+    level01Music.play();
+    //cSelect.init(ctx);
+    //cSelect.addSelectImage(assets.getAsset("./charSelection/charSelection.jpg"));
+    //cSelect.display();
+    //canvas.addEventListener("keydown", CharacterSelectHandler, false);
 
 
 
