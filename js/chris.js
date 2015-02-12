@@ -1,8 +1,8 @@
 /**
  * Created by httpnick on 1/28/15.
  */
-function Chris(game, spritesheet, playerNumber, assets) {
-    Character.call(this, game, spritesheet, playerNumber, assets);
+function Chris(game, spritesheet, playerNumber, assets,name) {
+    Character.call(this, game, spritesheet, playerNumber, assets,name);
     this.loadAnims();
 }
 
