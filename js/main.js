@@ -185,7 +185,6 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     loadCharacters();
-    localStorage.clear();
     gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
     var bell = new Audio("./sound/bell.mp3");
     bell.play();
