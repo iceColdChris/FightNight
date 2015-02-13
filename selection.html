@@ -18,6 +18,10 @@
                     class="thumbnail"> <img src="websource/Nick.png" >
             </div>
             <script type="text/javascript">
+                var selectionScreenThemeSong = new Audio("./ost/maintheme.mp3");
+                selectionScreenThemeSong.play();
+                var playerOne = new Audio("./sound/misc/PlayerOne.mp3");
+                var playerTwo = new Audio("./sound/misc/PlayerTwo.mp3");
                 $("#Nick").click(function() {
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
@@ -25,12 +29,14 @@
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
                         $Select.prepend('<div class="thumbnail"> <img src="websource/Nick.png" > </div>');
+                        playerOne.play();
                         //play player one selection sound here
                     } else if (asdf === 2) {
                         localStorage.setItem("playerTwo", "Nick");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
                         $Select.prepend('<div class="thumbnail"> <img src="websource/Nick.png" > </div>');
+                        playerTwo.play();
                         //play player
                     }
                     asdf += 1;
@@ -48,9 +54,11 @@
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
                         $Select.text("Chris selected");
+                        playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
                         $('#Selected').show();
+                        playerTwo.play();
                     }
                     asdf += 1;
                 });
@@ -64,8 +72,10 @@
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Jon");
+                        playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Jon");
+                        playerTwo.play();
                     }
                     asdf += 1;
                 });
@@ -79,8 +89,10 @@
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Chris");
+                        playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
+                        playerTwo.play();
                     }
                     asdf += 1;
                 });
@@ -95,8 +107,10 @@
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Chris");
+                        playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
+                        playerTwo.play();
                     }
                     asdf += 1;
                 });
@@ -111,8 +125,10 @@
                     if (asdf < 4) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Chris");
+                        playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
+                        playerTwo.play();
                     }
                     asdf += 1;
                 });
