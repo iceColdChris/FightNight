@@ -13,14 +13,25 @@
 
 <div class="row">
     <div class="col-md-2">
-        <div id="Nick" class="box">Nick
+        <div id="Nick" class="box">
+            <div
+                    class="thumbnail"> <img src="websource/Nick.png" >
+            </div>
             <script type="text/javascript">
                 $("#Nick").click(function() {
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Nick");
-                    } else {
+                        var $Select = $('#PlayerOneSelected');
+                        $Select.show();
+                        $Select.prepend('<div class="thumbnail"> <img src="websource/Nick.png" > </div>');
+                        //play player one selection sound here
+                    } else if (asdf === 2) {
                         localStorage.setItem("playerTwo", "Nick");
+                        var $Select = $('#PlayerTwoSelected');
+                        $Select.show();
+                        $Select.prepend('<div class="thumbnail"> <img src="websource/Nick.png" > </div>');
+                        //play player
                     }
                     asdf += 1;
                 });
@@ -34,8 +45,12 @@
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
                         localStorage.setItem("playerOne", "Chris");
+                        var $Select = $('#PlayerOneSelected');
+                        $Select.show();
+                        $Select.text("Chris selected");
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
+                        $('#Selected').show();
                     }
                     asdf += 1;
                 });
@@ -107,12 +122,24 @@
 
 </div>
 <div class="row">
-    <div class="col-md-1">
+    <div class="col-md-2">
         <div id="Play" class="box">Click this box to play.
             <a href="game.html">
                 <span class="link-spanner"></span>
             </a>
         </div>
+    </div>
+    <div class ="col-md-2">
+        <div id="PlayerOneSelected" class="box">Player One's character
+        <script type ="text/javascript" >
+            $("#PlayerOneSelected").hide();
+            </script></div>
+    </div>
+    <div class ="col-md-2">
+        <div id="PlayerTwoSelected" class="box">Player Two's character.
+            <script type ="text/javascript" >
+                $("#PlayerTwoSelected").hide();
+            </script></div>
     </div>
 </div>
 </body>
