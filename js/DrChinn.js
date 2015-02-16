@@ -1,16 +1,16 @@
 /**
  * Created by httpnick on 2/16/15.
  */
-function DrTolentino(game, spritesheet, playerNumber,assets,name) {
+function DrChinn(game, spritesheet, playerNumber,assets,name) {
     Character.call(this, game, spritesheet, playerNumber, assets,name);
     this.loadAnims();
 }
 
-DrTolentino.prototype = Object.create(Character.prototype); // See note below
+DrChinn.prototype = Object.create(Character.prototype); // See note below
 
-DrTolentino.prototype.constructor = DrTolentino;
+DrChinn.prototype.constructor = DrChinn;
 
-DrTolentino.prototype.loadAnims = function() {
+DrChinn.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
         this.animate = new Animate(this.spritesheet, 1850, 1000, 370, 500, 0.1, 3, true, true);
         this.PunchAnimate = new Animate(this.spritesheet, 1500, 0, 370, 500, 0.05, 4, false, true);
