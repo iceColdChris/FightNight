@@ -40,14 +40,27 @@
                         localStorage.setItem("playerOne", "Nick");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="http://media.giphy.com/media/PSBkfJO9zUpyg/giphy.gif" > </div>');
+                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
+                        var timeoutID = window.setTimeout(nickPlay, 2000);
+                        function nickPlay() {
+                            nickE.play();
+                        }
+
+
+
                         playerOne.play();
                         //play player one selection sound here
                     } else if (asdf === 2) {
                         localStorage.setItem("playerTwo", "Nick");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="http://media.giphy.com/media/PSBkfJO9zUpyg/giphy.gif" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
+                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
+                        var timeoutID = window.setTimeout(nickPlay, 2000);
+                        function nickPlay() {
+                            nickE.play();
+                        }
                         playerTwo.play();
                         //play player
                     }
@@ -56,7 +69,9 @@
         </div>
     </div>
     <div class="col-md-2">
-        <div id="Chris" class="box">Chris
+        <div id="Chris" class="box"> <div
+                class="thumbnail"> <img src="websource/Chris.png" >
+        </div>
             <script type="text/javascript">
                 $("#Chris").click(function() {
                     if (asdf < 2) {
@@ -64,13 +79,13 @@
                         localStorage.setItem("playerOne", "Chris");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.text("Chris selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Chris selected");
                         $Select.show();
+                        $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
                         playerTwo.play();
                     }
                 });
@@ -78,7 +93,9 @@
         </div>
     </div>
     <div class="col-md-2">
-        <div id="Jon" class="box">Jon
+        <div id="Jon" class="box"> <div
+                class="thumbnail"> <img src="websource/Jon.png" >
+        </div>
             <script type="text/javascript">
                 $("#Jon").click(function() {
                     if (asdf < 2) {
@@ -86,12 +103,12 @@
                         localStorage.setItem("playerOne", "Jon");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.text("Jon selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Jon");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Jon selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -123,20 +140,22 @@
     </div>
 
     <div class="col-md-2">
-        <div id="Chinn" class="box">Chinn
+        <div id="Chinn" class="box"><div
+                class="thumbnail"> <img src="websource/DrChinn.png" >
+        </div>
             <script type="text/javascript">
                 $("#Chinn").click(function() {
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
-                        localStorage.setItem("playerOne", "Chris");
+                        localStorage.setItem("playerOne", "DrChinn");
                         var $Select = $('#PlayerOneSelected');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
-                        $Select.text("Donald selected");
                         playerOne.play();
                     } else {
-                        localStorage.setItem("playerTwo", "Chris");
+                        localStorage.setItem("playerTwo", "DrChinn");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Chinn selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -146,20 +165,22 @@
     </div>
 
     <div class="col-md-2">
-        <div id="Tolentino" class="box">Tolentino
+        <div id="Tolentino" class="box"><div
+                class="thumbnail"> <img src="websource/DrT.png" >
+        </div>
             <script type="text/javascript">
                 $("#Tolentino").click(function() {
-                    if (asdf < 4) {
+                    if (asdf < 2) {
                         localStorage.removeItem("playerOne");
-                        localStorage.setItem("playerOne", "Chris");
+                        localStorage.setItem("playerOne", "DrTolentino");
                         var $Select = $('#PlayerOneSelected');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
                         $Select.show();
-                        $Select.text("Tolentino selected");
                         playerOne.play();
                     } else {
-                        localStorage.setItem("playerTwo", "Chris");
+                        localStorage.setItem("playerTwo", "DrTolentino");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Tolentino selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -183,24 +204,20 @@
 
             }
         </script>
-        <!--<div id="Play" class="box">Click this box to play.
+
+    </div>
+    <div class="col-md-2">
+        <FORM>
+            <INPUT TYPE="button" id = "START!" value = "START!">
             <a href="game.html">
                 <span class="link-spanner"></span>
             </a>
-        </div>-->
-    </div>
-    <div class="col-md-2">
-    <FORM>
-        <INPUT TYPE="button" id = "START!" value = "START!">
-        <a href="game.html">
-            <span class="link-spanner"></span>
-        </a>
-    </FORM>
+        </FORM>
     </div>
     <div class ="col-md-2">
         <div id="PlayerOneSelected" class="box">Player One's character
-        <script type ="text/javascript" >
-            $("#PlayerOneSelected").hide();
+            <script type ="text/javascript" >
+                $("#PlayerOneSelected").hide();
             </script></div>
     </div>
     <div class ="col-md-2">

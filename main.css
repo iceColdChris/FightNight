@@ -76,6 +76,7 @@
     float: left;
     border: 6px solid #338CC3;
     text-align: center;
+    /*Non hover*/
 }
 
 
@@ -122,4 +123,6 @@
     /* Give it a higher z-index to it's on top of adjacent items near it. */
     z-index: 10;
 }
+
+
 
