@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62edec9c-acb2-4f2c-9dd4-d0b5cada505a" name="Default" comment="">
-      <change type="DELETED" beforePath="C:\Users\Jon\Webstorm\FightNight\websource\nick character select.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/websource/Nick.png" afterPath="$PROJECT_DIR$/websource/Nick.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -753,7 +752,13 @@
       <option name="project" value="LOCAL" />
       <updated>1424120364501</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="image resize">
+      <created>1424120619065</created>
+      <option name="number" value="00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1424120619065</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -807,7 +812,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Chris and Nick can block, and hold block." />
     <MESSAGE value="Added a character selection screen that doesn't do much yet. (Press Enter to start the actual game). Also switched health bars to damage opponents health bar instead of the one above your own player." />
     <MESSAGE value="Made sure chris can't go off the side of the screen." />
     <MESSAGE value="Fixed the enter creates duplicate character problem." />
@@ -832,7 +836,8 @@
     <MESSAGE value="added more char images" />
     <MESSAGE value="resized imgs" />
     <MESSAGE value="added Dr Chinn and Dr Talentino to selection screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="added Dr Chinn and Dr Talentino to selection screen" />
+    <MESSAGE value="image resize" />
+    <option name="LAST_COMMIT_MESSAGE" value="image resize" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
