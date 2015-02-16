@@ -50,10 +50,10 @@ function loadCharacters() {
         characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 1, assets, "Chris"));
     } else if (localStorage.getItem("playerOne") === "Jon") {
         characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 1, assets, "Jon"));
-    } else if (localStorage.getItem("playerOne") === "Tolentino") {
-    characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 1, assets, "Tolentino"));
-    } else if (localStorage.getItem("playerOne") === "Chinn") {
-    characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 1, assets, "Chinn"));
+    } else if (localStorage.getItem("playerOne") === "DrTolentino") {
+        characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 1, assets, "DrTolentino"));
+    } else if (localStorage.getItem("playerOne") === "DrChinn") {
+        characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 1, assets, "DrChinn"));
     }
 
     if (localStorage.getItem("playerTwo") === "Nick") {
@@ -62,10 +62,10 @@ function loadCharacters() {
         characters.push(new Chris(gameEngine, assets.getAsset("./img/chris.png"), 2, assets, "Chris"));
     } else if (localStorage.getItem("playerTwo") === "Jon") {
         characters.push(new Jon(gameEngine, assets.getAsset("./img/jon.png"), 2, assets, "Jon"));
-    } else if (localStorage.getItem("playerTwo") === "Tolentino") {
-        characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 2, assets, "Tolentino"));
-    } else if (localStorage.getItem("playerTwo") === "Chinn") {
-        characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 2, assets, "Chinn"));
+    } else if (localStorage.getItem("playerTwo") === "DrTolentino") {
+        characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 2, assets, "DrTolentino"));
+    } else if (localStorage.getItem("playerTwo") === "DrChinn") {
+        characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 2, assets, "DrChinn"));
     }
 }
 function keyDownHandler(event) {
@@ -154,7 +154,6 @@ assets.queueDownload("./img/jon.png");
 assets.queueDownload("./img/tolentino.png");
 assets.queueDownload("./img/chinn.png");
 assets.queueDownload("./backgrounds/level01.jpg");
-assets.queueDownload("./charSelection/charSelection.jpg");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
