@@ -122,15 +122,15 @@
                 $("#Matt").click(function() {
                     if (asdf < 2) {
                         localStorage.removeItem("playerOne");
-                        localStorage.setItem("playerOne", "Chris");
+                        localStorage.setItem("playerOne", "Matt");
                         var $Select = $('#PlayerOneSelected');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
                         $Select.show();
-                        $Select.text("Matt selected");
                         playerOne.play();
                     } else {
-                        localStorage.setItem("playerTwo", "Chris");
+                        localStorage.setItem("playerTwo", "Matt");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Matt selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
