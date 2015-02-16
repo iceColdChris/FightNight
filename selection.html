@@ -40,14 +40,27 @@
                         localStorage.setItem("playerOne", "Nick");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/Nick.png" > </div>');
+                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
+                        var timeoutID = window.setTimeout(nickPlay, 2000);
+                        function nickPlay() {
+                            nickE.play();
+                        }
+
+
+
                         playerOne.play();
                         //play player one selection sound here
                     } else if (asdf === 2) {
                         localStorage.setItem("playerTwo", "Nick");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/Nick.png" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/NickVictory.gif" > </div>');
+                        var nickE = new Audio("./sound/NickSound/NickVictory.mp3");
+                        var timeoutID = window.setTimeout(nickPlay, 2000);
+                        function nickPlay() {
+                            nickE.play();
+                        }
                         playerTwo.play();
                         //play player
                     }
@@ -90,12 +103,12 @@
                         localStorage.setItem("playerOne", "Jon");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.html('<div class="thumbnail"> <img src="./websource/Jon.png" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Jon");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.html('<div class="thumbnail"> <img src="./websource/Jon.png" > </div>');
+                        $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -137,12 +150,12 @@
                         localStorage.setItem("playerOne", "DrChinn");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.text("Donald selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "DrChinn");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Chinn selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
@@ -162,12 +175,12 @@
                         localStorage.setItem("playerOne", "DrTolentino");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.text("Tolentino selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "DrTolentino");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Tolentino selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrTVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
