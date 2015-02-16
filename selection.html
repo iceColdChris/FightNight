@@ -137,12 +137,12 @@
                         localStorage.setItem("playerOne", "Chris");
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
-                        $Select.text("Donald selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
                         var $Select = $('#PlayerTwoSelected');
-                        $Select.text("Chinn selected");
+                        $Select.html('<div class="thumbnail"> <img src="./websource/DrChinnVictory.gif" > </div>');
                         $Select.show();
                         playerTwo.play();
                     }
