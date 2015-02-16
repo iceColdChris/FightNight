@@ -38,4 +38,4 @@ Nick.prototype.loadAnims = function() {
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 1900, 1000, 370, 500, .1, 1, true, true);
         this.EmoteAnimate = new Animate(this.spritesheet, 3000, 1500, 370, 500, 0.1, 4, false, true);
     }
-}
+};
