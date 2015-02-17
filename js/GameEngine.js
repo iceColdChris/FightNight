@@ -89,6 +89,12 @@ GameEngine.prototype.loop = function() {
     this.draw();
 };
 
+GameEngine.prototype.endGame = function(){
+
+    ctx.draw();
+
+};
+
 function Timer() {
     this.gameTime = 0;
     this.maxStep = 0.05;
