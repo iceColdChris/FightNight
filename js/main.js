@@ -67,6 +67,9 @@ function loadCharacters() {
     } else if (localStorage.getItem("playerTwo") === "DrChinn") {
         characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 2, assets, "DrChinn"));
     }
+
+    characters[0].setOpponent(characters[1]);
+    characters[1].setOpponent(characters[0]);
 }
 function keyDownHandler(event) {
     var keyPressed = String.fromCharCode(event.keyCode);

@@ -42,10 +42,15 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.canvasWidth = this.canvas.width;
     this.HealthBar = null;
     if (this.playerNumber === 1) {
-        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
-    } else {
         this.HealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+    } else {
+        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
     }
+
+    this.delta = null;
+    this.diff = null;
+    this.damage = null;
+
 
 
 
@@ -61,6 +66,13 @@ function Character(game, spritesheet, playerNumber,assets,name) {
 
 Character.prototype.setOpponent = function(opponent) {
     this.opponent = opponent;
+
+    this.delta = 370/2;
+
+    if(this.opponent.name === "DrChinn" || this.opponent.name === "DrTolentino" )
+        this.damage = 2;
+    else
+        this.damage = .60;
 };
 
 Character.prototype.draw = function() {
@@ -91,7 +103,7 @@ Character.prototype.draw = function() {
         }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.PunchAnimate.isDone()) {
-            this.health -= 5;
+            // this.health -= 5;
             this.HealthBar.setHealth(this.health);
             this.PunchAnimate.elapsedTime = 0;
             this.isPunching = false;
@@ -105,7 +117,7 @@ Character.prototype.draw = function() {
         }
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.KickAnimate.isDone()) {
-            this.health -= 5;
+            // this.health -= 5;
             this.HealthBar.setHealth(this.health);
             this.KickAnimate.elapsedTime = 0;
             this.isKicking = false;
@@ -128,6 +140,8 @@ Character.prototype.draw = function() {
 };
 
 Character.prototype.update = function() {
+
+
     if (this.playerNumber === 1) {
         this.updatePlayerOne();
     } else {
@@ -170,8 +184,10 @@ Character.prototype.updatePlayerOne = function() {
         }
     } else if (this.game.f) {
         this.isPunching = true;
+        this.opponent.checkHit();
     } else if (this.game.g) {
         this.isKicking = true;
+        this.opponent.checkHit();
     } else if (this.game.q) {
         if (!this.isHoldingBlock) {
             this.isBlocking = true;
@@ -229,8 +245,10 @@ Character.prototype.updatePlayerTwo = function(){
         }
     } else if (this.game.period) {
         this.isPunching = true;
+        this.opponent.checkHit();
     } else if (this.game.fSlash) {
         this.isKicking = true;
+        this.opponent.checkHit();
     } else if (this.game.rShift) {
         this.isEmoting = true;
     } else if (this.game.right) {
@@ -344,5 +362,61 @@ Character.prototype.playGettingPunched = function(){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingKicked.mp3");
         snd.play();
     }
+
+}
+
+Character.prototype.checkHit = function(){
+
+    this.diff = Math.max(this.x,this.opponent.x)-Math.min(this.x,this.opponent.x);
+    if(this.diff <= this.delta){
+        if(this.isMyOpponentReallyHittingMe()){
+            if(!this.amIhittable()){
+                //chek if I'm close enough to be hit
+                this.health -= this.damage;
+                this.HealthBar.setHealth(this.health);
+            }
+        }
+
+
+    }
+}
+
+Character.prototype.isMyOpponentReallyHittingMe = function(){
+
+    if(this.opponent.isBlocking)
+        return false;
+    else if(this.opponent.isCrouching)
+        return false;
+    else if(this.opponent.isHoldingBlock)
+        return false;
+    else if(this.opponent.isHoldingCrouch)
+        return false;
+    else if(this.opponent.isJumping)
+        return false;
+    else if(this.opponent.isFalling)
+        return false;
+    else
+        return true;
+
+
+}
+
+Character.prototype.amIhittable = function(){
+
+    if(this.isBlocking)
+        return true;
+    else if(this.isCrouching)
+        return true;
+    else if(this.isHoldingBlock)
+        return true;
+    else if(this.isHoldingCrouch)
+        return true;
+    else if(this.isJumping)
+        return true;
+    else if(this.isFalling)
+        return true;
+   else
+    return false;
+
 
 }
