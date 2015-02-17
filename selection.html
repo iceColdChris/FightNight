@@ -80,12 +80,22 @@
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
                         $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
+                        var chrisE = new Audio("./sound/ChrisSound/ChrisVictory.mp3");
+                        var timeoutID = window.setTimeout(chrisPlay, 2000);
+                        function chrisPlay() {
+                            chrisE.play();
+                        }
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Chris");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.show();
                         $Select.html('<div class="thumbnail"> <img src="./websource/ChrisVictory.gif" > </div>');
+                        var chrisE = new Audio("./sound/ChrisSound/ChrisVictory.mp3");
+                        var timeoutID = window.setTimeout(chrisPlay, 2000);
+                        function chrisPlay() {
+                            chrisE.play();
+                        }
                         playerTwo.play();
                     }
                 });
@@ -104,12 +114,22 @@
                         var $Select = $('#PlayerOneSelected');
                         $Select.show();
                         $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
+                        var jonE = new Audio("./sound/JonSound/JonVictory.mp3");
+                        var timeoutID = window.setTimeout(jonPlay, 2000);
+                        function jonPlay() {
+                            jonE.play();
+                        }
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Jon");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.html('<div class="thumbnail"> <img src="./websource/JonVictory.gif" > </div>');
                         $Select.show();
+                        var jonE = new Audio("./sound/JonSound/JonVictory.mp3");
+                        var timeoutID = window.setTimeout(jonPlay, 2000);
+                        function jonPlay() {
+                            jonE.play();
+                        }
                         playerTwo.play();
                     }
                 });
@@ -128,12 +148,22 @@
                         var $Select = $('#PlayerOneSelected');
                         $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
                         $Select.show();
+                        var mattE = new Audio("./sound/MattSound/MattVictory.mp3");
+                        var timeoutID = window.setTimeout(mattPlay, 2000);
+                        function mattPlay() {
+                            mattE.play();
+                        }
                         playerOne.play();
                     } else {
                         localStorage.setItem("playerTwo", "Matt");
                         var $Select = $('#PlayerTwoSelected');
                         $Select.html('<div class="thumbnail"> <img src="./websource/MattVictory.gif" > </div>');
                         $Select.show();
+                        var mattE = new Audio("./sound/MattSound/MattVictory.mp3");
+                        var timeoutID = window.setTimeout(mattPlay, 2000);
+                        function mattPlay() {
+                            mattE.play();
+                        }
                         playerTwo.play();
                     }
                 });
