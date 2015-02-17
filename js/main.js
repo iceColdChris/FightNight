@@ -54,6 +54,8 @@ function loadCharacters() {
         characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 1, assets, "DrTolentino"));
     } else if (localStorage.getItem("playerOne") === "DrChinn") {
         characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 1, assets, "DrChinn"));
+    } else if (localStorage.getItem("playerOne") === "Matt") {
+        characters.push(new Matt(gameEngine, assets.getAsset("./img/matt.png"), 1, assets, "Matt"));
     }
 
     if (localStorage.getItem("playerTwo") === "Nick") {
@@ -66,6 +68,8 @@ function loadCharacters() {
         characters.push(new DrTolentino(gameEngine, assets.getAsset("./img/tolentino.png"), 2, assets, "DrTolentino"));
     } else if (localStorage.getItem("playerTwo") === "DrChinn") {
         characters.push(new DrChinn(gameEngine, assets.getAsset("./img/chinn.png"), 2, assets, "DrChinn"));
+    }else if (localStorage.getItem("playerTwo") === "Matt") {
+        characters.push(new Matt(gameEngine, assets.getAsset("./img/matt.png"), 2, assets, "Matt"));
     }
 
     characters[0].setOpponent(characters[1]);
@@ -154,6 +158,7 @@ var characters = [];
 assets.queueDownload("./img/nick.png");
 assets.queueDownload("./img/chris.png");
 assets.queueDownload("./img/jon.png");
+assets.queueDownload("./img/matt.png");
 assets.queueDownload("./img/tolentino.png");
 assets.queueDownload("./img/chinn.png");
 assets.queueDownload("./backgrounds/level01.jpg");
