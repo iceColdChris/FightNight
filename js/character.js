@@ -374,10 +374,13 @@ Character.prototype.checkHit = function(){
                 //chek if I'm close enough to be hit
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
+
+
+                if(this.health<=0){
+                    this.game.endGame();
+                }
             }
         }
-
-
     }
 }
 
