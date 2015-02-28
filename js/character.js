@@ -34,6 +34,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.isBlocking = false;
     this.isHoldingBlock = false;
     this.isJumping = false;
+    this.isThrowing = false;
     this.isFalling = false;
     this.isEmoting = false;
     this.isCrouching = false;
@@ -103,7 +104,7 @@ Character.prototype.draw = function() {
         }
         // checks to see if the punch loop is over, if so set punching to be false.
         if (this.PunchAnimate.isDone()) {
-            // this.health -= 5;
+                // this.health -= 5;
             this.HealthBar.setHealth(this.health);
             this.PunchAnimate.elapsedTime = 0;
             this.isPunching = false;
@@ -117,8 +118,13 @@ Character.prototype.draw = function() {
         }
         // checks to see if the kick loop is over, if so set kicking to be false.
         if (this.KickAnimate.isDone()) {
-            // this.health -= 5;
-            this.HealthBar.setHealth(this.health);
+            if (this.isThrowing) {
+                this.throwBook();
+                this.isThrowing = false;
+            } else {
+                // this.health -= 5;
+                this.HealthBar.setHealth(this.health);
+            }
             this.KickAnimate.elapsedTime = 0;
             this.isKicking = false;
             this.playKickSound = false;
@@ -186,6 +192,9 @@ Character.prototype.updatePlayerOne = function() {
         this.isPunching = true;
         this.opponent.checkHit();
     } else if (this.game.g) {
+        if (this.name === "DrChinn") {
+            this.isThrowing = true;
+        }
         this.isKicking = true;
         this.opponent.checkHit();
     } else if (this.game.q) {
@@ -247,6 +256,9 @@ Character.prototype.updatePlayerTwo = function(){
         this.isPunching = true;
         this.opponent.checkHit();
     } else if (this.game.fSlash) {
+        if (this.name === "DrChinn") {
+            this.isThrowing = true;
+        }
         this.isKicking = true;
         this.opponent.checkHit();
     } else if (this.game.rShift) {

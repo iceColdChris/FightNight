@@ -28,7 +28,7 @@ Jon.prototype.loadAnims = function() {
 
     } else {
         this.animate = new Animate(this.spritesheet, 740, 2980, 370, 500, 0.1, 2, true, true);
-        this.PunchAnimate = new Animate(this.spritesheet, 1500, 1995, 370, 480, 0.05, 4, false, true);
+        this.PunchAnimate = new Animate(this.spritesheet, 1500, 1995, 370, 480, 0.1, 4, false, true);
         this.KickAnimate = new Animate(this.spritesheet, 1520, 2480, 370, 500, 0.1, 4, false, true);
         this.WalkAnimate = new Animate(this.spritesheet, 3000, 1000, 370, 500, 0.1, 4, true, true);
         this.BlockAnimate = new Animate(this.spritesheet, 1800, 10, 370, 500, 0.1, 3, false, true);

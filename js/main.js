@@ -35,10 +35,48 @@ Animate.prototype.drawFrame = function(tick, ctx, x, y) {
         x, y,
         this.frameWidth,
         this.frameHeight);
-}
+};
+
+Animate.prototype.drawBook = function(tick, ctx, x, y) {
+    this.elapsedTime += tick;
+    if (this.isDone()) {
+        if (this.loop) this.elapsedTime = 0;
+    }
+    var frame = this.currentFrame() + 1;
+    var x_param, y_param, w, h;
+    if (frame  === 1) {
+        x_param = 0;
+        y_param = 0;
+        w = 400;
+        h = 500;
+    } else if (frame === 2) {
+        x_param = 835;
+        y_param = 0;
+        w = 500;
+        h = 400;
+    }else if (frame === 3) {
+       x_param = 420;
+       y_param = 0;
+        w = 400;
+        h = 500;
+    } else if (frame === 4) {
+        x_param = 835;
+        y_param = 420;
+        w = 500;
+        h = 400;
+    }
+    ctx.drawImage(this.spriteSheet,
+        x_param,
+        y_param,
+        w,
+        h,
+        x, y,
+        w*0.13,
+        h*0.13);
+};
 Animate.prototype.currentFrame = function () {
     return Math.floor(this.elapsedTime / this.frameDuration);
-}
+};
 Animate.prototype.isDone = function() {
 // multiplied totalTime by 0.9 here to fix the flickering animations. No problems so far.
     return (this.elapsedTime >= this.totalTime*0.9);
@@ -162,6 +200,7 @@ assets.queueDownload("./img/matt.png");
 assets.queueDownload("./img/tolentino.png");
 assets.queueDownload("./img/chinn.png");
 assets.queueDownload("./backgrounds/level01.jpg");
+assets.queueDownload("./img/alg-book.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");

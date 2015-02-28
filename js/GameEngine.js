@@ -14,6 +14,7 @@ window.requestAnimFrame = (function () {
 })();
 function GameEngine() {
     this.entities = [];
+    this.books = [];
     this.ctx = null;
     this.surfaceWidth = null;
     this.surfaceHeight = null;
@@ -56,6 +57,11 @@ GameEngine.prototype.addEntity = function (entity) {
     console.log('added entity');
     this.entities.push(entity);
 };
+
+GameEngine.prototype.addBook = function (book) {
+    this.books.push(book);
+};
+
 GameEngine.prototype.addBackground = function (background) {
     console.log("added the background");
     this.background = background;
@@ -67,6 +73,9 @@ GameEngine.prototype.draw = function() {
     for(var i = 0; i < this.entities.length; i++) {
         this.entities[i].draw();
     }
+    for (var i = 0; i < this.books.length; i++) {
+        this.books[i].draw();
+    }
     this.ctx.restore();
 };
 GameEngine.prototype.update = function() {
@@ -74,6 +83,14 @@ GameEngine.prototype.update = function() {
     for (var i = 0; i < entitiesCount; i++) {
         var entity = this.entities[i];
             entity.update();
+    }
+    for (var i = 0; i < this.books.length; i++) {
+        this.books[i].update();
+    }
+    for (var i = 0; i < this.books.length; i++) {
+        if (this.books[i].removeFromWorld) {
+            this.books.splice(i, 1);
+        }
     }
     /*
     for (var i = this.entities.length-1; i >= 0; --i) {
