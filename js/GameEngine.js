@@ -92,18 +92,18 @@ GameEngine.prototype.update = function() {
             this.books.splice(i, 1);
         }
     }
-    /*
-    for (var i = this.entities.length-1; i >= 0; --i) {
-        if (this.entities[i].removeFromWorld) {
-            this.entities.splice(i, 1);
-        }
-    }
-    */
 };
 GameEngine.prototype.loop = function() {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
+    this.w = false;
+    this.f = false;
+    this.g = false;
+    this.rShift = false;
+    this.up = false;
+    this.period = false;
+    this.fSlash = false;
 };
 
 GameEngine.prototype.endGame = function(){
