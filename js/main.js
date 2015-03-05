@@ -113,40 +113,44 @@ function loadCharacters() {
     characters[0].setOpponent(characters[1]);
     characters[1].setOpponent(characters[0]);
 }
+
 function keyDownHandler(event) {
-    var keyPressed = String.fromCharCode(event.keyCode);
-    if (keyPressed == "D") {
-        gameEngine.d = true;
-    }else if (keyPressed === "A") {
-        gameEngine.a = true;
-    }else if (keyPressed === "W"){
-        gameEngine.w = true;
-    }else if(event.keyCode === 81) {
-        gameEngine.q = true;
-    }else if (keyPressed === "F") {
-        gameEngine.f = true;
-    } else if (keyPressed === "G") {
-        gameEngine.g = true;
-    } else if (keyPressed === "E") {
-        gameEngine.e = true;
-    } else if (keyPressed === "S") {
-        gameEngine.s = true;
-    } else if (event.keyCode === 38) {
-        gameEngine.up = true;
-    }else if (event.keyCode === 16) {
-        gameEngine.rShift = true;
-    } else if (event.keyCode === 39) {
-        gameEngine.right = true;
-    } else if (event.keyCode === 37) {
-        gameEngine.left = true;
-    } else if (event.keyCode === 40) {
-        gameEngine.down = true;
-    } else if (event.keyCode === 188) {
-        gameEngine.comma = true;
-    } else if (event.keyCode === 190) {
-        gameEngine.period = true;
-    } else if (event.keyCode === 191) {
-        gameEngine.fSlash = true;
+    if (event.repeat != true) {
+        console.log(event);
+        var keyPressed = event.keyCode;
+        if (keyPressed === 68) {
+            gameEngine.d = true;
+        } else if (keyPressed === 65) {
+            gameEngine.a = true;
+        } else if (keyPressed === 87) {
+            gameEngine.w = true;
+        } else if (event.keyCode === 81) {
+            gameEngine.q = true;
+        } else if (keyPressed === 70) {
+            gameEngine.f = true;
+        } else if (keyPressed === 71) {
+            gameEngine.g = true;
+        } else if (keyPressed === 69) {
+            gameEngine.e = true;
+        } else if (keyPressed === 83) {
+            gameEngine.s = true;
+        } else if (event.keyCode === 38) {
+            gameEngine.up = true;
+        } else if (event.keyCode === 16) {
+            gameEngine.rShift = true;
+        } else if (event.keyCode === 39) {
+            gameEngine.right = true;
+        } else if (event.keyCode === 37) {
+            gameEngine.left = true;
+        } else if (event.keyCode === 40) {
+            gameEngine.down = true;
+        } else if (event.keyCode === 188) {
+            gameEngine.comma = true;
+        } else if (event.keyCode === 190) {
+            gameEngine.period = true;
+        } else if (event.keyCode === 191) {
+            gameEngine.fSlash = true;
+        }
     }
     event.preventDefault();
 }
@@ -194,14 +198,23 @@ var gameEngine = new GameEngine();
 var characters = [];
 //var currentSelectionNumber = 1;
 console.log(localStorage.getItem("playerOne"));
-assets.queueDownload("./img/nick.png");
-assets.queueDownload("./img/chris.png");
-assets.queueDownload("./img/jon.png");
-assets.queueDownload("./img/matt.png");
-assets.queueDownload("./img/tolentino.png");
-assets.queueDownload("./img/chinn.png");
-assets.queueDownload("./backgrounds/level01.jpg");
-assets.queueDownload("./img/alg-book.png");
+var playeronepic = localStorage.getItem("playerOne");
+var playertwopic = localStorage.getItem("playerTwo");
+if (playeronepic === 'Nick' || playertwopic === 'Nick') {
+    assets.queueDownload("./img/nick.png");
+} if (playeronepic === 'Chris' || playertwopic === 'Chris') {
+    assets.queueDownload("./img/chris.png");
+} if (playeronepic === 'Jon' || playertwopic === 'Jon') {
+    assets.queueDownload("./img/jon.png");
+} if (playeronepic === 'Matt' || playertwopic === 'Matt') {
+    assets.queueDownload("./img/matt.png");
+} if (playeronepic === 'DrTolentino' || playertwopic === 'DrTolentino') {
+    assets.queueDownload("./img/tolentino.png");
+} if (playeronepic === 'DrChinn' || playertwopic === 'DrChinn') {
+    assets.queueDownload("./img/chinn.png");
+}
+    assets.queueDownload("./backgrounds/level01.jpg");
+    assets.queueDownload("./img/alg-book.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
@@ -235,6 +248,12 @@ assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 assets.queueDownload("./sound/misc/PlayerOne.mp3");
 assets.queueDownload("./sound/misc/PlayerTwo.mp3");
 assets.queueDownload("./sound/bell.mp3");
+assets.queueDownload("./sound/kick.mp3");
+assets.queueDownload("./sound/kungfu.mp3");
+assets.queueDownload("./sound/kungfu2.mp3");
+assets.queueDownload("./sound/punch.mp3");
+assets.queueDownload("./sound/slap.mp3");
+assets.queueDownload("./sound/chocking.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
@@ -250,5 +269,6 @@ assets.downloadAll(function() {
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     var level01Music = new Audio("./ost/level01music.mp3");
+    level01Music.volume=.05;
     level01Music.play();
 });

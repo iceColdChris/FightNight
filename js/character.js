@@ -147,7 +147,7 @@ Character.prototype.draw = function() {
 
 Character.prototype.update = function() {
 
-
+    //Inserted just so I can try pushing again
     if (this.playerNumber === 1) {
         this.updatePlayerOne();
     } else {
@@ -155,7 +155,7 @@ Character.prototype.update = function() {
     }
 
     if (this.isJumping) {
-        this.y -= 25;
+        this.y -= 20;
         if(this.playJumpSound === false){
             this.playJump();
             this.playJumpSound = true;
@@ -170,7 +170,7 @@ Character.prototype.update = function() {
         if (this.y >= this.game.floorY) {
             this.isFalling = false;
         } else {
-            this.y += 25;
+            this.y += 20;
         }
     }
 
@@ -297,9 +297,18 @@ Character.prototype.playPunch = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisPunch.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattPunch.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/punch.mp3");
+        snd.play();
     }
-
 }
+
 
 Character.prototype.playVictory = function(){
 
@@ -313,7 +322,17 @@ Character.prototype.playVictory = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisVictory.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattVictory.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
     }
+
 }
 
 
@@ -328,7 +347,17 @@ Character.prototype.playJump = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisJumping.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattJumping.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kungfu2.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/kungfu2.mp3");
+        snd.play();
     }
+
 
 }
 
@@ -343,8 +372,16 @@ Character.prototype.playKick = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisKick.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattKick.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kick.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/kick.mp3");
+        snd.play();
     }
-
 }
 
 
@@ -359,10 +396,20 @@ Character.prototype.playGettingPunched = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingPunched.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattPunched.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
     }
 
+
 }
-Character.prototype.playGettingPunched = function(){
+Character.prototype.playGettingKicked = function(){
 
     if(this.name === "Jon"){
         var snd = this.assets.getAsset("./sound/JonSound/JonGettingKicked.mp3");
@@ -373,7 +420,17 @@ Character.prototype.playGettingPunched = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingKicked.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattGettingKicked.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
     }
+
 
 }
 
@@ -387,6 +444,13 @@ Character.prototype.checkHit = function(){
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
 
+                var i = Math.round(Math.random());
+                if(i===0){
+                    this.playGettingPunched();
+                }
+                else {
+                    this.playGettingKicked();
+                }
 
                 if(this.health<=0){
                     this.game.endGame();
