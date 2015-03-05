@@ -300,9 +300,15 @@ Character.prototype.playPunch = function(){
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattPunch.mp3");
         snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/punch.mp3");
+        snd.play();
     }
-
 }
+
 
 Character.prototype.playVictory = function(){
 
@@ -318,6 +324,12 @@ Character.prototype.playVictory = function(){
         snd.play();
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattVictory.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }
 
@@ -338,6 +350,12 @@ Character.prototype.playJump = function(){
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattJumping.mp3");
         snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kungfu2.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/kungfu2.mp3");
+        snd.play();
     }
 
 
@@ -357,9 +375,13 @@ Character.prototype.playKick = function(){
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattKick.mp3");
         snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kick.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/kick.mp3");
+        snd.play();
     }
-
-
 }
 
 
@@ -376,6 +398,12 @@ Character.prototype.playGettingPunched = function(){
         snd.play();
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattPunched.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }
 
@@ -394,6 +422,12 @@ Character.prototype.playGettingKicked = function(){
         snd.play();
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/MattSound/MattGettingKicked.mp3");
+        snd.play();
+    }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
+        snd.play();
+    }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }
 

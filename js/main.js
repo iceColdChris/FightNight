@@ -239,6 +239,12 @@ assets.queueDownload("./sound/ChrisSound/ChrisGettingPunched.mp3");
 assets.queueDownload("./sound/misc/PlayerOne.mp3");
 assets.queueDownload("./sound/misc/PlayerTwo.mp3");
 assets.queueDownload("./sound/bell.mp3");
+assets.queueDownload("./sound/kick.mp3");
+assets.queueDownload("./sound/kungfu.mp3");
+assets.queueDownload("./sound/kungfu2.mp3");
+assets.queueDownload("./sound/punch.mp3");
+assets.queueDownload("./sound/slap.mp3");
+assets.queueDownload("./sound/chocking.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
