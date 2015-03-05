@@ -97,6 +97,7 @@ GameEngine.prototype.loop = function() {
     this.clockTick = this.timer.tick();
     this.update();
     this.draw();
+    this.e = false;
     this.w = false;
     this.f = false;
     this.g = false;
