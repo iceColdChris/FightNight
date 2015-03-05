@@ -12,7 +12,7 @@ Matt.prototype.constructor = Matt;
 
 Matt.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
-        //(                            spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse)
+        //spriteSheet, startX, startY, frameWidth, frameHeight, frameDuration, frames, loop, reverse)
         this.animate = new Animate(this.spritesheet, 3000, 10, 370, 470, 0.1, 3, true, false);
         this.PunchAnimate = new Animate(this.spritesheet, 0, 1995, 370, 480, 0.02, 4, false, false);
         this.KickAnimate = new Animate(this.spritesheet, 0, 2480, 370, 500, 0.03, 4, false, false);
