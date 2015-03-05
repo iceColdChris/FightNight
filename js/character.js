@@ -501,10 +501,10 @@ Character.prototype.amIhittable = function(){
 };
 Character.prototype.distance = function(a, b) {
     var dx = a.x - b.x;
-    var dy = a.y - b.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    //var dy = a.y - b.y;
+    return Math.sqrt(dx * dx);
 };
 
 Character.prototype.collide = function (other) {
-    return this.distance(this, other) < 370/2;
+    return this.distance(this, other) < 370/4;
 };
