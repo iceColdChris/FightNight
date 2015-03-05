@@ -297,6 +297,9 @@ Character.prototype.playPunch = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisPunch.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattPunch.mp3");
+        snd.play();
     }
 
 }
@@ -313,7 +316,11 @@ Character.prototype.playVictory = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisVictory.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattVictory.mp3");
+        snd.play();
     }
+
 }
 
 
@@ -328,7 +335,11 @@ Character.prototype.playJump = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisJumping.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattJumping.mp3");
+        snd.play();
     }
+
 
 }
 
@@ -343,7 +354,11 @@ Character.prototype.playKick = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisKick.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattKick.mp3");
+        snd.play();
     }
+
 
 }
 
@@ -359,7 +374,11 @@ Character.prototype.playGettingPunched = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingPunched.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattPunched.mp3");
+        snd.play();
     }
+
 
 }
 Character.prototype.playGettingPunched = function(){
@@ -373,7 +392,11 @@ Character.prototype.playGettingPunched = function(){
     }else if(this.name === "Chris"){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingKicked.mp3");
         snd.play();
+    }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/MattSound/MattGettingKicked.mp3");
+        snd.play();
     }
+
 
 }
 
