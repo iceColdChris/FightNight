@@ -397,7 +397,7 @@ Character.prototype.playGettingPunched = function(){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingPunched.mp3");
         snd.play();
     }else if (this.name === "Matt"){
-        var snd = this.assets.getAsset("./sound/MattSound/MattPunched.mp3");
+        var snd = this.assets.getAsset("./sound/MattSound/MattGettingPunched.mp3");
         snd.play();
     }else if(this.name === "DrChinn"){
         var snd = this.assets.getAsset("./sound/chocking.mp3");
