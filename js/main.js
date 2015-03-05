@@ -250,5 +250,6 @@ assets.downloadAll(function() {
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     var level01Music = new Audio("./ost/level01music.mp3");
+    level01Music.volume=.05;
     level01Music.play();
 });
