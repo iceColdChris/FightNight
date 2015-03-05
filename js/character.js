@@ -147,7 +147,7 @@ Character.prototype.draw = function() {
 
 Character.prototype.update = function() {
 
-
+    //Inserted just so I can try pushing again
     if (this.playerNumber === 1) {
         this.updatePlayerOne();
     } else {
@@ -155,7 +155,7 @@ Character.prototype.update = function() {
     }
 
     if (this.isJumping) {
-        this.y -= 25;
+        this.y -= 20;
         if(this.playJumpSound === false){
             this.playJump();
             this.playJumpSound = true;
@@ -170,7 +170,7 @@ Character.prototype.update = function() {
         if (this.y >= this.game.floorY) {
             this.isFalling = false;
         } else {
-            this.y += 25;
+            this.y += 20;
         }
     }
 
