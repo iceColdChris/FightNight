@@ -198,14 +198,23 @@ var gameEngine = new GameEngine();
 var characters = [];
 //var currentSelectionNumber = 1;
 console.log(localStorage.getItem("playerOne"));
-assets.queueDownload("./img/nick.png");
-assets.queueDownload("./img/chris.png");
-assets.queueDownload("./img/jon.png");
-assets.queueDownload("./img/matt.png");
-assets.queueDownload("./img/tolentino.png");
-assets.queueDownload("./img/chinn.png");
-assets.queueDownload("./backgrounds/level01.jpg");
-assets.queueDownload("./img/alg-book.png");
+var playeronepic = localStorage.getItem("playerOne");
+var playertwopic = localStorage.getItem("playerTwo");
+if (playeronepic === 'Nick' || playertwopic === 'Nick') {
+    assets.queueDownload("./img/nick.png");
+} if (playeronepic === 'Chris' || playertwopic === 'Chris') {
+    assets.queueDownload("./img/chris.png");
+} if (playeronepic === 'Jon' || playertwopic === 'Jon') {
+    assets.queueDownload("./img/jon.png");
+} if (playeronepic === 'Matt' || playertwopic === 'Matt') {
+    assets.queueDownload("./img/matt.png");
+} if (playeronepic === 'DrTolentino' || playertwopic === 'DrTolentino') {
+    assets.queueDownload("./img/tolentino.png");
+} if (playeronepic === 'DrChinn' || playertwopic === 'DrChinn') {
+    assets.queueDownload("./img/chinn.png");
+}
+    assets.queueDownload("./backgrounds/level01.jpg");
+    assets.queueDownload("./img/alg-book.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
