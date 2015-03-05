@@ -443,6 +443,8 @@ Character.prototype.checkHit = function(){
                 //chek if I'm close enough to be hit
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
+                var snd = this.assets.getAsset("./sound/punch.mp3");
+                snd.play();
 
                 var i = Math.round(Math.random());
                 if(i===0){
