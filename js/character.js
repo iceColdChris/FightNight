@@ -155,7 +155,7 @@ Character.prototype.update = function() {
     }
 
     if (this.isJumping) {
-        this.y -= 25;
+        this.y -= 20;
         if(this.playJumpSound === false){
             this.playJump();
             this.playJumpSound = true;
@@ -170,7 +170,7 @@ Character.prototype.update = function() {
         if (this.y >= this.game.floorY) {
             this.isFalling = false;
         } else {
-            this.y += 25;
+            this.y += 20;
         }
     }
 
