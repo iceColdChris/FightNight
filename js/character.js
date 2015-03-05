@@ -147,7 +147,7 @@ Character.prototype.draw = function() {
 
 Character.prototype.update = function() {
 
-
+    //Inserted just so I can try pushing again
     if (this.playerNumber === 1) {
         this.updatePlayerOne();
     } else {
