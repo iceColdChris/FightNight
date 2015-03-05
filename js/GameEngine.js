@@ -108,7 +108,7 @@ GameEngine.prototype.loop = function() {
 
 GameEngine.prototype.endGame = function(){
 
-    ctx.draw();
+    window.location.replace("./selection.html");
 
 };
 
