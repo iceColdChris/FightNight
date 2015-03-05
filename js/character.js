@@ -381,7 +381,7 @@ Character.prototype.playGettingPunched = function(){
 
 
 }
-Character.prototype.playGettingPunched = function(){
+Character.prototype.playGettingKicked = function(){
 
     if(this.name === "Jon"){
         var snd = this.assets.getAsset("./sound/JonSound/JonGettingKicked.mp3");
@@ -410,6 +410,13 @@ Character.prototype.checkHit = function(){
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
 
+                var i = Math.round(Math.random());
+                if(i===0){
+                    this.playGettingPunched();
+                }
+                else {
+                    this.playGettingKicked();
+                }
 
                 if(this.health<=0){
                     this.game.endGame();
