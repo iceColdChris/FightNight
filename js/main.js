@@ -16,7 +16,7 @@ function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDura
     this.frameDuration = frameDuration;
     this.frames = frames;
     this.totalTime = frameDuration * this.frames;
-    this.elapsedTime = this.frameDuration * this.frames;
+    this.elapsedTime = 0;
     this.loop = loop;
     this.reverse = reverse;
 }

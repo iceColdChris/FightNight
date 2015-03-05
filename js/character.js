@@ -209,7 +209,7 @@ Character.prototype.updatePlayerOne = function() {
     }  else if (this.game.e) {
         this.isEmoting = true;
     } else if (this.game.d) {
-        if(this.x < this.canvasWidth-370) {//keeps jon from walking off the right of the screen. Could someone add a correct width statement of Nick?
+        if(this.x < this.canvasWidth-370 && !this.collide(this.opponent)) {//keeps jon from walking off the right of the screen. Could someone add a correct width statement of Nick?
             this.walkingRight = true;
             this.x += 15;
         }
@@ -269,7 +269,7 @@ Character.prototype.updatePlayerTwo = function(){
             this.x += 15;
         }
     } else if (this.game.left) {
-        if(this.x>0) {
+        if(this.x>0 && !this.collide(this.opponent)) {
             this.walkingLeft = true;
             this.x += -15;
         }
@@ -498,4 +498,13 @@ Character.prototype.amIhittable = function(){
     return false;
 
 
-}
+};
+Character.prototype.distance = function(a, b) {
+    var dx = a.x - b.x;
+    var dy = a.y - b.y;
+    return Math.sqrt(dx * dx + dy * dy);
+};
+
+Character.prototype.collide = function (other) {
+    return this.distance(this, other) < 370/2;
+};
