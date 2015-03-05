@@ -113,40 +113,44 @@ function loadCharacters() {
     characters[0].setOpponent(characters[1]);
     characters[1].setOpponent(characters[0]);
 }
+
 function keyDownHandler(event) {
-    var keyPressed = String.fromCharCode(event.keyCode);
-    if (keyPressed == "D") {
-        gameEngine.d = true;
-    }else if (keyPressed === "A") {
-        gameEngine.a = true;
-    }else if (keyPressed === "W"){
-        gameEngine.w = true;
-    }else if(event.keyCode === 81) {
-        gameEngine.q = true;
-    }else if (keyPressed === "F") {
-        gameEngine.f = true;
-    } else if (keyPressed === "G") {
-        gameEngine.g = true;
-    } else if (keyPressed === "E") {
-        gameEngine.e = true;
-    } else if (keyPressed === "S") {
-        gameEngine.s = true;
-    } else if (event.keyCode === 38) {
-        gameEngine.up = true;
-    }else if (event.keyCode === 16) {
-        gameEngine.rShift = true;
-    } else if (event.keyCode === 39) {
-        gameEngine.right = true;
-    } else if (event.keyCode === 37) {
-        gameEngine.left = true;
-    } else if (event.keyCode === 40) {
-        gameEngine.down = true;
-    } else if (event.keyCode === 188) {
-        gameEngine.comma = true;
-    } else if (event.keyCode === 190) {
-        gameEngine.period = true;
-    } else if (event.keyCode === 191) {
-        gameEngine.fSlash = true;
+    if (event.repeat != true) {
+        console.log(event);
+        var keyPressed = event.keyCode;
+        if (keyPressed === 68) {
+            gameEngine.d = true;
+        } else if (keyPressed === 65) {
+            gameEngine.a = true;
+        } else if (keyPressed === 87) {
+            gameEngine.w = true;
+        } else if (event.keyCode === 81) {
+            gameEngine.q = true;
+        } else if (keyPressed === 70) {
+            gameEngine.f = true;
+        } else if (keyPressed === 71) {
+            gameEngine.g = true;
+        } else if (keyPressed === 69) {
+            gameEngine.e = true;
+        } else if (keyPressed === 83) {
+            gameEngine.s = true;
+        } else if (event.keyCode === 38) {
+            gameEngine.up = true;
+        } else if (event.keyCode === 16) {
+            gameEngine.rShift = true;
+        } else if (event.keyCode === 39) {
+            gameEngine.right = true;
+        } else if (event.keyCode === 37) {
+            gameEngine.left = true;
+        } else if (event.keyCode === 40) {
+            gameEngine.down = true;
+        } else if (event.keyCode === 188) {
+            gameEngine.comma = true;
+        } else if (event.keyCode === 190) {
+            gameEngine.period = true;
+        } else if (event.keyCode === 191) {
+            gameEngine.fSlash = true;
+        }
     }
     event.preventDefault();
 }
