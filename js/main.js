@@ -214,7 +214,7 @@ if (playeronepic === 'Nick' || playertwopic === 'Nick') {
     assets.queueDownload("./img/chinn.png");
 }
 
-var levelNumber = Math.round(Math.random()*8)+1;
+var levelNumber = Math.round(Math.random() * (7 - 1) + 1);
 
 if(levelNumber === 1){
     assets.queueDownload("./backgrounds/level01.jpg");
