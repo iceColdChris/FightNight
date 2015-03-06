@@ -20,32 +20,20 @@
     }
 </style>
 <body>
-<div class="nav">
-
-    <div class="container" id = "topMenu">
-        <FORM>
-            <INPUT TYPE="button" id = "clickMe" onclick ="lockIn();" value = "Lock-in Selection"; >
-        </FORM>
-
-        <script type ="text/javascript" >
-            function lockIn() {
-                asdf += 1;
-                // $("#PlayerOneSelected").remove();
-                console.log($("#clickMe"));
-
-            }
-        </script>
-
-        <FORM>
-            <INPUT TYPE="button" id = "START!" value = "START!">
-            <a href="game.html">
-                <span class="link-spanner"></span>
-            </a>
-        </FORM>
-    </div>
+<div id="hmenu">
+    <ul>
+        <li><a id = "clickMe" onclick ="lockIn();" >Lock In Selection!</a>
+            <script type ="text/javascript" >
+                function lockIn() {
+                    asdf += 1;
+                    // $("#PlayerOneSelected").remove();
+                    console.log($("#clickMe"));
+                }
+            </script>
+        </li>
+        <li><a href="game.html">Play!</a></li>
+    </ul>
 </div>
-
-
 <div class="row">
     <div class="col-md-2">
         <div id="Nick" class="box">
