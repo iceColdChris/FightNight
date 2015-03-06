@@ -2,7 +2,7 @@
  * Created by httpnick on 2/6/15.
  */
 
-function HealthBar(game, x, y, maxHealth, height, maxWidth) {
+function HealthBar(game, x, y, maxHealth, height, maxWidth, name) {
     this.ctx = game.ctx;
     this.x = x;
     this.y = y;
@@ -10,12 +10,17 @@ function HealthBar(game, x, y, maxHealth, height, maxWidth) {
     this.height = height;
     this.maxWidth = maxWidth;
     this.health = this.maxHealth;
+    this.name = name;
 }
 HealthBar.prototype.setHealth = function(health) {
         this.health = health;
 };
 
 HealthBar.prototype.draw = function() {
+    console.log(this.name);
+    this.ctx.font = "100px Arial";
+    this.ctx.fillStyle = "blue";
+    this.ctx.fillText(this.name, this.x + 120, this.y + 150);
     this.ctx.beginPath();
     this.ctx.rect(this.x, this.y, this.maxWidth, this.height);
     this.ctx.fillStyle = "black";

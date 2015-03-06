@@ -43,9 +43,9 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.canvasWidth = this.canvas.width;
     this.HealthBar = null;
     if (this.playerNumber === 1) {
-        this.HealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500);
+        this.HealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500, this.name);
     } else {
-        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500);
+        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500, this.name);
     }
 
     this.delta = null;
