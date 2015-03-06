@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="62edec9c-acb2-4f2c-9dd4-d0b5cada505a" name="Default" comment="kept background from being tilied">
-      <change type="DELETED" beforePath="C:\Users\TexasLonghorns\Webstorm\FightNight\backgrounds\level06.jpg" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\TexasLonghorns\Webstorm\FightNight\backgrounds\level07.jpg" afterPath="" />
+    <list default="true" id="62edec9c-acb2-4f2c-9dd4-d0b5cada505a" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\TexasLonghorns\Webstorm\FightNight\backgrounds\level05.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backgrounds/level04.jpg" afterPath="$PROJECT_DIR$/backgrounds/level04.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/backgrounds/level05.jpg" afterPath="$PROJECT_DIR$/backgrounds/level05.jpg" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/main.js" afterPath="$PROJECT_DIR$/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FightNight.iws" />
@@ -42,8 +39,8 @@
       <file leaf-file-name="main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39384118" vertical-offset="3429" max-vertical-offset="5066">
-              <caret line="216" column="58" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="58" />
+            <state vertical-scroll-proportion="0.22852512" vertical-offset="3429" max-vertical-offset="5015">
+              <caret line="210" column="73" selection-start-line="210" selection-start-column="73" selection-end-line="210" selection-end-column="73" />
               <folding />
             </state>
           </provider>
@@ -794,7 +791,13 @@
       <option name="project" value="LOCAL" />
       <updated>1425621696284</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="lessened number of backgrounds">
+      <created>1425621792346</created>
+      <option name="number" value="00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1425621792346</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -849,7 +852,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed the enter creates duplicate character problem." />
     <MESSAGE value="Added jon's spritesheet to the project, and stopped letting nick do punch animation while jumping." />
     <MESSAGE value="Added Jon to the game!" />
     <MESSAGE value="Jon can face either way. Game is set to Jon vs. Chris at the moment." />
@@ -874,7 +876,8 @@
     <MESSAGE value="new backgrounds" />
     <MESSAGE value="kept background from being tilied" />
     <MESSAGE value="fixed backs breaking" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed backs breaking" />
+    <MESSAGE value="lessened number of backgrounds" />
+    <option name="LAST_COMMIT_MESSAGE" value="lessened number of backgrounds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1239,8 +1242,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39384118" vertical-offset="3429" max-vertical-offset="5066">
-          <caret line="216" column="58" selection-start-line="216" selection-start-column="58" selection-end-line="216" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.22852512" vertical-offset="3429" max-vertical-offset="5015">
+          <caret line="210" column="73" selection-start-line="210" selection-start-column="73" selection-end-line="210" selection-end-column="73" />
           <folding />
         </state>
       </provider>
