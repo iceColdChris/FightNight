@@ -86,6 +86,12 @@ GameEngine.prototype.update = function() {
     }
     for (var i = 0; i < this.books.length; i++) {
         this.books[i].update();
+        for (var j = 0; j < entitiesCount; j++) {
+            if(this.books[i].collide(this.entities[j])) {
+                console.log("collision!");
+                this.books.splice(i, 1);
+            }
+        }
     }
     for (var i = 0; i < this.books.length; i++) {
         if (this.books[i].removeFromWorld) {
