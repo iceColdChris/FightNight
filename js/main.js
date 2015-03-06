@@ -55,8 +55,8 @@ Animate.prototype.drawBook = function(tick, ctx, x, y) {
         w = 500;
         h = 400;
     }else if (frame === 3) {
-       x_param = 420;
-       y_param = 0;
+        x_param = 420;
+        y_param = 0;
         w = 400;
         h = 500;
     } else if (frame === 4) {
@@ -159,24 +159,24 @@ function keyUpHandler(event) {
     if (keyPressed === "D") {
         gameEngine.d = false;
     }/*else if(keyPressed === "W"){
-        gameEngine.w = false;
-    }*/else if (keyPressed === "A") {
+     gameEngine.w = false;
+     }*/else if (keyPressed === "A") {
         gameEngine.a = false;
     } /*else if (keyPressed === "F") {
-        gameEngine.f = false;
-    } else if (keyPressed === "G") {
-        gameEngine.g = false;
-    } */else if (keyPressed === "Q") {
+     gameEngine.f = false;
+     } else if (keyPressed === "G") {
+     gameEngine.g = false;
+     } */else if (keyPressed === "Q") {
         gameEngine.q = false;
     } /*else if (keyPressed === "E") {
-        gameEngine.e = false;
-    } */else if (keyPressed === "S") {
+     gameEngine.e = false;
+     } */else if (keyPressed === "S") {
         gameEngine.s = false;
     } /*else if (event.keyCode === 16) {
-        gameEngine.rShift = false;
-    } else if (event.keyCode === 38) {
-        gameEngine.up = false;
-    } */else if (event.keyCode === 39) {
+     gameEngine.rShift = false;
+     } else if (event.keyCode === 38) {
+     gameEngine.up = false;
+     } */else if (event.keyCode === 39) {
         gameEngine.right = false;
     } else if (event.keyCode === 37) {
         gameEngine.left = false;
@@ -185,10 +185,10 @@ function keyUpHandler(event) {
     } else if (event.keyCode === 188) {
         gameEngine.comma = false;
     }/* else if (event.keyCode === 190) {
-        gameEngine.period = false;
-    } else if (event.keyCode === 191) {
-        gameEngine.fSlash = false;
-    }*/
+     gameEngine.period = false;
+     } else if (event.keyCode === 191) {
+     gameEngine.fSlash = false;
+     }*/
     event.preventDefault();
 }
 
@@ -213,8 +213,32 @@ if (playeronepic === 'Nick' || playertwopic === 'Nick') {
 } if (playeronepic === 'DrChinn' || playertwopic === 'DrChinn') {
     assets.queueDownload("./img/chinn.png");
 }
+
+var levelNumber = Math.round(Math.random()*8)+1;
+
+if(levelNumber === 1){
     assets.queueDownload("./backgrounds/level01.jpg");
-    assets.queueDownload("./img/alg-book.png");
+
+}if(levelNumber === 2){
+    assets.queueDownload("./backgrounds/level02.jpg");
+
+}if(levelNumber === 3){
+    assets.queueDownload("./backgrounds/level03.jpg");
+
+}if(levelNumber === 4){
+    assets.queueDownload("./backgrounds/level04.jpg");
+
+}if(levelNumber === 5){
+    assets.queueDownload("./backgrounds/level05.jpg");
+
+}if(levelNumber === 6){
+    assets.queueDownload("./backgrounds/level06.jpg");
+
+}if(levelNumber === 7){
+    assets.queueDownload("./backgrounds/level07.jpg");
+
+}
+assets.queueDownload("./img/alg-book.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
@@ -262,13 +286,13 @@ assets.downloadAll(function() {
     canvas.addEventListener("keydown",keyDownHandler, false);
     canvas.addEventListener("keyup",keyUpHandler, false);
     loadCharacters();
-    gameEngine.addBackground(assets.getAsset("./backgrounds/level01.jpg"));
+    gameEngine.addBackground(assets.getAsset("./backgrounds/level0"+levelNumber+".jpg"));
     var bell = new Audio("./sound/bell.mp3");
     bell.play();
     gameEngine.start();
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     var level01Music = new Audio("./ost/level01music.mp3");
-    level01Music.volume=.05;
+    level01Music.volume=.75;
     level01Music.play();
 });
