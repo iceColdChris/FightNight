@@ -478,10 +478,6 @@ Character.prototype.checkHit = function(){
                 else {
                     this.playGettingKicked();
                 }
-
-                if(this.health<=0){
-                    this.game.endGame(this.opponent.name);
-                }
             }
         }
     }
