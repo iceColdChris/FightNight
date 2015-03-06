@@ -214,7 +214,7 @@ if (playeronepic === 'Nick' || playertwopic === 'Nick') {
     assets.queueDownload("./img/chinn.png");
 }
 
-var levelNumber = Math.round(Math.random()*8)+1;
+var levelNumber = Math.round(Math.random() * (4 - 1) + 1);
 
 if(levelNumber === 1){
     assets.queueDownload("./backgrounds/level01.jpg");
@@ -227,15 +227,6 @@ if(levelNumber === 1){
 
 }if(levelNumber === 4){
     assets.queueDownload("./backgrounds/level04.jpg");
-
-}if(levelNumber === 5){
-    assets.queueDownload("./backgrounds/level05.jpg");
-
-}if(levelNumber === 6){
-    assets.queueDownload("./backgrounds/level06.jpg");
-
-}if(levelNumber === 7){
-    assets.queueDownload("./backgrounds/level07.jpg");
 
 }
 assets.queueDownload("./img/alg-book.png");

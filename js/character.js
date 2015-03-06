@@ -24,7 +24,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     if (this.playerNumber === 1) {
         this.x = 0;
     } else {
-        this.x = 1000;
+        this.x = 1500;
     }
     this.y = this.game.floorY;
     this.isPunching = false;

@@ -35,7 +35,7 @@ function GameEngine() {
     this.period = null;
     this.fSlash = null;
     this.background = null;
-    this.floorY = 500;
+    this.floorY = 650;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
