@@ -301,8 +301,13 @@ Character.prototype.playPunch = function(){
         var snd = this.assets.getAsset("./sound/MattSound/MattPunch.mp3");
         snd.play();
     }else if(this.name === "DrChinn"){
-        var snd = this.assets.getAsset("./sound/kungfu.mp3");
-        snd.play();
+
+        /*
+         Add new sound for Dr. Chinn punching damnit
+         */
+
+        //var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        //snd.play();
     }else if(this.name === "DrTolentino"){
         var snd = this.assets.getAsset("./sound/punch.mp3");
         snd.play();
@@ -388,21 +393,33 @@ Character.prototype.playKick = function(){
 Character.prototype.playGettingPunched = function(){
 
     if(this.name === "Jon"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/JonSound/JonGettingPunched.mp3");
         snd.play();
     }else if(this.name === "Nick"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/NickSound/NickGettingPunched.mp3");
         snd.play();
     }else if(this.name === "Chris"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingPunched.mp3");
         snd.play();
     }else if (this.name === "Matt"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/MattSound/MattGettingPunched.mp3");
         snd.play();
     }else if(this.name === "DrChinn"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }else if(this.name === "DrTolentino"){
+        var snd = this.assets.getAsset("./sound/kungfu.mp3");
+        snd.play();
         var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }
@@ -425,7 +442,7 @@ Character.prototype.playGettingKicked = function(){
         snd.play();
     }else if(this.name === "DrChinn"){
         var snd = this.assets.getAsset("./sound/chocking.mp3");
-        snd.play();
+        //snd.play();
     }else if(this.name === "DrTolentino"){
         var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
@@ -444,7 +461,7 @@ Character.prototype.checkHit = function(){
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
                 var snd = this.assets.getAsset("./sound/punch.mp3");
-                snd.play();
+                //snd.play();
 
                 var i = Math.round(Math.random());
                 if(i===0){
