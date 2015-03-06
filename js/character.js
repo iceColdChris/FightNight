@@ -451,6 +451,12 @@ Character.prototype.playGettingKicked = function(){
 
 }
 
+Character.prototype.hitMeScotty = function(damage){
+    this.health -= damage;
+    this.HealthBar.setHealth(this.health);
+    console.log("Ive been hit");
+}
+
 Character.prototype.checkHit = function(){
 
     this.diff = Math.max(this.x,this.opponent.x)-Math.min(this.x,this.opponent.x);
