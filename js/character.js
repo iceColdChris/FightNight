@@ -146,7 +146,9 @@ Character.prototype.draw = function() {
 };
 
 Character.prototype.update = function() {
-
+    if(this.health<=0){
+        this.game.endGame(this.opponent.name);
+    }
     //Inserted just so I can try pushing again
     if (this.playerNumber === 1) {
         this.updatePlayerOne();
@@ -475,10 +477,6 @@ Character.prototype.checkHit = function(){
                 }
                 else {
                     this.playGettingKicked();
-                }
-
-                if(this.health<=0){
-                    this.game.endGame(this.opponent.name);
                 }
             }
         }
