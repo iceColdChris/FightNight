@@ -443,6 +443,8 @@ Character.prototype.checkHit = function(){
                 //chek if I'm close enough to be hit
                 this.health -= this.damage;
                 this.HealthBar.setHealth(this.health);
+                var snd = this.assets.getAsset("./sound/punch.mp3");
+                snd.play();
 
                 var i = Math.round(Math.random());
                 if(i===0){
@@ -501,10 +503,10 @@ Character.prototype.amIhittable = function(){
 };
 Character.prototype.distance = function(a, b) {
     var dx = a.x - b.x;
-    var dy = a.y - b.y;
-    return Math.sqrt(dx * dx + dy * dy);
+    //var dy = a.y - b.y;
+    return Math.sqrt(dx * dx);
 };
 
 Character.prototype.collide = function (other) {
-    return this.distance(this, other) < 370/2;
+    return this.distance(this, other) < 370/4;
 };
