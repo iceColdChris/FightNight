@@ -36,6 +36,8 @@ function GameEngine() {
     this.fSlash = null;
     this.background = null;
     this.floorY = 650;
+    this.isGoing = true;
+    this.winnername = null;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
@@ -67,16 +69,27 @@ GameEngine.prototype.addBackground = function (background) {
     this.background = background;
 };
 GameEngine.prototype.draw = function() {
-    this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
-    this.ctx.save();
-    this.ctx.drawImage(this.background, 0, 0);
-    for(var i = 0; i < this.entities.length; i++) {
-        this.entities[i].draw();
+    if(this.isGoing) {
+        this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
+        this.ctx.save();
+        this.ctx.drawImage(this.background, 0, 0);
+        for (var i = 0; i < this.entities.length; i++) {
+            this.entities[i].draw();
+        }
+        for (var i = 0; i < this.books.length; i++) {
+            this.books[i].draw();
+        }
+        this.ctx.restore();
+    } else {
+        this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
+        this.ctx.save();
+        this.ctx.fillStyle = 'black';
+        this.ctx.fillRect(0, 0, this.surfaceWidth, this.surfaceHeight);
+        this.ctx.font = "100px Arial";
+        this.ctx.fillStyle = "purple";
+        this.ctx.fillText(this.winnername + " WINS!!!!", (this.surfaceWidth/2) - 300, this.surfaceHeight/2);
+        this.ctx.restore();
     }
-    for (var i = 0; i < this.books.length; i++) {
-        this.books[i].draw();
-    }
-    this.ctx.restore();
 };
 GameEngine.prototype.update = function() {
     var entitiesCount = this.entities.length;
@@ -152,9 +165,10 @@ GameEngine.prototype.loop = function() {
     this.fSlash = false;
 };
 
-GameEngine.prototype.endGame = function(){
-
-    window.location.replace("./selection.html");
+GameEngine.prototype.endGame = function(winnername){
+    this.winnername = winnername;
+    this.isGoing = false;
+    window.setTimeout(function(){window.location.replace("./selection.html")}, 5000);
 
 };
 
