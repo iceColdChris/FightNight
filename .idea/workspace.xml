@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62edec9c-acb2-4f2c-9dd4-d0b5cada505a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/character.js" afterPath="$PROJECT_DIR$/js/character.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FightNight.iws" />
@@ -44,20 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="selection.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="selection.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/selection.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="6.328982" vertical-offset="1056" max-vertical-offset="3885">
+            <state vertical-scroll-proportion="-104.75" vertical-offset="966" max-vertical-offset="3885">
               <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="character.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="character.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/character.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1941" max-vertical-offset="8145">
+            <state vertical-scroll-proportion="0.75921375" vertical-offset="1941" max-vertical-offset="8145">
               <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
               <folding />
             </state>
@@ -307,7 +306,8 @@
             <option name="mySupportsDeletion" value="false" />
             <option name="myCanBeAbsent" value="false" />
             <option name="myId" value="UPDATED" />
-            <PATH vcs="Git" revision="">$PROJECT_DIR$/js/GameEngine.js</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/about.html</PATH>
+            <PATH vcs="Git" revision="">$PROJECT_DIR$/game.html</PATH>
             <PATH vcs="Git" revision="">$PROJECT_DIR$/js/character.js</PATH>
           </FILE-GROUP>
           <FILE-GROUP>
@@ -484,13 +484,7 @@
       <workItem from="1423785316985" duration="63000" />
       <workItem from="1423793536959" duration="113000" />
       <workItem from="1423793719207" duration="3094000" />
-      <workItem from="1425624307048" duration="1385000" />
-    </task>
-    <task id="LOCAL-00003" summary="pulled nick out of main.js and put into it's own javascript file.">
-      <created>1422486200690</created>
-      <option name="number" value="00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1422486200690</updated>
+      <workItem from="1425624307048" duration="1421000" />
     </task>
     <task id="LOCAL-00004" summary="Added background, changed where input is (now is in main.js). Also added a few comments.">
       <created>1422491933276</created>
@@ -780,11 +774,17 @@
       <option name="project" value="LOCAL" />
       <updated>1425625672958</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Can die from books now officially.">
+      <created>1425626245376</created>
+      <option name="number" value="00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1425626245376</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="87235000" />
+    <option name="totallyTimeSpent" value="87271000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="708" extended-state="6" />
@@ -835,7 +835,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Changed up the CharacterSelection screen a bit." />
     <MESSAGE value="Changed the CharacterSelection screen to take numbers as a selection instead of clicks." />
     <MESSAGE value="Added numbers to display so you can see which number corresponds to a character selection." />
     <MESSAGE value="Making sound effects yo!" />
@@ -860,7 +859,8 @@
     <MESSAGE value="When a player wins it properly tells the winner and returns you to character selection page." />
     <MESSAGE value="Fixed Dr. Chinn's emote and block for player two side." />
     <MESSAGE value="Fixed Dr. Chinn's crouch for player 2." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed Dr. Chinn's crouch for player 2." />
+    <MESSAGE value="Can die from books now officially." />
+    <option name="LAST_COMMIT_MESSAGE" value="Can die from books now officially." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1216,18 +1216,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/character.js">
+    <entry file="file://$PROJECT_DIR$/selection.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1941" max-vertical-offset="8145">
-          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
+        <state vertical-scroll-proportion="-104.75" vertical-offset="966" max-vertical-offset="3885">
+          <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/selection.html">
+    <entry file="file://$PROJECT_DIR$/js/character.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="6.328982" vertical-offset="1056" max-vertical-offset="3885">
-          <caret line="232" column="21" selection-start-line="232" selection-start-column="21" selection-end-line="232" selection-end-column="21" />
+        <state vertical-scroll-proportion="0.75921375" vertical-offset="1941" max-vertical-offset="8145">
+          <caret line="150" column="5" selection-start-line="150" selection-start-column="5" selection-end-line="150" selection-end-column="5" />
           <folding />
         </state>
       </provider>
