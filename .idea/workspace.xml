@@ -47,8 +47,8 @@
       <file leaf-file-name="character.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/character.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="7565" max-vertical-offset="9197">
-              <caret line="462" column="32" selection-start-line="462" selection-start-column="32" selection-end-line="462" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="7837" max-vertical-offset="9163">
+              <caret line="461" column="40" selection-start-line="461" selection-start-column="40" selection-end-line="461" selection-end-column="40" />
               <folding />
             </state>
           </provider>
@@ -77,12 +77,9 @@
       <file leaf-file-name="GameEngine.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/GameEngine.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.17341977" vertical-offset="1984" max-vertical-offset="3128">
-              <caret line="123" column="11" selection-start-line="123" selection-start-column="11" selection-end-line="123" selection-end-column="11" />
-              <folding>
-                <marker date="1425626642100" expanded="true" signature="2514:2579" placeholder="{...}" />
-                <marker date="1425626642100" expanded="true" signature="2661:2766" placeholder="{...}" />
-              </folding>
+            <state vertical-scroll-proportion="0.3" vertical-offset="1887" max-vertical-offset="3196">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -175,9 +172,6 @@
     <OptionsSetting value="true" id="Get Latest Version" />
     <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
-  </component>
-  <component name="ProjectReloadState">
-    <option name="STATE" value="2" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -404,6 +398,18 @@
       <workItem from="1423785316985" duration="63000" />
       <workItem from="1423793536959" duration="113000" />
       <workItem from="1423793719207" duration="3094000" />
+    </task>
+    <task id="LOCAL-00001" summary="Can walk to the right, but needs to set walking boolean to false on keyup now.">
+      <created>1422437223481</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1422437223481</updated>
+    </task>
+    <task id="LOCAL-00002" summary="added js folder with all scripts in it.">
+      <created>1422485920980</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1422485920980</updated>
     </task>
     <task id="LOCAL-00003" summary="pulled nick out of main.js and put into it's own javascript file.">
       <created>1422486200690</created>
@@ -687,19 +693,7 @@
       <option name="project" value="LOCAL" />
       <updated>1425621991066</updated>
     </task>
-    <task id="LOCAL-00050" summary="Chinns book now hurts">
-      <created>1425625720749</created>
-      <option name="number" value="00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1425625720766</updated>
-    </task>
-    <task id="LOCAL-00051" summary="fixed book crashing">
-      <created>1425626243500</created>
-      <option name="number" value="00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1425626243500</updated>
-    </task>
-    <option name="localTasksCounter" value="52" />
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -709,7 +703,6 @@
     <frame x="-8" y="-8" width="1936" height="1034" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959327" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32711864" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -720,7 +713,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25686592" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2642369" sideWeight="0.5004042" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2645382" sideWeight="0.4995958" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2642369" sideWeight="0.4995958" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -733,6 +726,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20752566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32956383" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39974293" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -754,6 +748,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Added jon's spritesheet to the project, and stopped letting nick do punch animation while jumping." />
+    <MESSAGE value="Added Jon to the game!" />
     <MESSAGE value="Jon can face either way. Game is set to Jon vs. Chris at the moment." />
     <MESSAGE value="Changed up the CharacterSelection screen a bit." />
     <MESSAGE value="Changed the CharacterSelection screen to take numbers as a selection instead of clicks." />
@@ -777,9 +773,7 @@
     <MESSAGE value="kept background from being tilied" />
     <MESSAGE value="fixed backs breaking" />
     <MESSAGE value="lessened number of backgrounds" />
-    <MESSAGE value="Chinns book now hurts" />
-    <MESSAGE value="fixed book crashing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed book crashing" />
+    <option name="LAST_COMMIT_MESSAGE" value="lessened number of backgrounds" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1134,20 +1128,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/character.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7565" max-vertical-offset="9197">
-          <caret line="462" column="32" selection-start-line="462" selection-start-column="32" selection-end-line="462" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="7548" max-vertical-offset="9197">
+          <caret line="461" column="40" selection-start-line="461" selection-start-column="40" selection-end-line="461" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/js/GameEngine.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17341977" vertical-offset="1984" max-vertical-offset="3128">
-          <caret line="123" column="11" selection-start-line="123" selection-start-column="11" selection-end-line="123" selection-end-column="11" />
-          <folding>
-            <marker date="1425626642100" expanded="true" signature="2514:2579" placeholder="{...}" />
-            <marker date="1425626642100" expanded="true" signature="2661:2766" placeholder="{...}" />
-          </folding>
+        <state vertical-scroll-proportion="0.3" vertical-offset="1887" max-vertical-offset="3196">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

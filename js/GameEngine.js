@@ -126,14 +126,18 @@ GameEngine.prototype.update = function() {
 
 
         if(booksX > (leftOne) && booksX < (rightOne)){
+            if(!this.entities[0].isJumping || !this.entities[0].isFalling)
+                this.books.splice(i, 1);
+
             if(!this.entities[0].amIhittable()){
                 this.entities[0].hitMeScotty(10);
                 this.books.removeFromWorld = true;
-                this.books.splice(i, 1);
 
             }
         }
         if(booksX > leftTwo && booksX < (rightTwo)){
+            if(!this.entities[0].isJumping || !this.entities[0].isFalling)
+                this.books.splice(i, 1);
             if(!this.entities[1].amIhittable()){
                 this.entities[1].hitMeScotty(10);
                 this.books.splice(i, 1);
