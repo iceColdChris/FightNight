@@ -80,9 +80,14 @@ GameEngine.prototype.draw = function() {
 };
 GameEngine.prototype.update = function() {
     var entitiesCount = this.entities.length;
+    var playerOneX = 0;
+    var playerTwoX = 0;
+
     for (var i = 0; i < entitiesCount; i++) {
+
+
         var entity = this.entities[i];
-            entity.update();
+        entity.update();
     }
     for (var i = 0; i < this.books.length; i++) {
         this.books[i].update();
@@ -94,6 +99,40 @@ GameEngine.prototype.update = function() {
         }
     }
     for (var i = 0; i < this.books.length; i++) {
+        playerOneX = this.entities[0].x;
+        playerTwoX = this.entities[1].x;
+
+        var leftOne = Math.min(playerOneX,playerOneX+200);
+        var rightOne = Math.max(playerOneX,playerOneX+200);
+
+        var booksX = this.books[i].x;
+
+
+        var leftTwo = Math.min(playerTwoX,playerTwoX+220)
+        var rightTwo = Math.max(playerTwoX,playerTwoX+220);
+
+
+        if(booksX > (leftOne) && booksX < (rightOne)){
+            if(!this.entities[0].amIhittable()){
+                this.entities[0].hitMeScotty(10);
+                this.books.splice(i, 1);
+
+            }
+        }
+        if(booksX > leftTwo && booksX < (rightTwo)){
+            if(!this.entities[1].amIhittable()){
+                this.entities[1].hitMeScotty(10);
+                this.books.splice(i, 1);
+            }
+        }
+    }
+    for (var i = 0; i < this.books.length; i++) {
+        if(this.books[i].x< -10){
+            this.books.splice(i, 1);
+        }
+        if(this.books[i].x>3500){
+            this.books.splice(i, 1);
+        }
         if (this.books[i].removeFromWorld) {
             this.books.splice(i, 1);
         }
