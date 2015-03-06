@@ -5,6 +5,15 @@
     height: 70%;
 }
 
+#clickMe {
+    margin-top : 10px;
+    margin-left: 15px;
+}
+
+#StartMenu{
+    margin-top: 200px;
+}
+
 .nav a {
     color: #5a5a5a;
     font-size: 20px;

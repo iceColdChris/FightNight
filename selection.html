@@ -19,6 +19,24 @@
         background-size: cover;
     }
 </style>
+<body>
+<div class="nav">
+
+    <div class="container">
+        <FORM>
+            <INPUT TYPE="button" id = "clickMe" onclick ="lockIn();" value = "Lock-in Selection"; >
+        </FORM>
+
+        <script type ="text/javascript" >
+            function lockIn() {
+                asdf += 1;
+                // $("#PlayerOneSelected").remove();
+                console.log($("#clickMe"));
+
+            }
+        </script>
+    </div>
+</div>
 
 
 <div class="row">
@@ -224,28 +242,13 @@
 </div>
 <div class="row">
     <div class="col-md-2">
-        <FORM>
-            <INPUT TYPE="button" id = "clickMe" onclick ="lockIn();" value = "Lock-in Selection">
-        </FORM>
-
-        <script type ="text/javascript" >
-            function lockIn() {
-                asdf += 1;
-               // $("#PlayerOneSelected").remove();
-                console.log($("#clickMe"));
-
-            }
-        </script>
-
-    </div>
-    <div class="col-md-2">
-        <FORM>
-            <INPUT TYPE="button" id = "START!" value = "START!">
-            <a href="game.html">
-                <span class="link-spanner"></span>
-            </a>
-        </FORM>
-    </div>
+    <FORM>
+        <INPUT TYPE="button" id = "START!" value = "START!">
+        <a href="game.html">
+            <span class="link-spanner"></span>
+        </a>
+    </FORM>
+</div>
     <div class ="col-md-2">
         <div id="PlayerOneSelected" class="box">Player One's character
             <script type ="text/javascript" >
