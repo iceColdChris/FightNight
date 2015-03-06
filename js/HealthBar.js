@@ -17,7 +17,6 @@ HealthBar.prototype.setHealth = function(health) {
 };
 
 HealthBar.prototype.draw = function() {
-    console.log(this.name);
     this.ctx.font = "100px Arial";
     this.ctx.fillStyle = "blue";
     this.ctx.fillText(this.name, this.x + 120, this.y + 150);

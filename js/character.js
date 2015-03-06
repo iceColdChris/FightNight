@@ -472,7 +472,7 @@ Character.prototype.checkHit = function(){
                 }
 
                 if(this.health<=0){
-                    this.game.endGame();
+                    this.game.endGame(this.opponent.name);
                 }
             }
         }
