@@ -24,7 +24,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     if (this.playerNumber === 1) {
         this.x = 0;
     } else {
-        this.x = 1500;
+        this.x = 1900;
     }
     this.y = this.game.floorY;
     this.isPunching = false;
@@ -73,7 +73,7 @@ Character.prototype.setOpponent = function(opponent) {
     this.delta = 370/2;
 
     if(this.opponent.name === "DrChinn" || this.opponent.name === "DrTolentino" )
-        this.damage = 2;
+        this.damage = 1;
     else
         this.damage = .60;
 };
@@ -463,7 +463,6 @@ Character.prototype.playGettingKicked = function(){
 Character.prototype.hitMeScotty = function(damage){
     this.health -= damage;
     this.HealthBar.setHealth(this.health);
-    console.log("Ive been hit");
 }
 
 Character.prototype.checkHit = function(){
@@ -473,7 +472,7 @@ Character.prototype.checkHit = function(){
         if(this.isMyOpponentReallyHittingMe()){
             if(!this.amIhittable()){
                 //chek if I'm close enough to be hit
-                this.health -= this.damage;
+                this.health -= this.damage*5;
                 this.HealthBar.setHealth(this.health);
                 var snd = this.assets.getAsset("./sound/punch.mp3");
                 //snd.play();

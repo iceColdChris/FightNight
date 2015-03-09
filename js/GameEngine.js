@@ -97,6 +97,7 @@ GameEngine.prototype.update = function() {
     var entitiesCount = this.entities.length;
     var playerOneX = 0;
     var playerTwoX = 0;
+    var damage = 15;
 
     for (var i = 0; i < entitiesCount; i++) {
 
@@ -133,7 +134,7 @@ GameEngine.prototype.update = function() {
                 this.books.splice(i, 1);
 
             if(!this.entities[0].amIhittable()){
-                this.entities[0].hitMeScotty(10);
+                this.entities[0].hitMeScotty(damage);
 
             }
         }
@@ -143,7 +144,7 @@ GameEngine.prototype.update = function() {
                 this.books.splice(i, 1);
 
             if(!this.entities[1].amIhittable()){
-                this.entities[1].hitMeScotty(10);
+                this.entities[1].hitMeScotty(damage);
 
 
             }
@@ -171,6 +172,7 @@ GameEngine.prototype.endGame = function(winnername){
     //./sound/victory/DrChinn.mp3
     var winner = assets.getAsset("./sound/victory/"+winnername+".mp3");
     this.levelMusic.volume = .05;
+    console.log(this.winnername);
     winner.play();
     window.setTimeout(function(){window.location.replace("./selection.html")}, 5000);
 

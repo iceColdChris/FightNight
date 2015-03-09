@@ -274,7 +274,7 @@ assets.queueDownload("./sound/chocking.mp3");
 /* victory sounds*/
 assets.queueDownload("./sound/victory/DrChinn.mp3");
 assets.queueDownload("./sound/victory/Chris.mp3");
-assets.queueDownload("./sound/victory/DrTalentino.mp3");
+assets.queueDownload("./sound/victory/DrTolentino.mp3");
 assets.queueDownload("./sound/victory/FinishHim.mp3");
 assets.queueDownload("./sound/victory/Jon.mp3");
 assets.queueDownload("./sound/victory/Matt.mp3");
