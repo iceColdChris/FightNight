@@ -52,6 +52,8 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.diff = null;
     this.damage = null;
 
+    this.finishhim = false;
+
 
 
 
@@ -148,6 +150,11 @@ Character.prototype.draw = function() {
 Character.prototype.update = function() {
     if(this.health<=0){
         this.game.endGame(this.opponent.name);
+    }
+    if(!this.finishhim && this.health < 15 ){
+        var finishHimSound = this.assets.getAsset("./sound/victory/FinishHim.mp3");
+        finishHimSound.play();
+        this.finishhim = true;
     }
     //Inserted just so I can try pushing again
     if (this.playerNumber === 1) {
