@@ -118,7 +118,6 @@ function loadCharacters() {
 
 function keyDownHandler(event) {
     if (event.repeat != true) {
-        console.log(event);
         var keyPressed = event.keyCode;
         if (keyPressed === 68) {
             gameEngine.d = true;

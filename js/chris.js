@@ -14,7 +14,7 @@ Chris.prototype.loadAnims = function() {
     if (this.playerNumber === 2) {
         this.animate = new Animate(this.spritesheet, 3370, 1000, 370, 500, 0.1, 3, true, true);
         this.WalkAnimate = new Animate(this.spritesheet, 0, 3000, 370, 500, 0.1, 4, true, true);
-        this.PunchAnimate = new Animate(this.spritesheet, 1855, 2002, 368, 460, 0.1, 3, false, true);
+        this.PunchAnimate = new Animate(this.spritesheet, 1855, 2002, 368, 460, 0.05, 3, false, true);
         this.KickAnimate = new Animate(this.spritesheet, 1800, 2500, 370, 500, 0.1, 3, false, true);
         this.JumpAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 3, false, true);
         this.FallAnimate = new Animate(this.spritesheet, 1800, 1500, 370, 500, 0.2, 1, true, false);
@@ -26,7 +26,7 @@ Chris.prototype.loadAnims = function() {
     } else {
         this.animate = new Animate(this.spritesheet, 3370, 0, 370, 500, 0.1, 3, true, false);
         this.WalkAnimate = new Animate(this.spritesheet, 3000, 2000, 370, 500, 0.1, 4, true, false);
-        this.PunchAnimate = new Animate(this.spritesheet, 20, 2002, 370, 500, 0.1, 3, false, false);
+        this.PunchAnimate = new Animate(this.spritesheet, 20, 2002, 370, 500, 0.05, 3, false, false);
         this.KickAnimate = new Animate(this.spritesheet, 20, 2500, 370, 500, 0.1, 3, false, false);
         this.JumpAnimate = new Animate(this.spritesheet, 0, 1500, 370, 500, 0.2, 3, false, false);
         this.FallAnimate = new Animate(this.spritesheet, 740, 1500, 370, 500, 0.2, 1, true, false);

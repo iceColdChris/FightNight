@@ -13,7 +13,7 @@ DrChinn.prototype.constructor = DrChinn;
 DrChinn.prototype.loadAnims = function() {
     if (this.playerNumber === 1) {
         this.animate = new Animate(this.spritesheet, 1850, 1000, 370, 500, 0.1, 3, true, true);
-        this.PunchAnimate = new Animate(this.spritesheet, 1500, 0, 370, 500, 0.1, 4, false, true);
+        this.PunchAnimate = new Animate(this.spritesheet, 1500, 0, 370, 500, 0.05, 4, false, true);
         this.KickAnimate = new Animate(this.spritesheet, 1500, 500, 370, 500, 0.1, 4, false, true);
         this.WalkAnimate = new Animate(this.spritesheet, 1500, 2000, 370, 500, 0.1, 4, true, true);
         this.BlockAnimate = new Animate(this.spritesheet, 1500, 2500, 370, 500, 0.1, 4, false, true);
@@ -25,7 +25,7 @@ DrChinn.prototype.loadAnims = function() {
         this.EmoteAnimate = new Animate(this.spritesheet, 1500, 2500, 370, 500, 0.1, 4, false, true);
     } else {
         this.animate = new Animate(this.spritesheet, 0, 1000, 370, 500, 0.1, 3, true, false);
-        this.PunchAnimate = new Animate(this.spritesheet, 0, 0, 370, 500, 0.1, 4, false, false);
+        this.PunchAnimate = new Animate(this.spritesheet, 0, 0, 370, 500, 0.05, 4, false, false);
         this.KickAnimate = new Animate(this.spritesheet, 0, 500, 370, 500, 0.1, 4, false, false);
         this.WalkAnimate = new Animate(this.spritesheet, 0, 2000, 370, 500, 0.1, 4, true, false);
         this.BlockAnimate = new Animate(this.spritesheet, 0, 2500, 370, 500, 0.1, 4, false, false);
