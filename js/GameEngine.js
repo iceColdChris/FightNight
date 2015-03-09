@@ -168,7 +168,7 @@ GameEngine.prototype.loop = function() {
 GameEngine.prototype.endGame = function(winnername){
     this.winnername = winnername;
     this.isGoing = false;
-    //./sound/victory/DrChinn.mp3    ;
+    //./sound/victory/DrChinn.mp3
     var winner = assets.getAsset("./sound/victory/"+winnername+".mp3");
     this.levelMusic.volume = .05;
     winner.play();

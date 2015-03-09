@@ -19,16 +19,16 @@ function Animate(spriteSheet, startX, startY, frameWidth, frameHeight, frameDura
     this.elapsedTime = 0;
     this.loop = loop;
     this.reverse = reverse;
-    this.frame = -1000;
-    this.xindex = -1000;
 }
 Animate.prototype.drawFrame = function(tick, ctx, x, y) {
     this.elapsedTime += tick;
     if (this.isDone()) {
         if (this.loop) this.elapsedTime = 0;
     }
-    frame = this.reverse ? this.frames - this.currentFrame() - 1: this.currentFrame();
-    xindex = (frame % this.frames);
+
+    var frame = Math.abs(this.reverse ? this.frames - this.currentFrame() - 1: this.currentFrame());
+    var xindex = Math.abs((frame % this.frames));
+
     ctx.drawImage(this.spriteSheet,
         (xindex * this.frameWidth) + this.startX,
         this.startY,

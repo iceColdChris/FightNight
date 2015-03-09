@@ -98,8 +98,6 @@ Character.prototype.draw = function() {
         }
     } else if (this.isPunching) {
         this.PunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
-        console.log(this.punchAnimate.xindex);
-        console.log(this.punchAnimate.frame);
         if(this.playPunchSound === false){
             this.playPunch();
             this.playPunchSound = true;
