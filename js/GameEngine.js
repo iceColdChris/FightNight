@@ -38,6 +38,8 @@ function GameEngine() {
     this.floorY = 650;
     this.isGoing = true;
     this.winnername = null;
+    this.assets = null;
+    this.levelMusic = null;
 }
 GameEngine.prototype.init = function (ctx) {
     this.ctx = ctx;
@@ -166,6 +168,10 @@ GameEngine.prototype.loop = function() {
 GameEngine.prototype.endGame = function(winnername){
     this.winnername = winnername;
     this.isGoing = false;
+    //./sound/victory/DrChinn.mp3    ;
+    var winner = assets.getAsset("./sound/victory/"+winnername+".mp3");
+    this.levelMusic.volume = .05;
+    winner.play();
     window.setTimeout(function(){window.location.replace("./selection.html")}, 5000);
 
 };

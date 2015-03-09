@@ -270,6 +270,15 @@ assets.queueDownload("./sound/punch.mp3");
 assets.queueDownload("./sound/slap.mp3");
 assets.queueDownload("./sound/chocking.mp3");
 
+/* victory sounds*/
+assets.queueDownload("./sound/victory/DrChinn.mp3");
+assets.queueDownload("./sound/victory/Chris.mp3");
+assets.queueDownload("./sound/victory/DrTalentino.mp3");
+assets.queueDownload("./sound/victory/FinishHim.mp3");
+assets.queueDownload("./sound/victory/Jon.mp3");
+assets.queueDownload("./sound/victory/Matt.mp3");
+assets.queueDownload("./sound/victory/Nick.mp3");
+
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");
@@ -280,10 +289,12 @@ assets.downloadAll(function() {
     gameEngine.addBackground(assets.getAsset("./backgrounds/level0"+levelNumber+".jpg"));
     var bell = new Audio("./sound/bell.mp3");
     bell.play();
+    gameEngine.assets = assets;
     gameEngine.start();
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     var level01Music = new Audio("./ost/level01music.mp3");
     level01Music.volume=.75;
+    gameEngine.levelMusic = level01Music;
     level01Music.play();
 });
