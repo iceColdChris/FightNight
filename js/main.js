@@ -280,6 +280,8 @@ assets.queueDownload("./sound/victory/Jon.mp3");
 assets.queueDownload("./sound/victory/Matt.mp3");
 assets.queueDownload("./sound/victory/Nick.mp3");
 
+assets.queueDownload("./sound/hs.mp3");
+
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
     var ctx = canvas.getContext("2d");

@@ -23,6 +23,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.assets = assets;
     this.health = 100;
     this.playerNumber = playerNumber;
+    this.hitCounter = 0;
     if (this.playerNumber === 1) {
         this.x = 0;
     } else {
@@ -158,6 +159,10 @@ Character.prototype.draw = function() {
 Character.prototype.update = function() {
     if(this.health<=0){
         this.game.endGame(this.opponent.name);
+    }if(this.hitCounter >=10){
+        var snd = this.assets.getAsset("./sound/hs.mp3");
+        snd.play();
+        this.hitCounter = 0;
     }
     if(!this.finishhim && this.health < 15 ){
         var finishHimSound = this.assets.getAsset("./sound/victory/FinishHim.mp3");
@@ -210,12 +215,14 @@ Character.prototype.updatePlayerOne = function() {
         }
     } else if (this.game.f) {
         this.isPunching = true;
+        this.hitCounter++;
         this.opponent.checkHit();
     } else if (this.game.g) {
         if (this.name === "DrChinn") {
             this.isThrowing = true;
         }
         this.isKicking = true;
+        this.hitCounter++;
         this.opponent.checkHit();
     } else if (this.game.q) {
         if (!this.isHoldingBlock) {
@@ -275,11 +282,13 @@ Character.prototype.updatePlayerTwo = function(){
     } else if (this.game.period) {
         this.isPunching = true;
         this.opponent.checkHit();
+        this.hitCounter++;
     } else if (this.game.fSlash) {
         if (this.name === "DrChinn") {
             this.isThrowing = true;
         }
         this.isKicking = true;
+        this.hitCounter++;
         this.opponent.checkHit();
     } else if (this.game.rShift) {
         this.isEmoting = true;
@@ -474,6 +483,7 @@ Character.prototype.playGettingKicked = function(){
 Character.prototype.hitMeScotty = function(damage){
     this.health -= damage;
     this.HealthBar.setHealth(this.health);
+    this.hitCounter = 0;
 }
 
 Character.prototype.checkHit = function(){
@@ -485,6 +495,7 @@ Character.prototype.checkHit = function(){
                 //chek if I'm close enough to be hit
                 this.imgettinghit = true;
                 this.health -= this.damage*5;
+                this.hitCounter = 0;
                 this.HealthBar.setHealth(this.health);
                 var snd = this.assets.getAsset("./sound/punch.mp3");
                 //snd.play();
