@@ -23,6 +23,7 @@ DrTolentino.prototype.loadAnims = function() {
         this.CrouchAnimate = new Animate(this.spritesheet, 1500, 1500, 370, 500, .1, 4, false, true);
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 2240, 1500, 370, 500, .1, 1, true, true);
         this.EmoteAnimate = new Animate(this.spritesheet, 1500, 0, 370, 500, 0.1, 4, false, true);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 2600, 0, 370, 500, 0.2, 1, false, true);
     } else {
         this.animate = new Animate(this.spritesheet, 0, 2000, 370, 500, 0.1, 3, true, false);
         this.PunchAnimate = new Animate(this.spritesheet, 0, 1000, 370, 500, 0.05, 4, false, false);
@@ -35,5 +36,6 @@ DrTolentino.prototype.loadAnims = function() {
         this.CrouchAnimate = new Animate(this.spritesheet, 0, 1500, 370, 500, .1, 4, false, false);
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 1110, 1500, 370, 500, .1, 1, true, false);
         this.EmoteAnimate = new Animate(this.spritesheet, 0, 0, 370, 500, 0.1, 4, false, false);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 0, 0, 370, 500, 0.2, 1, false, false);
     }
 };

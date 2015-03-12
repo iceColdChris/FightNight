@@ -23,6 +23,7 @@ Chris.prototype.loadAnims = function() {
         this.CrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 500, .1, 3, false, true);
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 500, .1, 1, true, true);
         this.EmoteAnimate = new Animate(this.spritesheet, 0, 3500, 370, 435, 0.1, 4, false, true);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 1800, 500, 370, 500, 0.2, 3, false, true);
     } else {
         this.animate = new Animate(this.spritesheet, 3370, 0, 370, 500, 0.1, 3, true, false);
         this.WalkAnimate = new Animate(this.spritesheet, 3000, 2000, 370, 500, 0.1, 4, true, false);
@@ -35,5 +36,6 @@ Chris.prototype.loadAnims = function() {
         this.CrouchAnimate = new Animate(this.spritesheet, 0, 1000, 370, 500, .1, 3, false, false);
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 740, 1000, 370, 500, .1, 1, true, false);
         this.EmoteAnimate = new Animate(this.spritesheet, 3000, 2500, 370, 437, 0.1, 4, false, false);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 0, 500, 370, 500, 0.2, 3, false, false);
     }
 };
