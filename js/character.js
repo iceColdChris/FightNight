@@ -4,6 +4,7 @@
 function Character(game, spritesheet, playerNumber,assets,name) {
     this.spritesheet = spritesheet;
     this.animate = null;
+    this.imgettinghit = false;
     this.PunchAnimate = null;
     this.KickAnimate = null;
     this.WalkAnimate = null;
@@ -15,6 +16,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.EmoteAnimate = null;
     this.CrouchAnimate = null;
     this.HoldCrouchAnimate = null;
+    this.gettingHitAnimate = null;
     this.game = game;
     this.name = name;
     this.ctx = game.ctx;
@@ -80,7 +82,13 @@ Character.prototype.setOpponent = function(opponent) {
 
 Character.prototype.draw = function() {
     this.HealthBar.draw();
-    if(this.isJumping){
+    if (this.imgettinghit) {
+        this.gettingHitAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        if (this.gettingHitAnimate.isDone()) {
+            this.gettingHitAnimate.elapsedTime = 0;
+            this.imgettinghit = false;
+        }
+    } else if(this.isJumping){
         this.JumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isFalling) {
         this.FallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -157,29 +165,32 @@ Character.prototype.update = function() {
         this.finishhim = true;
     }
     //Inserted just so I can try pushing again
-    if (this.playerNumber === 1) {
-        this.updatePlayerOne();
-    } else {
-        this.updatePlayerTwo();
-    }
-
-    if (this.isJumping) {
-        this.y -= 20;
-        if(this.playJumpSound === false){
-            this.playJump();
-            this.playJumpSound = true;
-        }
-        if (this.JumpAnimate.isDone()) {
-            this.JumpAnimate.elapsedTime = 0;
-            this.isJumping = false;
-            this.isFalling = true;
-            this.playJumpSound = false;
-        }
-    } if (this.isFalling) {
-        if (this.y >= this.game.floorY) {
-            this.isFalling = false;
+    if (!this.imgettinghit) {
+        if (this.playerNumber === 1) {
+            this.updatePlayerOne();
         } else {
-            this.y += 20;
+            this.updatePlayerTwo();
+        }
+
+        if (this.isJumping) {
+            this.y -= 20;
+            if (this.playJumpSound === false) {
+                this.playJump();
+                this.playJumpSound = true;
+            }
+            if (this.JumpAnimate.isDone()) {
+                this.JumpAnimate.elapsedTime = 0;
+                this.isJumping = false;
+                this.isFalling = true;
+                this.playJumpSound = false;
+            }
+        }
+        if (this.isFalling) {
+            if (this.y >= this.game.floorY) {
+                this.isFalling = false;
+            } else {
+                this.y += 20;
+            }
         }
     }
 
@@ -472,6 +483,7 @@ Character.prototype.checkHit = function(){
         if(this.isMyOpponentReallyHittingMe()){
             if(!this.amIhittable()){
                 //chek if I'm close enough to be hit
+                this.imgettinghit = true;
                 this.health -= this.damage*5;
                 this.HealthBar.setHealth(this.health);
                 var snd = this.assets.getAsset("./sound/punch.mp3");
