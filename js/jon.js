@@ -41,4 +41,5 @@ Jon.prototype.loadAnims = function() {
         this.HoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 1, true, true);
         this.gettingHitAnimate = new Animate(this.spritesheet, 1800, 500, 370, 500, 0.2, 3, false, true);
     }
+
 };

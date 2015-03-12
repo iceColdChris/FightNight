@@ -11,6 +11,7 @@ DrTolentino.prototype = Object.create(Character.prototype); // See note below
 DrTolentino.prototype.constructor = DrTolentino;
 
 DrTolentino.prototype.loadAnims = function() {
+
     if (this.playerNumber === 1) {
         this.animate = new Animate(this.spritesheet, 1900, 2000, 370, 500, 0.1, 3, true, true);
         this.PunchAnimate = new Animate(this.spritesheet, 1500, 1000, 370, 500, 0.05, 4, false, true);

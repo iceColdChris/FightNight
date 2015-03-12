@@ -11,6 +11,7 @@ DrChinn.prototype = Object.create(Character.prototype); // See note below
 DrChinn.prototype.constructor = DrChinn;
 
 DrChinn.prototype.loadAnims = function() {
+
     if (this.playerNumber === 1) {
         this.animate = new Animate(this.spritesheet, 1850, 1000, 370, 500, 0.1, 3, true, true);
         this.PunchAnimate = new Animate(this.spritesheet, 1500, 0, 370, 500, 0.05, 4, false, true);

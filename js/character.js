@@ -29,6 +29,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     } else {
         this.x = 1900;
     }
+
     this.y = this.game.floorY;
     this.isPunching = false;
     this.isKicking = false;
@@ -77,8 +78,10 @@ Character.prototype.setOpponent = function(opponent) {
 
     if(this.opponent.name === "DrChinn" || this.opponent.name === "DrTolentino" )
         this.damage = 1;
+   else if(this.opponent.name === "Jon")
+        this.damage = .8;
     else
-        this.damage = .60;
+        this.damage=.6;
 };
 
 Character.prototype.draw = function() {
