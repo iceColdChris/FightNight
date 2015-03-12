@@ -281,6 +281,10 @@ assets.queueDownload("./sound/victory/Matt.mp3");
 assets.queueDownload("./sound/victory/Nick.mp3");
 
 assets.queueDownload("./sound/hs.mp3");
+assets.queueDownload("./sound/denied.mp3");
+assets.queueDownload("./sound/fb.mp3");
+assets.queueDownload("./sound/dom.mp3");
+assets.queueDownload("./sound/godlike.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
@@ -297,7 +301,7 @@ assets.downloadAll(function() {
     gameEngine.addEntity(characters[0]);
     gameEngine.addEntity(characters[1]);
     var level01Music = new Audio("./ost/level01music.mp3");
-    level01Music.volume=.5;
+    level01Music.volume=.1;
     gameEngine.levelMusic = level01Music;
     level01Music.play();
 });

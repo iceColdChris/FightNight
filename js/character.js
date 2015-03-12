@@ -158,6 +158,18 @@ Character.prototype.draw = function() {
 
 Character.prototype.update = function() {
     if(this.health<=0){
+
+        if(this.opponent.health >=80 && this.opponent.health < 100){
+            var snd = this.assets.getAsset("./sound/dom.mp3");
+            snd.play();
+            this.opponent.health = 79;
+        }
+        if(this.opponent.health ===100){
+            var snd = this.assets.getAsset("./sound/godlike.mp3");
+            snd.play();
+            this.opponent.health = 101;
+        }
+
         this.game.endGame(this.opponent.name);
     }if(this.hitCounter >=10){
         var snd = this.assets.getAsset("./sound/hs.mp3");
@@ -330,13 +342,8 @@ Character.prototype.playPunch = function(){
         var snd = this.assets.getAsset("./sound/MattSound/MattPunch.mp3");
         snd.play();
     }else if(this.name === "DrChinn"){
-
-        /*
-         Add new sound for Dr. Chinn punching damnit
-         */
-
-        //var snd = this.assets.getAsset("./sound/kungfu.mp3");
-        //snd.play();
+        var snd = this.assets.getAsset("./sound/kungfu2.mp3");
+        snd.play();
     }else if(this.name === "DrTolentino"){
         var snd = this.assets.getAsset("./sound/punch.mp3");
         snd.play();
@@ -439,7 +446,7 @@ Character.prototype.playGettingPunched = function(){
     }else if (this.name === "Matt"){
         var snd = this.assets.getAsset("./sound/kungfu.mp3");
         snd.play();
-        var snd2 = this.assets.getAsset("./sound/MattSound/MattJumping.mp3");
+        var snd2 = this.assets.getAsset("./sound/MattSound/MattGettingPunched.mp3");
         snd2.play();
     }else if(this.name === "DrChinn"){
         var snd = this.assets.getAsset("./sound/kungfu.mp3");
@@ -467,7 +474,7 @@ Character.prototype.playGettingKicked = function(){
         var snd = this.assets.getAsset("./sound/ChrisSound/ChrisGettingKicked.mp3");
         snd.play();
     }else if (this.name === "Matt"){
-        var snd = this.assets.getAsset("./sound/MattSound/MattJumping.mp3");
+        var snd = this.assets.getAsset("./sound/chocking.mp3");
         snd.play();
     }else if(this.name === "DrChinn"){
         var snd = this.assets.getAsset("./sound/chocking.mp3");
@@ -481,8 +488,16 @@ Character.prototype.playGettingKicked = function(){
 }
 
 Character.prototype.hitMeScotty = function(damage){
+    if(this.health === 100 && this.opponent.health === 100){
+        var snd = this.assets.getAsset("./sound/fb.mp3");
+        snd.play();
+    }
     this.health -= damage;
     this.HealthBar.setHealth(this.health);
+    if(this.hitCounter > 7){
+        var snd = this.assets.getAsset("./sound/denied.mp3");
+        snd.play();
+    }
     this.hitCounter = 0;
 }
 
@@ -494,11 +509,18 @@ Character.prototype.checkHit = function(){
             if(!this.amIhittable()){
                 //chek if I'm close enough to be hit
                 this.imgettinghit = true;
+                if(this.health === 100 && this.opponent.health === 100){
+                    var snd = this.assets.getAsset("./sound/fb.mp3");
+                    snd.play();
+                }
                 this.health -= this.damage*5;
+                if(this.hitCounter > 7){
+                    var snd = this.assets.getAsset("./sound/denied.mp3");
+                    snd.play();
+
+                }
                 this.hitCounter = 0;
                 this.HealthBar.setHealth(this.health);
-                var snd = this.assets.getAsset("./sound/punch.mp3");
-                //snd.play();
 
                 var i = Math.round(Math.random());
                 if(i===0){
