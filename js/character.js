@@ -185,7 +185,7 @@ Character.prototype.update = function() {
         var snd = this.assets.getAsset("./sound/hs.mp3");
         snd.play();
     }
-    if(this.hitCounter===16){
+    if(this.hitCounter>=16){
 
         if(this.playHealthSound){
             var hb = this.assets.getAsset("./sound/hb.mp3");
