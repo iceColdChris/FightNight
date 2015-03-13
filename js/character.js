@@ -68,6 +68,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.playGetKickedSound = false;
     this.playJumpSound = false;
     this.playVictorySound = false;
+    this.playHealthSound = true;
 
 }
 
@@ -98,17 +99,21 @@ Character.prototype.draw = function() {
         this.FallAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
     } else if (this.isCrouching) {
         this.CrouchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.hitCounter = 0;
         if (this.CrouchAnimate.isDone()) {
             this.isCrouching = false;
         }
     } else if (this.isHoldingCrouch) {
         this.HoldCrouchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.hitCounter = 0;
     } else if (this.isEmoting) {
         this.EmoteAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         this.playVictory();
+
         if (this.EmoteAnimate.isDone()) {
             this.EmoteAnimate.elapsedTime = 0;
             this.isEmoting = false;
+            this.hitCounter++;
         }
     } else if (this.isPunching) {
         this.PunchAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -145,11 +150,13 @@ Character.prototype.draw = function() {
         }
     } else if(this.isBlocking) {
         this.BlockAnimate.drawFrame(this.game.clockTick,this.ctx,this.x,this.y);
+        this.hitCounter = 0;
         if (this.BlockAnimate.isDone()) {
             this.isBlocking = false;
         }
     } else if (this.isHoldingBlock) {
         this.HoldBlock.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
+        this.hitCounter = 0;
     }else if (this.walkingRight || this.walkingLeft) {
         // walk animation (to the right)
         this.WalkAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -174,10 +181,21 @@ Character.prototype.update = function() {
         }
 
         this.game.endGame(this.opponent.name);
-    }if(this.hitCounter >=10){
+    }if(this.hitCounter ===10){
         var snd = this.assets.getAsset("./sound/hs.mp3");
         snd.play();
-        this.hitCounter = 0;
+    }
+    if(this.hitCounter===16){
+
+        if(this.playHealthSound){
+            var hb = this.assets.getAsset("./sound/hb.mp3");
+            hb.play();
+            this.playHealthSound = false;
+        }
+        if(this.health < 100) {
+            this.health += .05;
+            this.HealthBar.setHealth(this.health);
+        }
     }
     if(!this.finishhim && this.health < 15 ){
         var finishHimSound = this.assets.getAsset("./sound/victory/FinishHim.mp3");
@@ -498,11 +516,12 @@ Character.prototype.hitMeScotty = function(damage){
     this.health -= damage;
     this.opponent.hitCounter++;
     this.HealthBar.setHealth(this.health);
-    if(this.hitCounter > 7){
+    if(this.hitCounter > 6){
         var snd = this.assets.getAsset("./sound/denied.mp3");
         snd.play();
     }
     this.hitCounter = 0;
+    this.playHealthSound = true;
 }
 
 Character.prototype.checkHit = function(){
@@ -519,12 +538,13 @@ Character.prototype.checkHit = function(){
                     snd.play();
                 }
                 this.health -= this.damage*5;
-                if(this.hitCounter > 7){
+                if(this.hitCounter > 6){
                     var snd = this.assets.getAsset("./sound/denied.mp3");
                     snd.play();
 
                 }
                 this.hitCounter = 0;
+                this.playHealthSound = true;
                 this.HealthBar.setHealth(this.health);
 
                 var i = Math.round(Math.random());

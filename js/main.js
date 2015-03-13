@@ -230,7 +230,6 @@ if(levelNumber === 1){
     assets.queueDownload("./backgrounds/level04.jpg");
 
 }
-assets.queueDownload("./img/alg-book.png");
 assets.queueDownload("./img/logo/mattlogo.png");
 assets.queueDownload("./img/logo/jonlogo.png");
 assets.queueDownload("./img/logo/chrislogo.png");
@@ -246,6 +245,13 @@ assets.queueDownload("./img/combo/7.png");
 assets.queueDownload("./img/combo/8.png");
 assets.queueDownload("./img/combo/9.png");
 assets.queueDownload("./img/combo/10.png");
+assets.queueDownload("./img/combo/11.png");
+assets.queueDownload("./img/combo/12.png");
+assets.queueDownload("./img/combo/13.png");
+assets.queueDownload("./img/combo/14.png");
+assets.queueDownload("./img/combo/15.png");
+assets.queueDownload("./img/combo/health.png");
+
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
@@ -300,6 +306,7 @@ assets.queueDownload("./sound/denied.mp3");
 assets.queueDownload("./sound/fb.mp3");
 assets.queueDownload("./sound/dom.mp3");
 assets.queueDownload("./sound/godlike.mp3");
+assets.queueDownload("./sound/hb.mp3");
 
 assets.downloadAll(function() {
     var canvas = document.getElementById("gameCanvas");
