@@ -231,6 +231,12 @@ if(levelNumber === 1){
 
 }
 assets.queueDownload("./img/alg-book.png");
+assets.queueDownload("./img/logo/mattlogo.png");
+assets.queueDownload("./img/logo/jonlogo.png");
+assets.queueDownload("./img/logo/chrislogo.png");
+assets.queueDownload("./img/logo/nicklogo.png");
+assets.queueDownload("./img/logo/drchinnlogo.png");
+assets.queueDownload("./img/logo/drtolentinologo.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");

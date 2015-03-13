@@ -2,7 +2,7 @@
  * Created by httpnick on 2/6/15.
  */
 
-function HealthBar(game, x, y, maxHealth, height, maxWidth, name) {
+function HealthBar(game, x, y, maxHealth, height, maxWidth, name,assets) {
     this.ctx = game.ctx;
     this.x = x;
     this.y = y;
@@ -11,6 +11,7 @@ function HealthBar(game, x, y, maxHealth, height, maxWidth, name) {
     this.maxWidth = maxWidth; //500
     this.health = this.maxHealth;
     this.name = name;
+    this.assets = assets;
 }
 HealthBar.prototype.setHealth = function(health) {
         this.health = health;
@@ -18,15 +19,26 @@ HealthBar.prototype.setHealth = function(health) {
 
 
 HealthBar.prototype.draw = function() {
-    var nameLength = this.name.length * 50;
-    this.ctx.font = "100px Arial";
-    this.ctx.fillStyle = "blue";
-    this.ctx.fillText(this.name, (this.x + this.maxWidth/2) - (nameLength/2), this.y + 150);
-    this.ctx.beginPath();
-    this.ctx.rect(this.x, this.y, this.maxWidth, this.height);
-    this.ctx.fillStyle = "black";
-    this.ctx.fill();
-    this.ctx.closePath();
+
+    if(this.name === "Matt"){
+        var img = this.assets.getAsset("./img/logo/mattlogo.png");
+    }
+    else if(this.name === "Jon"){
+        var img = this.assets.getAsset("./img/logo/jonlogo.png");
+    }
+    else if(this.name === "Nick"){
+        var img = this.assets.getAsset("./img/logo/nicklogo.png");
+    }else if(this.name === "Chris"){
+        var img = this.assets.getAsset("./img/logo/chrislogo.png");
+    }
+    else if(this.name === "DrChinn"){
+        var img = this.assets.getAsset("./img/logo/drchinnlogo.png");
+    }else{
+        var img = this.assets.getAsset("./img/logo/drtolentinologo.png");
+    }
+
+    this.ctx.drawImage(img,(this.x)+175,85 );
+
 
     if (this.health > 0) {
         this.ctx.beginPath();
