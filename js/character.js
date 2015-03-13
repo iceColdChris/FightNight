@@ -47,9 +47,9 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.canvasWidth = this.canvas.width;
     this.HealthBar = null;
     if (this.playerNumber === 1) {
-        this.HealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500, this.name,this.assets);
+        this.HealthBar = new HealthBar(this.game, 100, 0, this.health, 75, 500, this.name,this.assets,this);
     } else {
-        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500, this.name,this.assets);
+        this.HealthBar = new HealthBar(this.game, 1599, 0, this.health, 75, 500, this.name,this.assets,this);
     }
 
     this.delta = null;
@@ -230,14 +230,14 @@ Character.prototype.updatePlayerOne = function() {
         }
     } else if (this.game.f) {
         this.isPunching = true;
-        this.hitCounter++;
+
         this.opponent.checkHit();
     } else if (this.game.g) {
         if (this.name === "DrChinn") {
             this.isThrowing = true;
         }
         this.isKicking = true;
-        this.hitCounter++;
+
         this.opponent.checkHit();
     } else if (this.game.q) {
         if (!this.isHoldingBlock) {
@@ -297,13 +297,13 @@ Character.prototype.updatePlayerTwo = function(){
     } else if (this.game.period) {
         this.isPunching = true;
         this.opponent.checkHit();
-        this.hitCounter++;
+
     } else if (this.game.fSlash) {
         if (this.name === "DrChinn") {
             this.isThrowing = true;
         }
         this.isKicking = true;
-        this.hitCounter++;
+
         this.opponent.checkHit();
     } else if (this.game.rShift) {
         this.isEmoting = true;
@@ -496,6 +496,7 @@ Character.prototype.hitMeScotty = function(damage){
         snd.play();
     }
     this.health -= damage;
+    this.opponent.hitCounter++;
     this.HealthBar.setHealth(this.health);
     if(this.hitCounter > 7){
         var snd = this.assets.getAsset("./sound/denied.mp3");
@@ -512,6 +513,7 @@ Character.prototype.checkHit = function(){
             if(!this.amIhittable()){
                 //chek if I'm close enough to be hit
                 this.imgettinghit = true;
+                this.opponent.hitCounter++;
                 if(this.health === 100 && this.opponent.health === 100){
                     var snd = this.assets.getAsset("./sound/fb.mp3");
                     snd.play();

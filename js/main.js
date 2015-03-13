@@ -237,6 +237,15 @@ assets.queueDownload("./img/logo/chrislogo.png");
 assets.queueDownload("./img/logo/nicklogo.png");
 assets.queueDownload("./img/logo/drchinnlogo.png");
 assets.queueDownload("./img/logo/drtolentinologo.png");
+
+assets.queueDownload("./img/combo/3.png");
+assets.queueDownload("./img/combo/4.png");
+assets.queueDownload("./img/combo/5.png");
+assets.queueDownload("./img/combo/6.png");
+assets.queueDownload("./img/combo/7.png");
+assets.queueDownload("./img/combo/8.png");
+assets.queueDownload("./img/combo/9.png");
+assets.queueDownload("./img/combo/10.png");
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");
 assets.queueDownload("./sound/JonSound/JonKick.mp3");
