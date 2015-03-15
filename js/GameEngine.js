@@ -135,6 +135,7 @@ GameEngine.prototype.update = function() {
 
             if(!this.entities[0].amIhittable()){
                 this.entities[0].hitMeScotty(damage);
+                this.entities[0].imgettinghit = true;
 
             }
         }
@@ -145,6 +146,7 @@ GameEngine.prototype.update = function() {
 
             if(!this.entities[1].amIhittable()){
                 this.entities[1].hitMeScotty(damage);
+                this.entities[1].imgettinghit = true;
 
 
             }

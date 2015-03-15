@@ -238,6 +238,24 @@ assets.queueDownload("./img/logo/drchinnlogo.png");
 assets.queueDownload("./img/logo/drtolentinologo.png");
 assets.queueDownload("./img/alg-book.png");
 
+
+assets.queueDownload("./img/blood/1.gif");
+assets.queueDownload("./img/blood/2.gif");
+assets.queueDownload("./img/blood/3.gif");
+assets.queueDownload("./img/blood/4.gif");
+assets.queueDownload("./img/blood/5.gif");
+assets.queueDownload("./img/blood/6.gif");
+assets.queueDownload("./img/blood/7.gif");
+assets.queueDownload("./img/blood/8.gif");
+assets.queueDownload("./img/blood/9.gif");
+assets.queueDownload("./img/blood/10.gif");
+assets.queueDownload("./img/blood/11.gif");
+assets.queueDownload("./img/blood/12.gif");
+assets.queueDownload("./img/blood/13.gif");
+assets.queueDownload("./img/blood/14.gif");
+assets.queueDownload("./img/blood/15.gif");
+assets.queueDownload("./img/blood/16.gif");
+
 assets.queueDownload("./img/combo/3.png");
 assets.queueDownload("./img/combo/4.png");
 assets.queueDownload("./img/combo/5.png");

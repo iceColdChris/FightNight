@@ -13,6 +13,9 @@ function HealthBar(game, x, y, maxHealth, height, maxWidth, name,assets,chara) {
     this.name = name;
     this.assets = assets;
     this.chara = chara;
+    this.bloodCount = 1;
+    this.bloodX = 0;
+    this.bloodY = 0;
 }
 HealthBar.prototype.setHealth = function(health) {
         this.health = health;
@@ -20,6 +23,37 @@ HealthBar.prototype.setHealth = function(health) {
 
 
 HealthBar.prototype.draw = function() {
+
+    if(this.chara.imgettinghit){
+
+        if(this.bloodCount === 1){
+            this.bloodX = this.chara.x+100;
+            this.bloodY = this.chara.y;
+
+            var img = this.assets.getAsset("./img/blood/"+this.bloodCount+".gif");
+
+            this.ctx.drawImage(img,this.bloodX,this.bloodY );
+
+            this.bloodCount++;
+
+
+        }else if(this.bloodCount >1 && this.bloodCount < 17){
+
+            this.bloodX =  this.bloodX--;
+            this.bloodY = this.bloodY + 10;
+
+            var img = this.assets.getAsset("./img/blood/"+this.bloodCount+".gif");
+
+            this.ctx.drawImage(img,this.bloodX,this.bloodY );
+
+            this.bloodCount++;
+
+        }else{
+            this.bloodCount = 1;
+        }
+
+
+    }
 
     if(this.name === "Matt"){
         var img = this.assets.getAsset("./img/logo/mattlogo.png");
