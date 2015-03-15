@@ -236,6 +236,7 @@ assets.queueDownload("./img/logo/chrislogo.png");
 assets.queueDownload("./img/logo/nicklogo.png");
 assets.queueDownload("./img/logo/drchinnlogo.png");
 assets.queueDownload("./img/logo/drtolentinologo.png");
+assets.queueDownload("./img/alg-book.png");
 
 assets.queueDownload("./img/combo/3.png");
 assets.queueDownload("./img/combo/4.png");
