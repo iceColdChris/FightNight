@@ -270,6 +270,20 @@ assets.queueDownload("./img/combo/13.png");
 assets.queueDownload("./img/combo/14.png");
 assets.queueDownload("./img/combo/15.png");
 assets.queueDownload("./img/combo/health.png");
+assets.queueDownload("./img/combo/wins.png");
+
+assets.queueDownload("./img/score/0.png");
+assets.queueDownload("./img/score/1.png");
+assets.queueDownload("./img/score/2.png");
+assets.queueDownload("./img/score/3.png");
+assets.queueDownload("./img/score/4.png");
+assets.queueDownload("./img/score/5.png");
+assets.queueDownload("./img/score/6.png");
+assets.queueDownload("./img/score/7.png");
+assets.queueDownload("./img/score/8.png");
+assets.queueDownload("./img/score/9.png");
+assets.queueDownload("./img/score/score.png");
+
 
 /*Jon Sounds*/
 assets.queueDownload("./sound/JonSound/JonPunch.mp3");

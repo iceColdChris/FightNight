@@ -17,6 +17,7 @@ function Character(game, spritesheet, playerNumber,assets,name) {
     this.CrouchAnimate = null;
     this.HoldCrouchAnimate = null;
     this.gettingHitAnimate = null;
+    this.score = 0;
     this.game = game;
     this.name = name;
     this.ctx = game.ctx;
@@ -92,6 +93,8 @@ Character.prototype.draw = function() {
         if (this.gettingHitAnimate.isDone()) {
             this.gettingHitAnimate.elapsedTime = 0;
             this.imgettinghit = false;
+            this.score--;
+            this.opponent.score++;
         }
     } else if(this.isJumping){
         this.JumpAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
@@ -109,6 +112,7 @@ Character.prototype.draw = function() {
     } else if (this.isEmoting) {
         this.EmoteAnimate.drawFrame(this.game.clockTick, this.ctx, this.x, this.y);
         this.playVictory();
+        this.score++;
 
         if (this.EmoteAnimate.isDone()) {
             this.EmoteAnimate.elapsedTime = 0;
@@ -191,6 +195,7 @@ Character.prototype.update = function() {
             var hb = this.assets.getAsset("./sound/hb.mp3");
             hb.play();
             this.playHealthSound = false;
+            this.score = this.score + 50;
         }
         if(this.health < 100) {
             this.health += .05;
@@ -201,6 +206,7 @@ Character.prototype.update = function() {
         var finishHimSound = this.assets.getAsset("./sound/victory/FinishHim.mp3");
         finishHimSound.play();
         this.finishhim = true;
+        this.opponent.score = this.opponent.score + 10;
     }
     //Inserted just so I can try pushing again
     if (!this.imgettinghit) {
@@ -533,6 +539,7 @@ Character.prototype.checkHit = function(){
                 //chek if I'm close enough to be hit
                 this.imgettinghit = true;
                 this.opponent.hitCounter++;
+                this.opponent.score = this.opponent.score + 2;
                 if(this.health === 100 && this.opponent.health === 100){
                     var snd = this.assets.getAsset("./sound/fb.mp3");
                     snd.play();

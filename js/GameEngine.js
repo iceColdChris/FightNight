@@ -85,12 +85,17 @@ GameEngine.prototype.draw = function() {
     } else {
         this.ctx.clearRect(0, 0, this.surfaceWidth, this.surfaceHeight);
         this.ctx.save();
+        var img = this.assets.getAsset("./img/logo/"+this.winnername+"logo.png");
+        var winner = this.assets.getAsset("./img/combo/wins.png");
         this.ctx.fillStyle = 'black';
         this.ctx.fillRect(0, 0, this.surfaceWidth, this.surfaceHeight);
-        this.ctx.font = "100px Arial";
-        this.ctx.fillStyle = "purple";
-        this.ctx.fillText(this.winnername + " WINS!!!!", (this.surfaceWidth/2) - 300, this.surfaceHeight/2);
+        console.log(this.winnername);
+        var img = this.assets.getAsset("./img/logo/"+this.winnername.toLowerCase()+"logo.png");
+
+        this.ctx.drawImage(img, (this.surfaceWidth/2) - img.width, this.surfaceHeight/4,500,500);
+        this.ctx.drawImage(winner,(this.surfaceWidth/2) - (winner.width/2)+50, (this.surfaceHeight/2+(winner.height)*2));
         this.ctx.restore();
+
     }
 };
 GameEngine.prototype.update = function() {

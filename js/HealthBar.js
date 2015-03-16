@@ -24,6 +24,67 @@ HealthBar.prototype.setHealth = function(health) {
 
 HealthBar.prototype.draw = function() {
 
+    var score = this.assets.getAsset("./img/score/score.png");
+
+
+
+    if(this.chara.playerNumber === 1){
+        this.ctx.drawImage(score,(this.x)+250,score.height );
+
+        if(this.chara.score>=0) {
+
+            var currentScoreArray = this.chara.score.toString().split("");
+
+            for (var i = 0; i < currentScoreArray.length; i++) {
+
+                var current = this.assets.getAsset("./img/score/" + currentScoreArray[i] + ".png");
+                var newX = (this.x) + 250 + (i * current.width) + score.width + current.width;
+                var newY = score.height;
+                this.ctx.drawImage(current, newX, newY + 10);
+
+            }
+        }else{
+
+            var current = this.assets.getAsset("./img/score/0.png");
+            var newX = (this.x) + 250 + score.width + current.width;
+            var newY = score.height;
+            this.ctx.drawImage(current, newX, newY + 10);
+
+        }
+    }else{
+
+        var canvas = document.getElementById('gameCanvas');
+        var newWidth = canvas.width;
+        this.ctx.drawImage(score,(newWidth-score.width)-550,score.height);
+
+        if(this.chara.score>=0) {
+
+
+            var currentScoreArray = this.chara.score.toString().split("");
+
+            for (var i = 0; i < currentScoreArray.length; i++) {
+
+                var current = this.assets.getAsset("./img/score/" + currentScoreArray[i] + ".png");
+                var newX = (newWidth - score.width) - 550 + (i * current.width) + score.width + current.width;
+                var newY = score.height;
+                this.ctx.drawImage(current, newX, newY + 10);
+
+            }
+        }else{
+            var current = this.assets.getAsset("./img/score/0.png");
+            var newX = (newWidth - score.width) - 550 + score.width + current.width;
+            var newY = score.height;
+            this.ctx.drawImage(current, newX, newY + 10);
+
+        }
+
+
+    }
+
+
+
+
+
     if(this.chara.imgettinghit){
 
         if(this.bloodCount === 1){
