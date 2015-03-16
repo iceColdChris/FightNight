@@ -23,8 +23,8 @@ Matt.prototype.loadAnims = function() {
         this.FallAnimate = new Animate(this.spritesheet, 740, 1485, 370, 490, .2, 1, true, false);
         this.EmoteAnimate = new Animate(this.spritesheet, 3000, 2480, 365, 470, 0.1, 4, false, false);
         this.CrouchAnimate = new Animate(this.spritesheet, 0, 1000, 370, 485, 0.05, 3, false, false);
-        this.HoldCrouchAnimate = new Animate(this.spritesheet, 740, 1000, 370, 485, 0.1, 1, true, false);
-        this.gettingHitAnimate = new Animate(this.spritesheet, 0, 500, 370, 500, 0.2, 3, false, false);
+        this.HoldCrouchAnimate = new Animate(this.spritesheet, 740, 1000, 370, 485, 0.2, 1, true, false);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 0, 500, 370, 500, 0.05, 3, false, false);
 
     } else {
         this.animate = new Animate(this.spritesheet, 3336, 1000, 370, 480, 0.1, 2, true, true);
@@ -37,7 +37,7 @@ Matt.prototype.loadAnims = function() {
         this.FallAnimate = new Animate(this.spritesheet, 2540, 1485, 370, 490, .2, 1, true, true);
         this.EmoteAnimate = new Animate(this.spritesheet, 11, 3449, 370, 490, 0.1, 4, false, true);
         this.CrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 3, false, true);
-        this.HoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.1, 1, true, true);
-        this.gettingHitAnimate = new Animate(this.spritesheet, 1800, 500, 370, 500, 0.2, 3, false, true);
+        this.HoldCrouchAnimate = new Animate(this.spritesheet, 1800, 1000, 370, 485, 0.2, 1, true, true);
+        this.gettingHitAnimate = new Animate(this.spritesheet, 1800, 500, 370, 500, 0.05, 3, false, true);
     }
 };
